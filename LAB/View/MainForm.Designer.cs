@@ -36,6 +36,8 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.OutText = new System.Windows.Forms.Label();
             this.ParseBtn = new System.Windows.Forms.Button();
@@ -49,7 +51,10 @@
             this.EnumListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.TabEnum = new System.Windows.Forms.TabControl();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.GoBtn = new System.Windows.Forms.Button();
             this.tabPage1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.TabEnum.SuspendLayout();
@@ -117,6 +122,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -126,6 +132,27 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Enum";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.GoBtn);
+            this.groupBox3.Controls.Add(this.comboBox2);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Location = new System.Drawing.Point(521, 364);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(368, 211);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Season Handle";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 39);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(83, 13);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Choose season:";
             // 
             // groupBox2
             // 
@@ -252,6 +279,29 @@
             this.TabEnum.Size = new System.Drawing.Size(905, 609);
             this.TabEnum.TabIndex = 0;
             // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Winter",
+            "Summer",
+            "Autumn",
+            "Spring"});
+            this.comboBox2.Location = new System.Drawing.Point(9, 56);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(153, 21);
+            this.comboBox2.TabIndex = 1;
+            // 
+            // GoBtn
+            // 
+            this.GoBtn.Location = new System.Drawing.Point(187, 53);
+            this.GoBtn.Name = "GoBtn";
+            this.GoBtn.Size = new System.Drawing.Size(75, 23);
+            this.GoBtn.TabIndex = 2;
+            this.GoBtn.Text = "Go!";
+            this.GoBtn.UseVisualStyleBackColor = true;
+            this.GoBtn.Click += new System.EventHandler(this.GoBtn_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -263,6 +313,8 @@
             this.Text = "Programming demo";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabPage1.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -294,6 +346,10 @@
         private System.Windows.Forms.Button ParseBtn;
         private System.Windows.Forms.TextBox ParseInput;
         private System.Windows.Forms.Label OutText;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button GoBtn;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }
 

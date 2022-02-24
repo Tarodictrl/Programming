@@ -59,6 +59,8 @@ namespace LAB
                 case Enums.Weekday:
                     ValuesListBox.Items.AddRange(Enum.GetNames(typeof(Weekday)));
                     break;
+                default:
+                    throw new NotImplementedException();
             }
         }
 
@@ -80,6 +82,28 @@ namespace LAB
             else
             {
                 OutText.Text = "Нет такого дня недели!";
+            }
+        }
+
+        private void GoBtn_Click(object sender, EventArgs e)
+        {
+            var item = comboBox2.SelectedItem;
+            switch (item)
+            {
+                case "Winter":
+                    MessageBox.Show(@"Бррр! Холодно!");
+                    break;
+                case "Summer":
+                    MessageBox.Show(@"Ура! Солнце!");
+                    break;
+                case "Autumn":
+                    tabPage1.BackColor = ColorTranslator.FromHtml("#e29c45");
+                    break;
+                case "Spring":
+                    tabPage1.BackColor = ColorTranslator.FromHtml("#559c45");
+                    break;
+                default:
+                    throw new NotImplementedException();
             }
         }
     }
