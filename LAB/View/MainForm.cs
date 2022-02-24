@@ -31,14 +31,14 @@ namespace LAB
         {
             foreach (Enums d in Enum.GetValues(typeof(Enums)))
             {
-                EnumsListBox.Items.Add(d);
+                EnumListBox.Items.Add(d);
             }
         }
 
-        private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void EnumListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ValuesListBox.Items.Clear();
-            var c = EnumsListBox.SelectedIndex;
+            var c = EnumListBox.SelectedIndex;
             switch ((Enums)c)
             {
                 case Enums.Color:
@@ -62,5 +62,25 @@ namespace LAB
             }
         }
 
+
+        private void ValuesListBox_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            var i = Convert.ToString(ValuesListBox.SelectedIndex);
+            textBox1.Text = i;
+        }
+
+        private void ParseBtn_Click_1(object sender, EventArgs e)
+        {
+            var text = ParseInput.Text;
+            if (Enum.IsDefined(typeof(Weekday), text))
+            {
+                var day = Enum.Parse(typeof(Weekday), text, true);
+                OutText.Text = $"Это день недели ({day} = {day.GetHashCode()})";
+            }
+            else
+            {
+                OutText.Text = "Нет такого дня недели!";
+            }
+        }
     }
 }
