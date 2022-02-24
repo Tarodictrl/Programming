@@ -37,6 +37,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.GoBtn = new System.Windows.Forms.Button();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.OutText = new System.Windows.Forms.Label();
@@ -51,8 +53,6 @@
             this.EnumListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.TabEnum = new System.Windows.Forms.TabControl();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.GoBtn = new System.Windows.Forms.Button();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -145,6 +145,29 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Season Handle";
             // 
+            // GoBtn
+            // 
+            this.GoBtn.Location = new System.Drawing.Point(189, 55);
+            this.GoBtn.Name = "GoBtn";
+            this.GoBtn.Size = new System.Drawing.Size(75, 23);
+            this.GoBtn.TabIndex = 2;
+            this.GoBtn.Text = "Go!";
+            this.GoBtn.UseVisualStyleBackColor = true;
+            this.GoBtn.Click += new System.EventHandler(this.GoBtn_Click);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Winter",
+            "Summer",
+            "Autumn",
+            "Spring"});
+            this.comboBox2.Location = new System.Drawing.Point(9, 56);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(153, 21);
+            this.comboBox2.TabIndex = 1;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -177,7 +200,7 @@
             // 
             // ParseBtn
             // 
-            this.ParseBtn.Location = new System.Drawing.Point(195, 59);
+            this.ParseBtn.Location = new System.Drawing.Point(195, 60);
             this.ParseBtn.Name = "ParseBtn";
             this.ParseBtn.Size = new System.Drawing.Size(75, 23);
             this.ParseBtn.TabIndex = 2;
@@ -187,7 +210,7 @@
             // 
             // ParseInput
             // 
-            this.ParseInput.Location = new System.Drawing.Point(9, 59);
+            this.ParseInput.Location = new System.Drawing.Point(9, 63);
             this.ParseInput.Name = "ParseInput";
             this.ParseInput.Size = new System.Drawing.Size(167, 20);
             this.ParseInput.TabIndex = 1;
@@ -227,7 +250,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(382, 36);
+            this.label3.Location = new System.Drawing.Point(385, 34);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 4;
@@ -278,29 +301,6 @@
             this.TabEnum.SelectedIndex = 0;
             this.TabEnum.Size = new System.Drawing.Size(905, 609);
             this.TabEnum.TabIndex = 0;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Winter",
-            "Summer",
-            "Autumn",
-            "Spring"});
-            this.comboBox2.Location = new System.Drawing.Point(9, 56);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(153, 21);
-            this.comboBox2.TabIndex = 1;
-            // 
-            // GoBtn
-            // 
-            this.GoBtn.Location = new System.Drawing.Point(187, 53);
-            this.GoBtn.Name = "GoBtn";
-            this.GoBtn.Size = new System.Drawing.Size(75, 23);
-            this.GoBtn.TabIndex = 2;
-            this.GoBtn.Text = "Go!";
-            this.GoBtn.UseVisualStyleBackColor = true;
-            this.GoBtn.Click += new System.EventHandler(this.GoBtn_Click);
             // 
             // MainForm
             // 
