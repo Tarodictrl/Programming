@@ -147,9 +147,9 @@
             // 
             // GoBtn
             // 
-            this.GoBtn.Location = new System.Drawing.Point(189, 55);
+            this.GoBtn.Location = new System.Drawing.Point(180, 56);
             this.GoBtn.Name = "GoBtn";
-            this.GoBtn.Size = new System.Drawing.Size(75, 23);
+            this.GoBtn.Size = new System.Drawing.Size(76, 21);
             this.GoBtn.TabIndex = 2;
             this.GoBtn.Text = "Go!";
             this.GoBtn.UseVisualStyleBackColor = true;
@@ -200,9 +200,9 @@
             // 
             // ParseBtn
             // 
-            this.ParseBtn.Location = new System.Drawing.Point(195, 60);
+            this.ParseBtn.Location = new System.Drawing.Point(192, 63);
             this.ParseBtn.Name = "ParseBtn";
-            this.ParseBtn.Size = new System.Drawing.Size(75, 23);
+            this.ParseBtn.Size = new System.Drawing.Size(72, 20);
             this.ParseBtn.TabIndex = 2;
             this.ParseBtn.Text = "Parse";
             this.ParseBtn.UseVisualStyleBackColor = true;
