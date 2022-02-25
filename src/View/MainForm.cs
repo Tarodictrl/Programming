@@ -84,9 +84,11 @@ namespace LAB
             switch (item)
             {
                 case Season.Winter:
+                    tabPage1.BackColor = ColorTranslator.FromHtml("#ffffff");
                     MessageBox.Show(@"Бррр! Холодно!");
                     break;
                 case Season.Summer:
+                    tabPage1.BackColor = ColorTranslator.FromHtml("#ffffff");
                     MessageBox.Show(@"Ура! Солнце!");
                     break;
                 case Season.Autumn:
