@@ -18,6 +18,7 @@ namespace LAB
             {
                 EnumListBox.Items.Add(d);
             }
+
             EnumListBox.SetSelected(0, true);
 
             var values = Enum.GetValues(typeof(Season));
@@ -33,6 +34,7 @@ namespace LAB
             ValuesListBox.Items.Clear();
             var c = EnumListBox.SelectedIndex;
             var itemType = (Enums)c;
+
             switch (itemType)
             {
                 case Enums.Color:
@@ -68,6 +70,7 @@ namespace LAB
         private void ParseBtn_Click_1(object sender, EventArgs e)
         {
             var text = ParseInput.Text;
+
             if (Enum.IsDefined(typeof(Weekday), text))
             {
                 var day = Enum.Parse(typeof(Weekday), text, true);
@@ -82,6 +85,7 @@ namespace LAB
         private void GoBtn_Click(object sender, EventArgs e)
         {
             var item = ChooseSeasonCombo.SelectedItem;
+
             switch (item)
             {
                 case Season.Winter:
