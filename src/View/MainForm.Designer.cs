@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.EnumPage = new System.Windows.Forms.TabPage();
             this.SeasonHandleGroup = new System.Windows.Forms.GroupBox();
             this.GoButton = new System.Windows.Forms.Button();
@@ -53,13 +52,6 @@
             this.EnumerationsGroup.SuspendLayout();
             this.TabEnums.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(9, 66);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(163, 20);
-            this.textBox2.TabIndex = 1;
             // 
             // EnumPage
             // 
@@ -264,7 +256,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TabPage EnumPage;
         private System.Windows.Forms.TabControl TabEnums;
         private System.Windows.Forms.GroupBox EnumerationsGroup;
