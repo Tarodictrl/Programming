@@ -27,10 +27,8 @@ namespace LAB
             {
                 EnumListBox.Items.Add(d);
             }
-            foreach (Color d in Enum.GetValues(typeof(Color)))
-            {
-                ValuesListBox.Items.Add(d);
-            }
+            EnumListBox.SetSelected(0, true);
+
         }
 
         private void EnumListBox_SelectedIndexChanged(object sender, EventArgs e)
