@@ -80,7 +80,7 @@
             // 
             // GoButton
             // 
-            this.GoButton.Location = new System.Drawing.Point(168, 56);
+            this.GoButton.Location = new System.Drawing.Point(182, 56);
             this.GoButton.Name = "GoButton";
             this.GoButton.Size = new System.Drawing.Size(76, 21);
             this.GoButton.TabIndex = 2;
@@ -93,7 +93,7 @@
             this.ChooseSeason.FormattingEnabled = true;
             this.ChooseSeason.Location = new System.Drawing.Point(9, 56);
             this.ChooseSeason.Name = "ChooseSeason";
-            this.ChooseSeason.Size = new System.Drawing.Size(153, 21);
+            this.ChooseSeason.Size = new System.Drawing.Size(167, 21);
             this.ChooseSeason.TabIndex = 1;
             // 
             // label5
