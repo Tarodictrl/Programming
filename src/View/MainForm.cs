@@ -27,8 +27,8 @@ namespace Programming.View
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ValuesListBox.Items.Clear();
-            var index = EnumsListBox.SelectedItem;
-            var itemType = (Enums)index;
+            var item = EnumsListBox.SelectedItem;
+            var itemType = (Enums)item;
             Array values;
 
             switch (itemType)
