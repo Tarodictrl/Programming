@@ -66,7 +66,7 @@
     <Compile Include="Model\Enums.cs" />
     <Compile Include="Model\Genre.cs" />
     <Compile Include="Model\Manufactures.cs" />
-    <Compile Include="Model\Season.cs" />
+    <Compile Include="Model\Seasons.cs" />
     <Compile Include="Model\Weekday.cs" />
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>

@@ -15,10 +15,10 @@ namespace Programming
                 EnumsListBox.Items.Add(EnumValue);
             }
             EnumsListBox.SelectedIndex = 0;
-            var values = Enum.GetValues(typeof(Season));
+            var values = Enum.GetValues(typeof(Seasons));
             foreach (var value in values)
             {
-                ChooseSeasonCombo.Items.Add(value);
+                ChooseSeason.Items.Add(value);
             }
         }
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -30,7 +30,7 @@ namespace Programming
             switch (itemType)
             {
                 case Enums.Color:
-                    values = Enum.GetValues(typeof(Season));
+                    values = Enum.GetValues(typeof(Seasons));
                     break;
                 case Enums.Genre:
                     values = Enum.GetValues(typeof(Genre));
@@ -41,8 +41,8 @@ namespace Programming
                 case Enums.Manufactures:
                     values = Enum.GetValues(typeof(Manufactures));
                     break;
-                case Enums.Season:
-                    values = Enum.GetValues(typeof(Season));
+                case Enums.Seasons:
+                    values = Enum.GetValues(typeof(Seasons));
                     break;
                 case Enums.Weekday:
                     values = Enum.GetValues(typeof(Weekday));
@@ -78,22 +78,22 @@ namespace Programming
 
         private void GoButton_Click(object sender, EventArgs e)
         {
-            var item = ChooseSeasonCombo.SelectedItem;
+            var item = ChooseSeason.SelectedItem;
             switch (item)
             {
-                case Season.Winter:
-                    tabPage1.BackColor = ColorTranslator.FromHtml("#ffffff");
+                case Seasons.Winter:
+                    EnumPage.BackColor = ColorTranslator.FromHtml("#ffffff");
                     MessageBox.Show(@"Бррр! Холодно!");
                     break;
-                case Season.Summer:
-                    tabPage1.BackColor = ColorTranslator.FromHtml("#ffffff");
+                case Seasons.Summer:
+                    EnumPage.BackColor = ColorTranslator.FromHtml("#ffffff");
                     MessageBox.Show(@"Ура! Солнце!");
                     break;
-                case Season.Autumn:
-                    tabPage1.BackColor = ColorTranslator.FromHtml("#e29c45");
+                case Seasons.Autumn:
+                    EnumPage.BackColor = ColorTranslator.FromHtml("#e29c45");
                     break;
-                case Season.Spring:
-                    tabPage1.BackColor = ColorTranslator.FromHtml("#559c45");
+                case Seasons.Spring:
+                    EnumPage.BackColor = ColorTranslator.FromHtml("#559c45");
                     break;
                 default:
                     throw new NotImplementedException();

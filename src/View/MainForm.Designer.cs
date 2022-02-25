@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.EnumPage = new System.Windows.Forms.TabPage();
             this.SeasonHandleGroup = new System.Windows.Forms.GroupBox();
             this.GoButton = new System.Windows.Forms.Button();
-            this.ChooseSeasonCombo = new System.Windows.Forms.ComboBox();
+            this.ChooseSeason = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.WeekdayParsingGroup = new System.Windows.Forms.GroupBox();
             this.OutLabel = new System.Windows.Forms.Label();
@@ -48,7 +47,7 @@
             this.EnumsListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.TabEnums = new System.Windows.Forms.TabControl();
-            this.tabPage1.SuspendLayout();
+            this.EnumPage.SuspendLayout();
             this.SeasonHandleGroup.SuspendLayout();
             this.WeekdayParsingGroup.SuspendLayout();
             this.EnumerationsGroup.SuspendLayout();
@@ -62,36 +61,23 @@
             this.textBox2.Size = new System.Drawing.Size(163, 20);
             this.textBox2.TabIndex = 1;
             // 
-            // comboBox1
+            // EnumPage
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Winter",
-            "Summer",
-            "Autumn",
-            "Spring"});
-            this.comboBox1.Location = new System.Drawing.Point(25, 56);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(145, 21);
-            this.comboBox1.TabIndex = 1;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.SeasonHandleGroup);
-            this.tabPage1.Controls.Add(this.WeekdayParsingGroup);
-            this.tabPage1.Controls.Add(this.EnumerationsGroup);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(628, 583);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Enums";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.EnumPage.Controls.Add(this.SeasonHandleGroup);
+            this.EnumPage.Controls.Add(this.WeekdayParsingGroup);
+            this.EnumPage.Controls.Add(this.EnumerationsGroup);
+            this.EnumPage.Location = new System.Drawing.Point(4, 22);
+            this.EnumPage.Name = "EnumPage";
+            this.EnumPage.Padding = new System.Windows.Forms.Padding(3);
+            this.EnumPage.Size = new System.Drawing.Size(628, 583);
+            this.EnumPage.TabIndex = 0;
+            this.EnumPage.Text = "Enums";
+            this.EnumPage.UseVisualStyleBackColor = true;
             // 
             // SeasonHandleGroup
             // 
             this.SeasonHandleGroup.Controls.Add(this.GoButton);
-            this.SeasonHandleGroup.Controls.Add(this.ChooseSeasonCombo);
+            this.SeasonHandleGroup.Controls.Add(this.ChooseSeason);
             this.SeasonHandleGroup.Controls.Add(this.label5);
             this.SeasonHandleGroup.Location = new System.Drawing.Point(318, 360);
             this.SeasonHandleGroup.Name = "SeasonHandleGroup";
@@ -110,13 +96,13 @@
             this.GoButton.UseVisualStyleBackColor = true;
             this.GoButton.Click += new System.EventHandler(this.GoButton_Click);
             // 
-            // ChooseSeasonCombo
+            // ChooseSeason
             // 
-            this.ChooseSeasonCombo.FormattingEnabled = true;
-            this.ChooseSeasonCombo.Location = new System.Drawing.Point(9, 56);
-            this.ChooseSeasonCombo.Name = "ChooseSeasonCombo";
-            this.ChooseSeasonCombo.Size = new System.Drawing.Size(153, 21);
-            this.ChooseSeasonCombo.TabIndex = 1;
+            this.ChooseSeason.FormattingEnabled = true;
+            this.ChooseSeason.Location = new System.Drawing.Point(9, 56);
+            this.ChooseSeason.Name = "ChooseSeason";
+            this.ChooseSeason.Size = new System.Drawing.Size(153, 21);
+            this.ChooseSeason.TabIndex = 1;
             // 
             // label5
             // 
@@ -152,7 +138,7 @@
             // 
             this.ParseButton.Location = new System.Drawing.Point(182, 63);
             this.ParseButton.Name = "ParseButton";
-            this.ParseButton.Size = new System.Drawing.Size(72, 20);
+            this.ParseButton.Size = new System.Drawing.Size(70, 20);
             this.ParseButton.TabIndex = 2;
             this.ParseButton.Text = "Parse";
             this.ParseButton.UseVisualStyleBackColor = true;
@@ -246,7 +232,7 @@
             // 
             // TabEnums
             // 
-            this.TabEnums.Controls.Add(this.tabPage1);
+            this.TabEnums.Controls.Add(this.EnumPage);
             this.TabEnums.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TabEnums.Location = new System.Drawing.Point(0, 0);
             this.TabEnums.Name = "TabEnums";
@@ -265,7 +251,7 @@
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.Text = "Programming demo";
-            this.tabPage1.ResumeLayout(false);
+            this.EnumPage.ResumeLayout(false);
             this.SeasonHandleGroup.ResumeLayout(false);
             this.SeasonHandleGroup.PerformLayout();
             this.WeekdayParsingGroup.ResumeLayout(false);
@@ -279,8 +265,7 @@
 
         #endregion
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage EnumPage;
         private System.Windows.Forms.TabControl TabEnums;
         private System.Windows.Forms.GroupBox EnumerationsGroup;
         private System.Windows.Forms.Label label1;
@@ -297,7 +282,7 @@
         private System.Windows.Forms.GroupBox SeasonHandleGroup;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button GoButton;
-        private System.Windows.Forms.ComboBox ChooseSeasonCombo;
+        private System.Windows.Forms.ComboBox ChooseSeason;
     }
 }
 

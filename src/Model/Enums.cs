@@ -6,7 +6,7 @@
         EducationForm,
         Genre,
         Manufactures,
-        Season,
+        Seasons,
         Weekday
     }
 }
