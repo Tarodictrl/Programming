@@ -138,9 +138,9 @@
             this.groupBox3.Controls.Add(this.GoBtn);
             this.groupBox3.Controls.Add(this.comboBox2);
             this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Location = new System.Drawing.Point(521, 364);
+            this.groupBox3.Location = new System.Drawing.Point(521, 360);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(368, 211);
+            this.groupBox3.Size = new System.Drawing.Size(368, 215);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Season Handle";
