@@ -20,6 +20,12 @@ namespace LAB
             }
             EnumListBox.SetSelected(0, true);
 
+            var values = Enum.GetValues(typeof(Season));
+
+            foreach (var value in values)
+            {
+                ChooseSeasonCombo.Items.Add(value);
+            }
         }
 
         private void EnumListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -74,19 +80,19 @@ namespace LAB
 
         private void GoBtn_Click(object sender, EventArgs e)
         {
-            var item = ChooseSeason.SelectedItem;
+            var item = ChooseSeasonCombo.SelectedItem;
             switch (item)
             {
-                case "Winter":
+                case Season.Winter:
                     MessageBox.Show(@"Бррр! Холодно!");
                     break;
-                case "Summer":
+                case Season.Summer:
                     MessageBox.Show(@"Ура! Солнце!");
                     break;
-                case "Autumn":
+                case Season.Autumn:
                     tabPage1.BackColor = ColorTranslator.FromHtml("#e29c45");
                     break;
-                case "Spring":
+                case Season.Spring:
                     tabPage1.BackColor = ColorTranslator.FromHtml("#559c45");
                     break;
                 default:
