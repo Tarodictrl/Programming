@@ -28,23 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label4 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.GoBtn = new System.Windows.Forms.Button();
             this.ChooseSeason = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.OutText = new System.Windows.Forms.Label();
             this.ParseBtn = new System.Windows.Forms.Button();
             this.ParseInput = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.IntBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -60,45 +55,12 @@
             this.TabEnum.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 40);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(115, 13);
-            this.label4.TabIndex = 0;
-            // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(9, 66);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(163, 20);
             this.textBox2.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(196, 66);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Parse";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(11, 100);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(10, 13);
-            this.label5.TabIndex = 3;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(22, 40);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 13);
-            this.label6.TabIndex = 0;
             // 
             // comboBox1
             // 
@@ -112,13 +74,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(145, 21);
             this.comboBox1.TabIndex = 1;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(0, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -137,7 +92,7 @@
             // 
             this.groupBox3.Controls.Add(this.GoBtn);
             this.groupBox3.Controls.Add(this.ChooseSeason);
-            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Location = new System.Drawing.Point(521, 360);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(368, 215);
@@ -168,21 +123,21 @@
             this.ChooseSeason.Size = new System.Drawing.Size(153, 21);
             this.ChooseSeason.TabIndex = 1;
             // 
-            // label8
+            // label5
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 38);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(83, 13);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Choose season:";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 38);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(83, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Choose season:";
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.OutText);
             this.groupBox2.Controls.Add(this.ParseBtn);
             this.groupBox2.Controls.Add(this.ParseInput);
-            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(8, 360);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(507, 215);
@@ -215,14 +170,14 @@
             this.ParseInput.Size = new System.Drawing.Size(167, 20);
             this.ParseInput.TabIndex = 1;
             // 
-            // label7
+            // label4
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 45);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(115, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Type value for parsing:";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 45);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(115, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Type value for parsing:";
             // 
             // groupBox1
             // 
@@ -325,13 +280,8 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabControl TabEnum;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -342,12 +292,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox IntBox;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button ParseBtn;
         private System.Windows.Forms.TextBox ParseInput;
         private System.Windows.Forms.Label OutText;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button GoBtn;
         private System.Windows.Forms.ComboBox ChooseSeason;
     }
