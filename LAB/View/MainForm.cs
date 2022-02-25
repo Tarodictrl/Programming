@@ -27,6 +27,10 @@ namespace LAB
             {
                 EnumListBox.Items.Add(d);
             }
+            foreach (Color d in Enum.GetValues(typeof(Color)))
+            {
+                ValuesListBox.Items.Add(d);
+            }
         }
 
         private void EnumListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -61,8 +65,8 @@ namespace LAB
 
         private void ValuesListBox_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            var i = Convert.ToString(ValuesListBox.SelectedIndex);
-            intBox.Text = i;
+            int i = ValuesListBox.SelectedIndex;
+            intBox.Text = i.ToString();
         }
 
         private void ParseBtn_Click_1(object sender, EventArgs e)
