@@ -10,9 +10,9 @@ namespace Programming
         public MainForm()
         {
             InitializeComponent();
-            foreach (Enums EnumValue in Enum.GetValues(typeof(Enums)))
+            foreach (Enums EnumValues in Enum.GetValues(typeof(Enums)))
             {
-                EnumsListBox.Items.Add(EnumValue);
+                EnumsListBox.Items.Add(EnumValues);
             }
             EnumsListBox.SelectedIndex = 0;
             var values = Enum.GetValues(typeof(Seasons));
