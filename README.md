@@ -17,6 +17,6 @@
 ### Laboratory works 2rd semester
 :heavy_check_mark: Lab1 - Creating a repository
 
-:heavy_check_mark: Lab 2 - Enumeration
+:heavy_check_mark: Lab2 - Enumeration
 
 :x: Lab 3 - ?
