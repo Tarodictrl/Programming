@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Model\Color.cs" />
     <Compile Include="Model\EducationForm.cs" />
+    <Compile Include="Model\Enums.cs" />
     <Compile Include="Model\Genre.cs" />
     <Compile Include="Model\Manufactures.cs" />
     <Compile Include="Model\Season.cs" />

@@ -6,15 +6,6 @@ namespace LAB
 {
     public partial class MainForm : Form
     {
-        public enum Enums
-        {
-            Color,
-            EducationForm,
-            Genre,
-            Manufactures,
-            Season,
-            Weekday
-        }
 
         public MainForm()
         {
