@@ -36,16 +36,16 @@ namespace Programming
                     values = Enum.GetValues(typeof(Genre));
                     break;
                 case Enums.EducationForm:
-                    values =  Enum.GetValues(typeof(EducationForm));
+                    values = Enum.GetValues(typeof(EducationForm));
                     break;
                 case Enums.Manufactures:
-                    values =  Enum.GetValues(typeof(Manufactures));
+                    values = Enum.GetValues(typeof(Manufactures));
                     break;
                 case Enums.Season:
-                    values =  Enum.GetValues(typeof(Season));
+                    values = Enum.GetValues(typeof(Season));
                     break;
                 case Enums.Weekday:
-                    values =  Enum.GetValues(typeof(Weekday));
+                    values = Enum.GetValues(typeof(Weekday));
                     break;
                 default:
                     throw new NotImplementedException();
