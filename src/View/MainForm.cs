@@ -21,7 +21,7 @@ namespace Programming.View
 
             foreach (var value in values)
             {
-                ChooseSeason.Items.Add(value);
+                ChooseSeasonComboBox.Items.Add(value);
             }
         }
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -84,7 +84,7 @@ namespace Programming.View
 
         private void GoButton_Click(object sender, EventArgs e)
         {
-            var item = ChooseSeason.SelectedItem;
+            var item = ChooseSeasonComboBox.SelectedItem;
 
             switch (item)
             {

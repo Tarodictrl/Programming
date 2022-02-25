@@ -31,7 +31,7 @@
             this.EnumPage = new System.Windows.Forms.TabPage();
             this.SeasonHandleGroup = new System.Windows.Forms.GroupBox();
             this.GoButton = new System.Windows.Forms.Button();
-            this.ChooseSeason = new System.Windows.Forms.ComboBox();
+            this.ChooseSeasonComboBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.WeekdayParsingGroup = new System.Windows.Forms.GroupBox();
             this.OutLabel = new System.Windows.Forms.Label();
@@ -69,7 +69,7 @@
             // SeasonHandleGroup
             // 
             this.SeasonHandleGroup.Controls.Add(this.GoButton);
-            this.SeasonHandleGroup.Controls.Add(this.ChooseSeason);
+            this.SeasonHandleGroup.Controls.Add(this.ChooseSeasonComboBox);
             this.SeasonHandleGroup.Controls.Add(this.label5);
             this.SeasonHandleGroup.Location = new System.Drawing.Point(318, 360);
             this.SeasonHandleGroup.Name = "SeasonHandleGroup";
@@ -88,13 +88,13 @@
             this.GoButton.UseVisualStyleBackColor = true;
             this.GoButton.Click += new System.EventHandler(this.GoButton_Click);
             // 
-            // ChooseSeason
+            // ChooseSeasonComboBox
             // 
-            this.ChooseSeason.FormattingEnabled = true;
-            this.ChooseSeason.Location = new System.Drawing.Point(9, 63);
-            this.ChooseSeason.Name = "ChooseSeason";
-            this.ChooseSeason.Size = new System.Drawing.Size(167, 21);
-            this.ChooseSeason.TabIndex = 1;
+            this.ChooseSeasonComboBox.FormattingEnabled = true;
+            this.ChooseSeasonComboBox.Location = new System.Drawing.Point(9, 63);
+            this.ChooseSeasonComboBox.Name = "ChooseSeasonComboBox";
+            this.ChooseSeasonComboBox.Size = new System.Drawing.Size(167, 21);
+            this.ChooseSeasonComboBox.TabIndex = 1;
             // 
             // label5
             // 
@@ -273,7 +273,7 @@
         private System.Windows.Forms.GroupBox SeasonHandleGroup;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button GoButton;
-        private System.Windows.Forms.ComboBox ChooseSeason;
+        private System.Windows.Forms.ComboBox ChooseSeasonComboBox;
     }
 }
 
