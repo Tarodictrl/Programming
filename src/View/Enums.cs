@@ -1,4 +1,4 @@
-﻿namespace Programming.Model
+﻿namespace Programming.View
 {
     public enum Enums
     {
