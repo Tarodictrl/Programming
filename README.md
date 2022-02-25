@@ -19,4 +19,4 @@
 
 :heavy_check_mark: Lab2 - Enumeration
 
-:x: Lab 3 - ?
+:x: Lab3 - ?
