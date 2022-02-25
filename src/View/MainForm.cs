@@ -3,17 +3,18 @@ using System.Drawing;
 using System.Windows.Forms;
 using Programming.Model;
 
-namespace Programming
+namespace Programming.View
 {
     public partial class MainForm : Form
     {
         public MainForm()
         {
             InitializeComponent();
-            foreach (Enums EnumValues in Enum.GetValues(typeof(Enums)))
+            foreach (Enums enumsValues in Enum.GetValues(typeof(Enums)))
             {
-                EnumsListBox.Items.Add(EnumValues);
+                EnumsListBox.Items.Add(enumsValues);
             }
+
             EnumsListBox.SelectedIndex = 0;
             var values = Enum.GetValues(typeof(Seasons));
             foreach (var value in values)
@@ -24,7 +25,7 @@ namespace Programming
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ValuesListBox.Items.Clear();
-            var index = EnumsListBox.SelectedIndex;
+            var index = EnumsListBox.SelectedItem;
             var itemType = (Enums)index;
             Array values;
             switch (itemType)
@@ -50,6 +51,7 @@ namespace Programming
                 default:
                     throw new NotImplementedException();
             }
+
             foreach (var value in values)
             {
                 ValuesListBox.Items.Add(value);
@@ -65,9 +67,9 @@ namespace Programming
         private void ParseButton_Click(object sender, EventArgs e)
         {
             var text = ParseInput.Text;
-            if (Enum.IsDefined(typeof(Weekday), text))
+            Weekday day;
+            if (Enum.TryParse(text, out day))
             {
-                var day = Enum.Parse(typeof(Weekday), text, true);
                 OutLabel.Text = $"Это день недели ({day} = {(int)day})";
             }
             else

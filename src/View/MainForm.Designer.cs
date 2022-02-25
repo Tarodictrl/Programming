@@ -1,4 +1,4 @@
-﻿namespace Programming
+﻿namespace Programming.View
 {
     partial class MainForm
     {
@@ -80,7 +80,7 @@
             // 
             // GoButton
             // 
-            this.GoButton.Location = new System.Drawing.Point(182, 56);
+            this.GoButton.Location = new System.Drawing.Point(182, 63);
             this.GoButton.Name = "GoButton";
             this.GoButton.Size = new System.Drawing.Size(76, 21);
             this.GoButton.TabIndex = 2;
@@ -91,7 +91,7 @@
             // ChooseSeason
             // 
             this.ChooseSeason.FormattingEnabled = true;
-            this.ChooseSeason.Location = new System.Drawing.Point(9, 56);
+            this.ChooseSeason.Location = new System.Drawing.Point(9, 63);
             this.ChooseSeason.Name = "ChooseSeason";
             this.ChooseSeason.Size = new System.Drawing.Size(167, 21);
             this.ChooseSeason.TabIndex = 1;
@@ -99,7 +99,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 40);
+            this.label5.Location = new System.Drawing.Point(6, 47);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(83, 13);
             this.label5.TabIndex = 0;

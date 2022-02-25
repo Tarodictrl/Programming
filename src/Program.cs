@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Programming
+namespace Programming.View
 {
     internal static class Program
     {
