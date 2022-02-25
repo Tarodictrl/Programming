@@ -10,6 +10,7 @@ namespace Programming.View
         public MainForm()
         {
             InitializeComponent();
+
             foreach (Enums enumsValues in Enum.GetValues(typeof(Enums)))
             {
                 EnumsListBox.Items.Add(enumsValues);
@@ -17,6 +18,7 @@ namespace Programming.View
 
             EnumsListBox.SelectedIndex = 0;
             var values = Enum.GetValues(typeof(Seasons));
+
             foreach (var value in values)
             {
                 ChooseSeason.Items.Add(value);
@@ -28,6 +30,7 @@ namespace Programming.View
             var index = EnumsListBox.SelectedItem;
             var itemType = (Enums)index;
             Array values;
+
             switch (itemType)
             {
                 case Enums.Color:
@@ -60,7 +63,7 @@ namespace Programming.View
 
         private void ValuesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var item = ((ListBox)sender).SelectedItem;
+            var item = ValuesListBox.SelectedItem;
             IntBox.Text = ((int)item).ToString();
         }
 
@@ -68,6 +71,7 @@ namespace Programming.View
         {
             var text = ParseInput.Text;
             Weekday day;
+
             if (Enum.TryParse(text, out day))
             {
                 OutLabel.Text = $"Это день недели ({day} = {(int)day})";
@@ -81,6 +85,7 @@ namespace Programming.View
         private void GoButton_Click(object sender, EventArgs e)
         {
             var item = ChooseSeason.SelectedItem;
+
             switch (item)
             {
                 case Seasons.Winter:
