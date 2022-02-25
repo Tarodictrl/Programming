@@ -81,7 +81,7 @@ namespace LAB
 
         private void GoBtn_Click(object sender, EventArgs e)
         {
-            var item = comboBox2.SelectedItem;
+            var item = chooseSeason.SelectedItem;
             switch (item)
             {
                 case "Winter":

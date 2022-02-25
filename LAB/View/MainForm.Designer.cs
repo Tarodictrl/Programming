@@ -38,7 +38,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.GoBtn = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.chooseSeason = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.OutText = new System.Windows.Forms.Label();
@@ -136,7 +136,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.GoBtn);
-            this.groupBox3.Controls.Add(this.comboBox2);
+            this.groupBox3.Controls.Add(this.chooseSeason);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Location = new System.Drawing.Point(521, 360);
             this.groupBox3.Name = "groupBox3";
@@ -155,18 +155,18 @@
             this.GoBtn.UseVisualStyleBackColor = true;
             this.GoBtn.Click += new System.EventHandler(this.GoBtn_Click);
             // 
-            // comboBox2
+            // chooseSeason
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.chooseSeason.FormattingEnabled = true;
+            this.chooseSeason.Items.AddRange(new object[] {
             "Winter",
             "Summer",
             "Autumn",
             "Spring"});
-            this.comboBox2.Location = new System.Drawing.Point(9, 56);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(153, 21);
-            this.comboBox2.TabIndex = 1;
+            this.chooseSeason.Location = new System.Drawing.Point(9, 56);
+            this.chooseSeason.Name = "chooseSeason";
+            this.chooseSeason.Size = new System.Drawing.Size(153, 21);
+            this.chooseSeason.TabIndex = 1;
             // 
             // label8
             // 
@@ -349,7 +349,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button GoBtn;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox chooseSeason;
     }
 }
 
