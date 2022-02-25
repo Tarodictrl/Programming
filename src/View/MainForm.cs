@@ -55,7 +55,7 @@ namespace LAB
         private void ValuesListBox_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             int i = ValuesListBox.SelectedIndex;
-            intBox.Text = i.ToString();
+            IntBox.Text = i.ToString();
         }
 
         private void ParseBtn_Click_1(object sender, EventArgs e)
@@ -74,7 +74,7 @@ namespace LAB
 
         private void GoBtn_Click(object sender, EventArgs e)
         {
-            var item = chooseSeason.SelectedItem;
+            var item = ChooseSeason.SelectedItem;
             switch (item)
             {
                 case "Winter":
