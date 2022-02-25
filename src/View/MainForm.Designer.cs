@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.EnumPage = new System.Windows.Forms.TabPage();
-            this.SeasonHandleGroup = new System.Windows.Forms.GroupBox();
+            this.SeasonHandleGroupBox = new System.Windows.Forms.GroupBox();
             this.GoButton = new System.Windows.Forms.Button();
             this.ChooseSeasonComboBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.WeekdayParsingGroup = new System.Windows.Forms.GroupBox();
+            this.WeekdayParsingGroupBox = new System.Windows.Forms.GroupBox();
             this.OutLabel = new System.Windows.Forms.Label();
             this.ParseButton = new System.Windows.Forms.Button();
             this.ParseInput = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.EnumerationsGroup = new System.Windows.Forms.GroupBox();
+            this.EnumerationsGroupBox = new System.Windows.Forms.GroupBox();
             this.IntBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.ValuesListBox = new System.Windows.Forms.ListBox();
@@ -47,17 +47,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.TabEnums = new System.Windows.Forms.TabControl();
             this.EnumPage.SuspendLayout();
-            this.SeasonHandleGroup.SuspendLayout();
-            this.WeekdayParsingGroup.SuspendLayout();
-            this.EnumerationsGroup.SuspendLayout();
+            this.SeasonHandleGroupBox.SuspendLayout();
+            this.WeekdayParsingGroupBox.SuspendLayout();
+            this.EnumerationsGroupBox.SuspendLayout();
             this.TabEnums.SuspendLayout();
             this.SuspendLayout();
             // 
             // EnumPage
             // 
-            this.EnumPage.Controls.Add(this.SeasonHandleGroup);
-            this.EnumPage.Controls.Add(this.WeekdayParsingGroup);
-            this.EnumPage.Controls.Add(this.EnumerationsGroup);
+            this.EnumPage.Controls.Add(this.SeasonHandleGroupBox);
+            this.EnumPage.Controls.Add(this.WeekdayParsingGroupBox);
+            this.EnumPage.Controls.Add(this.EnumerationsGroupBox);
             this.EnumPage.Location = new System.Drawing.Point(4, 22);
             this.EnumPage.Name = "EnumPage";
             this.EnumPage.Padding = new System.Windows.Forms.Padding(3);
@@ -66,17 +66,17 @@
             this.EnumPage.Text = "Enums";
             this.EnumPage.UseVisualStyleBackColor = true;
             // 
-            // SeasonHandleGroup
+            // SeasonHandleGroupBox
             // 
-            this.SeasonHandleGroup.Controls.Add(this.GoButton);
-            this.SeasonHandleGroup.Controls.Add(this.ChooseSeasonComboBox);
-            this.SeasonHandleGroup.Controls.Add(this.label5);
-            this.SeasonHandleGroup.Location = new System.Drawing.Point(318, 360);
-            this.SeasonHandleGroup.Name = "SeasonHandleGroup";
-            this.SeasonHandleGroup.Size = new System.Drawing.Size(302, 215);
-            this.SeasonHandleGroup.TabIndex = 2;
-            this.SeasonHandleGroup.TabStop = false;
-            this.SeasonHandleGroup.Text = "Season Handle";
+            this.SeasonHandleGroupBox.Controls.Add(this.GoButton);
+            this.SeasonHandleGroupBox.Controls.Add(this.ChooseSeasonComboBox);
+            this.SeasonHandleGroupBox.Controls.Add(this.label5);
+            this.SeasonHandleGroupBox.Location = new System.Drawing.Point(318, 360);
+            this.SeasonHandleGroupBox.Name = "SeasonHandleGroupBox";
+            this.SeasonHandleGroupBox.Size = new System.Drawing.Size(302, 215);
+            this.SeasonHandleGroupBox.TabIndex = 2;
+            this.SeasonHandleGroupBox.TabStop = false;
+            this.SeasonHandleGroupBox.Text = "Season Handle";
             // 
             // GoButton
             // 
@@ -105,18 +105,18 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Choose season:";
             // 
-            // WeekdayParsingGroup
+            // WeekdayParsingGroupBox
             // 
-            this.WeekdayParsingGroup.Controls.Add(this.OutLabel);
-            this.WeekdayParsingGroup.Controls.Add(this.ParseButton);
-            this.WeekdayParsingGroup.Controls.Add(this.ParseInput);
-            this.WeekdayParsingGroup.Controls.Add(this.label4);
-            this.WeekdayParsingGroup.Location = new System.Drawing.Point(8, 360);
-            this.WeekdayParsingGroup.Name = "WeekdayParsingGroup";
-            this.WeekdayParsingGroup.Size = new System.Drawing.Size(304, 215);
-            this.WeekdayParsingGroup.TabIndex = 1;
-            this.WeekdayParsingGroup.TabStop = false;
-            this.WeekdayParsingGroup.Text = "Weekday Parsing";
+            this.WeekdayParsingGroupBox.Controls.Add(this.OutLabel);
+            this.WeekdayParsingGroupBox.Controls.Add(this.ParseButton);
+            this.WeekdayParsingGroupBox.Controls.Add(this.ParseInput);
+            this.WeekdayParsingGroupBox.Controls.Add(this.label4);
+            this.WeekdayParsingGroupBox.Location = new System.Drawing.Point(8, 360);
+            this.WeekdayParsingGroupBox.Name = "WeekdayParsingGroupBox";
+            this.WeekdayParsingGroupBox.Size = new System.Drawing.Size(304, 215);
+            this.WeekdayParsingGroupBox.TabIndex = 1;
+            this.WeekdayParsingGroupBox.TabStop = false;
+            this.WeekdayParsingGroupBox.Text = "Weekday Parsing";
             // 
             // OutLabel
             // 
@@ -153,20 +153,20 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Type value for parsing:";
             // 
-            // EnumerationsGroup
+            // EnumerationsGroupBox
             // 
-            this.EnumerationsGroup.Controls.Add(this.IntBox);
-            this.EnumerationsGroup.Controls.Add(this.label3);
-            this.EnumerationsGroup.Controls.Add(this.ValuesListBox);
-            this.EnumerationsGroup.Controls.Add(this.label2);
-            this.EnumerationsGroup.Controls.Add(this.EnumsListBox);
-            this.EnumerationsGroup.Controls.Add(this.label1);
-            this.EnumerationsGroup.Location = new System.Drawing.Point(8, 6);
-            this.EnumerationsGroup.Name = "EnumerationsGroup";
-            this.EnumerationsGroup.Size = new System.Drawing.Size(612, 337);
-            this.EnumerationsGroup.TabIndex = 0;
-            this.EnumerationsGroup.TabStop = false;
-            this.EnumerationsGroup.Text = "Enumerations";
+            this.EnumerationsGroupBox.Controls.Add(this.IntBox);
+            this.EnumerationsGroupBox.Controls.Add(this.label3);
+            this.EnumerationsGroupBox.Controls.Add(this.ValuesListBox);
+            this.EnumerationsGroupBox.Controls.Add(this.label2);
+            this.EnumerationsGroupBox.Controls.Add(this.EnumsListBox);
+            this.EnumerationsGroupBox.Controls.Add(this.label1);
+            this.EnumerationsGroupBox.Location = new System.Drawing.Point(8, 6);
+            this.EnumerationsGroupBox.Name = "EnumerationsGroupBox";
+            this.EnumerationsGroupBox.Size = new System.Drawing.Size(612, 337);
+            this.EnumerationsGroupBox.TabIndex = 0;
+            this.EnumerationsGroupBox.TabStop = false;
+            this.EnumerationsGroupBox.Text = "Enumerations";
             // 
             // IntBox
             // 
@@ -244,12 +244,12 @@
             this.ShowIcon = false;
             this.Text = "Programming demo";
             this.EnumPage.ResumeLayout(false);
-            this.SeasonHandleGroup.ResumeLayout(false);
-            this.SeasonHandleGroup.PerformLayout();
-            this.WeekdayParsingGroup.ResumeLayout(false);
-            this.WeekdayParsingGroup.PerformLayout();
-            this.EnumerationsGroup.ResumeLayout(false);
-            this.EnumerationsGroup.PerformLayout();
+            this.SeasonHandleGroupBox.ResumeLayout(false);
+            this.SeasonHandleGroupBox.PerformLayout();
+            this.WeekdayParsingGroupBox.ResumeLayout(false);
+            this.WeekdayParsingGroupBox.PerformLayout();
+            this.EnumerationsGroupBox.ResumeLayout(false);
+            this.EnumerationsGroupBox.PerformLayout();
             this.TabEnums.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -258,19 +258,19 @@
         #endregion
         private System.Windows.Forms.TabPage EnumPage;
         private System.Windows.Forms.TabControl TabEnums;
-        private System.Windows.Forms.GroupBox EnumerationsGroup;
+        private System.Windows.Forms.GroupBox EnumerationsGroupBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox EnumsListBox;
         private System.Windows.Forms.ListBox ValuesListBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox IntBox;
-        private System.Windows.Forms.GroupBox WeekdayParsingGroup;
+        private System.Windows.Forms.GroupBox WeekdayParsingGroupBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button ParseButton;
         private System.Windows.Forms.TextBox ParseInput;
         private System.Windows.Forms.Label OutLabel;
-        private System.Windows.Forms.GroupBox SeasonHandleGroup;
+        private System.Windows.Forms.GroupBox SeasonHandleGroupBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button GoButton;
         private System.Windows.Forms.ComboBox ChooseSeasonComboBox;
