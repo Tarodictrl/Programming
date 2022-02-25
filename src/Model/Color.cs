@@ -1,9 +1,12 @@
-﻿public enum Color
+﻿namespace Programming.Model
 {
-    White,
-    Black,
-    Red,
-    Green,
-    Blue,
-    Yellow
+    public enum Color
+    {
+        White,
+        Black,
+        Red,
+        Green,
+        Blue,
+        Yellow
+    }
 }

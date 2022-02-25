@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace LAB
+namespace Programming
 {
     internal static class Program
     {

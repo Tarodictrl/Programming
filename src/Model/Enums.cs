@@ -1,9 +1,12 @@
-﻿public enum Enums
+﻿namespace Programming.Model
 {
-    Color,
-    EducationForm,
-    Genre,
-    Manufactures,
-    Season,
-    Weekday
+    public enum Enums
+    {
+        Color,
+        EducationForm,
+        Genre,
+        Manufactures,
+        Season,
+        Weekday
+    }
 }

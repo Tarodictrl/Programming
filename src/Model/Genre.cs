@@ -1,10 +1,13 @@
-﻿public enum Genre
+﻿namespace Programming.Model
 {
-    Comedy,
-    Drama,
-    Thriller,
-    Action,
-    Movie,
-    Horrors,
-    Block
+    public enum Genre
+    {
+        Comedy,
+        Drama,
+        Thriller,
+        Action,
+        Movie,
+        Horrors,
+        Block
+    }
 }

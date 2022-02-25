@@ -1,7 +1,10 @@
-﻿public enum EducationForm
+﻿namespace Programming.Model
 {
-    FullTime,
-    PartTime,
-    Evening,
-    Remote
+    public enum EducationForm
+    {
+        FullTime,
+        PartTime,
+        Evening,
+        Remote
+    }
 }

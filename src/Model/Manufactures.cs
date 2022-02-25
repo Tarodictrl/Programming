@@ -1,7 +1,10 @@
-﻿public enum Manufactures
+﻿namespace Programming.Model
 {
-    Samsung,
-    Apple,
-    Honor,
-    PinePhone
+    public enum Manufactures
+    {
+        Samsung,
+        Apple,
+        Honor,
+        PinePhone
+    }
 }

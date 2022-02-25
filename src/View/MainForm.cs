@@ -1,91 +1,84 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Programming.Model;
 
-namespace LAB
+namespace Programming
 {
     public partial class MainForm : Form
     {
-
         public MainForm()
         {
             InitializeComponent();
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            foreach (Enums d in Enum.GetValues(typeof(Enums)))
+            foreach (Enums EnumValue in Enum.GetValues(typeof(Enums)))
             {
-                EnumListBox.Items.Add(d);
+                EnumsListBox.Items.Add(EnumValue);
             }
-
-            EnumListBox.SetSelected(0, true);
-
+            EnumsListBox.SelectedIndex = 0;
             var values = Enum.GetValues(typeof(Season));
-
             foreach (var value in values)
             {
                 ChooseSeasonCombo.Items.Add(value);
             }
         }
-
-        private void EnumListBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ValuesListBox.Items.Clear();
-            var c = EnumListBox.SelectedIndex;
+            var c = EnumsListBox.SelectedIndex;
             var itemType = (Enums)c;
-
+            Array values;
             switch (itemType)
             {
                 case Enums.Color:
-                    ValuesListBox.Items.AddRange(Enum.GetNames(typeof(Color)));
+                    values = Enum.GetValues(typeof(Season));
                     break;
                 case Enums.Genre:
-                    ValuesListBox.Items.AddRange(Enum.GetNames(typeof(Genre)));
+                    values = Enum.GetValues(typeof(Genre));
                     break;
                 case Enums.EducationForm:
-                    ValuesListBox.Items.AddRange(Enum.GetNames(typeof(EducationForm)));
+                    values =  Enum.GetValues(typeof(EducationForm));
                     break;
                 case Enums.Manufactures:
-                    ValuesListBox.Items.AddRange(Enum.GetNames(typeof(Manufactures)));
+                    values =  Enum.GetValues(typeof(Manufactures));
                     break;
                 case Enums.Season:
-                    ValuesListBox.Items.AddRange(Enum.GetNames(typeof(Season)));
+                    values =  Enum.GetValues(typeof(Season));
                     break;
                 case Enums.Weekday:
-                    ValuesListBox.Items.AddRange(Enum.GetNames(typeof(Weekday)));
+                    values =  Enum.GetValues(typeof(Weekday));
                     break;
                 default:
                     throw new NotImplementedException();
             }
+            foreach (var value in values)
+            {
+                ValuesListBox.Items.Add(value);
+            }
         }
 
-
-        private void ValuesListBox_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void ValuesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int i = ValuesListBox.SelectedIndex;
-            IntBox.Text = i.ToString();
+            var item = ((ListBox)sender).SelectedItem;
+            IntBox.Text = ((int)item).ToString();
         }
 
-        private void ParseBtn_Click_1(object sender, EventArgs e)
+        private void ParseButton_Click(object sender, EventArgs e)
         {
             var text = ParseInput.Text;
-
             if (Enum.IsDefined(typeof(Weekday), text))
             {
                 var day = Enum.Parse(typeof(Weekday), text, true);
-                OutText.Text = $"Это день недели ({day} = {day.GetHashCode()})";
+                OutLabel.Text = $"Это день недели ({day} = {(int)day})";
             }
             else
             {
-                OutText.Text = "Нет такого дня недели!";
+                OutLabel.Text = "Нет такого дня недели!";
             }
         }
 
-        private void GoBtn_Click(object sender, EventArgs e)
+        private void GoButton_Click(object sender, EventArgs e)
         {
             var item = ChooseSeasonCombo.SelectedItem;
-
             switch (item)
             {
                 case Season.Winter:
@@ -106,6 +99,5 @@ namespace LAB
                     throw new NotImplementedException();
             }
         }
-
     }
 }
