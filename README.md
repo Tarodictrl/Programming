@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD033 MD041-->
 <p align="center">
-    <img src="https://tusur.ru/assets/logotype-ec8d3683128d186ea5458db2dc38dffd9c701a92a7265c30fb01350a8869307f.png"/></a>
+    <img src="https://storage.tusur.ru/files/150793/870-60/01.png"/></a>
 </p>
 
 <p align="center">
