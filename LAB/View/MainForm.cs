@@ -62,7 +62,7 @@ namespace LAB
         private void ValuesListBox_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             var i = Convert.ToString(ValuesListBox.SelectedIndex);
-            textBox1.Text = i;
+            intBox.Text = i;
         }
 
         private void ParseBtn_Click_1(object sender, EventArgs e)

@@ -46,7 +46,7 @@
             this.ParseInput = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.intBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.ValuesListBox = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -226,7 +226,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.intBox);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.ValuesListBox);
             this.groupBox1.Controls.Add(this.label2);
@@ -239,13 +239,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Enumerations";
             // 
-            // textBox1
+            // intBox
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(385, 52);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(122, 20);
-            this.textBox1.TabIndex = 5;
+            this.intBox.Enabled = false;
+            this.intBox.Location = new System.Drawing.Point(385, 52);
+            this.intBox.Name = "intBox";
+            this.intBox.Size = new System.Drawing.Size(122, 20);
+            this.intBox.TabIndex = 5;
             // 
             // label3
             // 
@@ -340,7 +340,7 @@
         private System.Windows.Forms.ListBox ValuesListBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox intBox;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button ParseBtn;
