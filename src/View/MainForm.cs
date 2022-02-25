@@ -32,7 +32,8 @@ namespace LAB
         {
             ValuesListBox.Items.Clear();
             var c = EnumListBox.SelectedIndex;
-            switch ((Enums)c)
+            var itemType = (Enums)c;
+            switch (itemType)
             {
                 case Enums.Color:
                     ValuesListBox.Items.AddRange(Enum.GetNames(typeof(Color)));
