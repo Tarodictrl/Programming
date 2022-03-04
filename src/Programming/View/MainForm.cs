@@ -34,7 +34,7 @@ namespace Programming.View
             switch (itemType)
             {
                 case Enums.Color:
-                    values = Enum.GetValues(typeof(Seasons));
+                    values = Enum.GetValues(typeof(Color));
                     break;
                 case Enums.Genre:
                     values = Enum.GetValues(typeof(Genre));
