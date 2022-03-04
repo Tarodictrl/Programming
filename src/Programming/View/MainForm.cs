@@ -2,7 +2,6 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Programming.Model;
-
 namespace Programming.View
 {
     public partial class MainForm : Form
@@ -33,8 +32,8 @@ namespace Programming.View
 
             switch (itemType)
             {
-                case Enums.Color:
-                    values = Enum.GetValues(typeof(Color));
+                case Enums.Colors:
+                    values = Enum.GetValues(typeof(Colors));
                     break;
                 case Enums.Genre:
                     values = Enum.GetValues(typeof(Genre));

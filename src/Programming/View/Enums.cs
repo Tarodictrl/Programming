@@ -2,7 +2,7 @@
 {
     public enum Enums
     {
-        Color,
+        Colors,
         EducationForm,
         Genre,
         Manufactures,
