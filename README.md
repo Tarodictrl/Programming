@@ -20,4 +20,4 @@
 
 :heavy_check_mark: Lab2 - Enumeration
 
-:x: Lab3 - ?
+:x: Lab3 - Сlasses
