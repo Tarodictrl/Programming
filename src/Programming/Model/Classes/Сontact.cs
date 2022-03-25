@@ -10,7 +10,7 @@ namespace Programming.Model.Classes
     {
         private string _phoneNumber;
 
-        private string _firstname;
+        private string _firstName;
 
         private string _lastName;
 
@@ -18,10 +18,10 @@ namespace Programming.Model.Classes
         {
         }
 
-        public Сontact(string phoneNumber, string firstname, string lastName)
+        public Сontact(string phoneNumber, string firstName, string lastName)
         {
             PhoneNumber = phoneNumber;
-            FirstName = firstname;
+            FirstName = firstName;
             LastName = lastName;
         }
 
