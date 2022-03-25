@@ -8,9 +8,12 @@ namespace Programming.View
 {
     public partial class MainForm : Form
     {
+        private System.Drawing.Color ErrorColor = System.Drawing.Color.LightPink;
+        private System.Drawing.Color CorrectColor = System.Drawing.Color.White;
+
         Random rnd = new Random();
 
-        private string[] _titleMovies = { "It", "The Shawshank Redemption", "The Godfather", "The Green Mile", "Intouchables" };
+        private string[] _titleMovies = { "It", "God", "The Godfather", "The Green Mile", "Intouchables" };
 
         private string[] _colors;
 
@@ -51,6 +54,15 @@ namespace Programming.View
             {
                 _rectangles[i] = new Rectangle(rnd.Next(0, 1000), rnd.Next(0, 1000), _colors[rnd.Next(_colors.Length)]);
                 RectanglesListBox.Items.Add(_rectangles[i].ToString());
+            }
+
+            _movies = new Movie[5];
+
+            for (int i = 0; i < _movies.Length; i++)
+            {
+                _movies[i] = new Movie(_titleMovies[i], rnd.Next(90, 210), rnd.Next(2021, DateTime.Now.Year + 1),
+                                       _genres[rnd.Next(0, _genres.Length)], Math.Round(rnd.NextDouble() * 10, 2));
+                MoviesListBox.Items.Add(_movies[i].ToString());
             }
 
         }
@@ -151,11 +163,11 @@ namespace Programming.View
             try
             {
                 _currentRectangle.Length = int.Parse(LenghtTextBox.Text);
-                LenghtTextBox.BackColor = System.Drawing.Color.White;
+                LenghtTextBox.BackColor = CorrectColor;
             }
             catch
             {
-                LenghtTextBox.BackColor = System.Drawing.Color.LightPink;
+                LenghtTextBox.BackColor = ErrorColor;
             }
         }
         private void WidthTextBox_TextChanged(object sender, EventArgs e)
@@ -163,11 +175,11 @@ namespace Programming.View
             try
             {
                 _currentRectangle.Width = int.Parse(WidthTextBox.Text);
-                WidthTextBox.BackColor = System.Drawing.Color.White;
+                WidthTextBox.BackColor = CorrectColor;
             }
             catch
             {
-                WidthTextBox.BackColor = System.Drawing.Color.LightPink;
+                WidthTextBox.BackColor = ErrorColor;
             }
         }
 
@@ -190,6 +202,48 @@ namespace Programming.View
                 if (rectangles[i].Width > maxWidth)
                 {
                     maxWidth = rectangles[i].Width;
+                    index = i;
+                }
+            }
+            return index;
+        }
+        private void MoviesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int indexMovie = MoviesListBox.SelectedIndex;
+            _currentMovie = _movies[indexMovie];
+            TitleTextBox.Text = _currentMovie.Title;
+            DurationTextBox.Text = _currentMovie.Duration.ToString();
+            ReleaseYearTextBox.Text = _currentMovie.ReleaseYear.ToString();
+            GenreTextBox.Text = _currentMovie.Genre;
+            RatingTextBox.Text = _currentMovie.Rating.ToString();
+        }
+        private void DurationInMinutesTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _currentMovie.Duration = int.Parse(DurationTextBox.Text);
+                DurationTextBox.BackColor = CorrectColor;
+            }
+            catch
+            {
+                DurationTextBox.BackColor = ErrorColor;
+            }
+        }
+
+        private void FindMoviesButton_Click(object sender, EventArgs e)
+        {
+            MoviesListBox.SelectedIndex = FindMovieWithMaxRating(_movies);
+        }
+
+        private int FindMovieWithMaxRating(Movie[] movie)
+        {
+            int index = 0;
+            double maxRating = 0;
+            for (int i = 0; i < movie.Length; i++)
+            {
+                if (movie[i].Rating > maxRating)
+                {
+                    maxRating = movie[i].Rating;
                     index = i;
                 }
             }

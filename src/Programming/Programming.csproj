@@ -61,7 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Classes\Discipline.cs" />
+    <Compile Include="Model\Classes\Subject.cs" />
     <Compile Include="Model\Classes\Flight.cs" />
     <Compile Include="Model\Classes\Movie.cs" />
     <Compile Include="Model\Classes\Rectangle.cs" />
