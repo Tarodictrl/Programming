@@ -170,18 +170,6 @@ namespace Programming.View
                 LenghtTextBox.BackColor = ErrorColor;
             }
         }
-        private void WidthTextBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                _currentRectangle.Width = int.Parse(WidthTextBox.Text);
-                WidthTextBox.BackColor = CorrectColor;
-            }
-            catch
-            {
-                WidthTextBox.BackColor = ErrorColor;
-            }
-        }
 
         private void ColorTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -290,6 +278,19 @@ namespace Programming.View
         private void TitleTextBox_TextChanged(object sender, EventArgs e)
         {
             _currentMovie.Title = TitleTextBox.Text;
+        }
+
+        private void WidthTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _currentRectangle.Width = int.Parse(WidthTextBox.Text);
+                WidthTextBox.BackColor = CorrectColor;
+            }
+            catch
+            {
+                WidthTextBox.BackColor = ErrorColor;
+            }
         }
     }
 }
