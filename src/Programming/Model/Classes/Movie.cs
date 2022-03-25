@@ -9,6 +9,8 @@ namespace Programming.Model.Classes
     public class Movie
     {
         private static int _count = 0;
+        
+        private int _id;
 
         private string _title;
 
@@ -33,12 +35,19 @@ namespace Programming.Model.Classes
             Genre = genre;
             Rating = rating;
             _count++;
+            Id = _count;
         }
 
         public string Title
         {
             get { return _title; }
             set { _title = value; }
+        }
+
+        public int Id
+        {
+            get { return _id; }
+            set { _id = value; }
         }
 
         public int Duration
@@ -99,7 +108,7 @@ namespace Programming.Model.Classes
 
         public override string ToString()
         {
-            return $"Movie {_count}";
+            return $"Movie {_id}";
         }
     }
 }

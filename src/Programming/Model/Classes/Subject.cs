@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Programming.Model.Classes
 {
-    public class Discipline
+    public class Subject
     {
         private string _title;
 
@@ -16,11 +16,11 @@ namespace Programming.Model.Classes
 
         private string _lastNameTeacher;
 
-        public Discipline()
+        public Subject()
         {
         }
 
-        public Discipline(string title, int grade, string firstNameTeacher, string lastNameTeacher)
+        public Subject(string title, int grade, string firstNameTeacher, string lastNameTeacher)
         {
             Title = title;
             Grade = grade;
