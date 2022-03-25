@@ -14,7 +14,7 @@ namespace Programming.Model.Classes
 
         private int _duration;
 
-        private int _yearOfIssue;
+        private int _yearOfRelease;
 
         private string _genre;
 
@@ -25,11 +25,11 @@ namespace Programming.Model.Classes
             _count++;
         }
 
-        public Movie(string title, int duration, int yearOfIssue, string genre, double rating)
+        public Movie(string title, int duration, int yearOfRelease, string genre, double rating)
         {
             Title = title;
             Duration = duration;
-            YearOfIssue = yearOfIssue;
+            YearOfIssue = yearOfRelease;
             Genre = genre;
             Rating = rating;
             _count++;
@@ -62,7 +62,7 @@ namespace Programming.Model.Classes
         {
             get 
             { 
-                return _yearOfIssue; 
+                return _yearOfRelease; 
             }
             set
             {
@@ -70,7 +70,7 @@ namespace Programming.Model.Classes
                 {
                     throw new ArgumentException("The entered date is less than 1900 or more than the present year.");
                 }
-                _yearOfIssue = value;
+                _yearOfRelease = value;
             }
         }
 
