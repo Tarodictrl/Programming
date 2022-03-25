@@ -2,10 +2,29 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Programming.Model.Enums;
+using Programming.Model.Classes;
+using Rectangle = Programming.Model.Classes.Rectangle;
 namespace Programming.View
 {
     public partial class MainForm : Form
     {
+        Random rnd = new Random();
+
+        private string[] _titleMovies = { "It", "The Shawshank Redemption", "The Godfather", "The Green Mile", "Intouchables" };
+
+        private string[] _colors = { "Red", "Green", "Black", "White", "Orange", "Pink"};
+
+        private string[] _genres;
+
+        private Rectangle[] _rectangles;
+
+        private Movie[] _movies;
+
+        private Rectangle _currentRectangle;
+
+        private Movie _currentMovie;
+
+
         public MainForm()
         {
             InitializeComponent();
