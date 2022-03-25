@@ -27,7 +27,10 @@ namespace Programming.Model.Classes
 
         public string PhoneNumber
         {
-            get { return _phoneNumber; }
+            get
+            { 
+                return _phoneNumber; 
+            }
             set
             {
                 if (_phoneNumber.Length != 11)

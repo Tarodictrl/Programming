@@ -12,7 +12,7 @@ namespace Programming.Model.Classes
 
         private string _title;
 
-        private int _durationInMinutes;
+        private int _duration;
 
         private int _yearOfIssue;
 
@@ -25,10 +25,10 @@ namespace Programming.Model.Classes
             _count++;
         }
 
-        public Movie(string title, int durationInMinutes, int yearOfIssue, string genre, double rating)
+        public Movie(string title, int duration, int yearOfIssue, string genre, double rating)
         {
             Title = title;
-            DurationInMinutes = durationInMinutes;
+            Duration = duration;
             YearOfIssue = yearOfIssue;
             Genre = genre;
             Rating = rating;
@@ -40,23 +40,30 @@ namespace Programming.Model.Classes
             get { return _title; }
             set { _title = value; }
         }
-        public int DurationInMinutes
+
+        public int Duration
         {
-            get { return _durationInMinutes; }
+            get 
+            { 
+                return _duration; 
+            }
             set
             {
-                if (_durationInMinutes < 0)
+                if (_duration < 0)
                 {
-                    _durationInMinutes = 0;
+                    _duration = 0;
                     throw new ArgumentException("The duration of the movie cannot be less than zero.");
                 }
-                _durationInMinutes = value;
+                _duration = value;
             }
         }
 
         public int YearOfIssue
         {
-            get { return _yearOfIssue; }
+            get 
+            { 
+                return _yearOfIssue; 
+            }
             set
             {
                 if (value < 1900 | value > DateTime.Now.Year)
@@ -75,12 +82,16 @@ namespace Programming.Model.Classes
 
         public double Rating
         {
-            get { return _rating; }
+            get 
+            { 
+                return _rating; 
+            }
             set
             {
                 if (value < 0 | value > 10)
                 {
-                    throw new ArgumentException("The number has exceeded the permissible limits of (from 0 to 10)");
+                    throw new ArgumentException("" +
+                        "The number has exceeded the permissible limits of (from 0 to 10)");
                 }
                 _rating = value;
             }

@@ -9,12 +9,17 @@ namespace Programming.Model.Classes
     public class Discipline
     {
         private string _title;
+
         private int _grade;
+        
         private string _firstNameTeacher;
+
         private string _lastNameTeacher;
+
         public Discipline()
         {
         }
+
         public Discipline(string title, int grade, string firstNameTeacher, string lastNameTeacher)
         {
             Title = title;
@@ -28,6 +33,7 @@ namespace Programming.Model.Classes
         public int Grade { get; set; }
 
         public string FirstNameTeacher { get; set; }
+
         public string LastNameTeacher { get; set; }
     }
 }

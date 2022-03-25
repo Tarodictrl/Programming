@@ -12,15 +12,15 @@ namespace Programming.View
 
         private string[] _titleMovies = { "It", "The Shawshank Redemption", "The Godfather", "The Green Mile", "Intouchables" };
 
-        private string[] _colors = { "Red", "Green", "Black", "White", "Orange", "Pink"};
+        private string[] _colors;
 
         private string[] _genres;
 
         private Rectangle[] _rectangles;
 
-        private Movie[] _movies;
-
         private Rectangle _currentRectangle;
+
+        private Movie[] _movies;
 
         private Movie _currentMovie;
 
@@ -41,6 +41,18 @@ namespace Programming.View
             {
                 ChooseSeasonComboBox.Items.Add(value);
             }
+
+            _colors = Enum.GetNames(typeof(Colors));
+            _genres = Enum.GetNames(typeof(Genre));
+
+            _rectangles = new Rectangle[5];
+
+            for (int i = 0; i < _rectangles.Length; i++)
+            {
+                _rectangles[i] = new Rectangle(rnd.Next(0, 1000), rnd.Next(0, 1000), _colors[rnd.Next(_colors.Length)]);
+                RectanglesListBox.Items.Add(_rectangles[i].ToString());
+            }
+
         }
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -123,6 +135,65 @@ namespace Programming.View
                 default:
                     throw new NotImplementedException();
             }
+        }
+
+        private void RectanglesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int rectangleIndex = RectanglesListBox.SelectedIndex;
+            _currentRectangle = _rectangles[rectangleIndex];
+            LenghtTextBox.Text = _currentRectangle.Length.ToString();
+            WidthTextBox.Text = _currentRectangle.Width.ToString();
+            ColorTextBox.Text = _currentRectangle.Color;
+        }
+
+        private void LenghtTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _currentRectangle.Length = int.Parse(LenghtTextBox.Text);
+                LenghtTextBox.BackColor = System.Drawing.Color.White;
+            }
+            catch
+            {
+                LenghtTextBox.BackColor = System.Drawing.Color.LightPink;
+            }
+        }
+        private void WidthTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _currentRectangle.Width = int.Parse(WidthTextBox.Text);
+                WidthTextBox.BackColor = System.Drawing.Color.White;
+            }
+            catch
+            {
+                WidthTextBox.BackColor = System.Drawing.Color.LightPink;
+            }
+        }
+
+        private void ColorTextBox_TextChanged(object sender, EventArgs e)
+        {
+            _currentRectangle.Color = ColorTextBox.Text;
+        }
+
+        private void FindButton_Click(object sender, EventArgs e)
+        {
+            RectanglesListBox.SelectedIndex = FindRectangleWithMaxWidth(_rectangles);
+        }
+
+        private int FindRectangleWithMaxWidth(Rectangle[] rectangles)
+        {
+            var index = 0;
+            var maxWidth = 0;
+            for (int i = 0; i < rectangles.Length; i++)
+            {
+                if (rectangles[i].Width > maxWidth)
+                {
+                    maxWidth = rectangles[i].Width;
+                    index = i;
+                }
+            }
+            return index;
         }
     }
 }

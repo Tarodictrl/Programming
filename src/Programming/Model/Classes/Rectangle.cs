@@ -28,7 +28,10 @@ namespace Programming.Model.Classes
 
         public int Length
         {
-            get { return _length; }
+            get 
+            {
+                return _length;
+            }
             set
             {
                 if (value < 0)
@@ -42,13 +45,17 @@ namespace Programming.Model.Classes
         }
         public int Width
         {
-            get { return _width; }
+            get
+            { 
+                return _width; 
+            }
             set
             {
                 if (value < 0)
                 {
                     _width = 0;
-                    throw new ArgumentException("The width cannot be less than zero.");
+                    throw new ArgumentException(
+                        "The width cannot be less than zero.");
                 }
                 _width = value;
             }

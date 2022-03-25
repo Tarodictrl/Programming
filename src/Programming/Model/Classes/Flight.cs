@@ -26,7 +26,9 @@ namespace Programming.Model.Classes
         }
 
         public string DeparturePoint { get; set; }
+
         public string Destination { get; set; }
+
         public int FlightTimeInMinutes { get; set; }
     }
 }

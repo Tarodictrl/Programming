@@ -30,7 +30,10 @@ namespace Programming.Model.Classes
 
         public int Minutes
         {
-            get { return _minutes; }
+            get 
+            { 
+                return _minutes; 
+            }
             set
             {
                 if (value < 0 & value > 60)
@@ -43,7 +46,10 @@ namespace Programming.Model.Classes
 
         public int Seconds
         {
-            get { return _seconds; }
+            get
+            { 
+                return _seconds; 
+            }
             set
             {
                 if (value < 0 & value > 60)

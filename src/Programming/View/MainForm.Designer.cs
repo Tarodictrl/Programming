@@ -48,14 +48,14 @@
             this.TabEnums = new System.Windows.Forms.TabControl();
             this.tabClasses = new System.Windows.Forms.TabPage();
             this.RectanglesGroupBox = new System.Windows.Forms.GroupBox();
-            this.RectanglesListBox = new System.Windows.Forms.ListBox();
-            this.LengthLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.WidthLabel = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.ColorLabel = new System.Windows.Forms.Label();
             this.FindButton = new System.Windows.Forms.Button();
+            this.ColorTextBox = new System.Windows.Forms.TextBox();
+            this.ColorLabel = new System.Windows.Forms.Label();
+            this.WidthTextBox = new System.Windows.Forms.TextBox();
+            this.WidthLabel = new System.Windows.Forms.Label();
+            this.LenghtTextBox = new System.Windows.Forms.TextBox();
+            this.LengthLabel = new System.Windows.Forms.Label();
+            this.RectanglesListBox = new System.Windows.Forms.ListBox();
             this.EnumPage.SuspendLayout();
             this.SeasonHandleGroupBox.SuspendLayout();
             this.WeekdayParsingGroupBox.SuspendLayout();
@@ -149,7 +149,7 @@
             // 
             // ParseButton
             // 
-            this.ParseButton.Location = new System.Drawing.Point(243, 78);
+            this.ParseButton.Location = new System.Drawing.Point(242, 77);
             this.ParseButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ParseButton.Name = "ParseButton";
             this.ParseButton.Size = new System.Drawing.Size(93, 25);
@@ -283,85 +283,95 @@
             // RectanglesGroupBox
             // 
             this.RectanglesGroupBox.Controls.Add(this.FindButton);
-            this.RectanglesGroupBox.Controls.Add(this.textBox3);
+            this.RectanglesGroupBox.Controls.Add(this.ColorTextBox);
             this.RectanglesGroupBox.Controls.Add(this.ColorLabel);
-            this.RectanglesGroupBox.Controls.Add(this.textBox2);
+            this.RectanglesGroupBox.Controls.Add(this.WidthTextBox);
             this.RectanglesGroupBox.Controls.Add(this.WidthLabel);
-            this.RectanglesGroupBox.Controls.Add(this.textBox1);
+            this.RectanglesGroupBox.Controls.Add(this.LenghtTextBox);
             this.RectanglesGroupBox.Controls.Add(this.LengthLabel);
             this.RectanglesGroupBox.Controls.Add(this.RectanglesListBox);
-            this.RectanglesGroupBox.Location = new System.Drawing.Point(9, 8);
+            this.RectanglesGroupBox.Location = new System.Drawing.Point(9, 7);
+            this.RectanglesGroupBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RectanglesGroupBox.Name = "RectanglesGroupBox";
-            this.RectanglesGroupBox.Size = new System.Drawing.Size(405, 344);
+            this.RectanglesGroupBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RectanglesGroupBox.Size = new System.Drawing.Size(405, 345);
             this.RectanglesGroupBox.TabIndex = 0;
             this.RectanglesGroupBox.TabStop = false;
             this.RectanglesGroupBox.Text = "Rectangles";
             // 
-            // RectanglesListBox
+            // FindButton
             // 
-            this.RectanglesListBox.FormattingEnabled = true;
-            this.RectanglesListBox.ItemHeight = 16;
-            this.RectanglesListBox.Location = new System.Drawing.Point(6, 21);
-            this.RectanglesListBox.Name = "RectanglesListBox";
-            this.RectanglesListBox.Size = new System.Drawing.Size(203, 308);
-            this.RectanglesListBox.TabIndex = 0;
+            this.FindButton.Location = new System.Drawing.Point(214, 304);
+            this.FindButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.FindButton.Name = "FindButton";
+            this.FindButton.Size = new System.Drawing.Size(140, 25);
+            this.FindButton.TabIndex = 7;
+            this.FindButton.Text = "Find";
+            this.FindButton.UseVisualStyleBackColor = true;
+            this.FindButton.Click += new System.EventHandler(this.FindButton_Click);
             // 
-            // LengthLabel
+            // ColorTextBox
             // 
-            this.LengthLabel.AutoSize = true;
-            this.LengthLabel.Location = new System.Drawing.Point(229, 21);
-            this.LengthLabel.Name = "LengthLabel";
-            this.LengthLabel.Size = new System.Drawing.Size(50, 16);
-            this.LengthLabel.TabIndex = 1;
-            this.LengthLabel.Text = "Length:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(232, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(140, 22);
-            this.textBox1.TabIndex = 2;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(232, 99);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(140, 22);
-            this.textBox2.TabIndex = 4;
-            // 
-            // WidthLabel
-            // 
-            this.WidthLabel.AutoSize = true;
-            this.WidthLabel.Location = new System.Drawing.Point(229, 79);
-            this.WidthLabel.Name = "WidthLabel";
-            this.WidthLabel.Size = new System.Drawing.Size(44, 16);
-            this.WidthLabel.TabIndex = 3;
-            this.WidthLabel.Text = "Width:";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(232, 161);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(140, 22);
-            this.textBox3.TabIndex = 6;
+            this.ColorTextBox.Location = new System.Drawing.Point(214, 160);
+            this.ColorTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ColorTextBox.Name = "ColorTextBox";
+            this.ColorTextBox.Size = new System.Drawing.Size(140, 22);
+            this.ColorTextBox.TabIndex = 6;
             // 
             // ColorLabel
             // 
             this.ColorLabel.AutoSize = true;
-            this.ColorLabel.Location = new System.Drawing.Point(229, 141);
+            this.ColorLabel.Location = new System.Drawing.Point(214, 142);
             this.ColorLabel.Name = "ColorLabel";
             this.ColorLabel.Size = new System.Drawing.Size(42, 16);
             this.ColorLabel.TabIndex = 5;
             this.ColorLabel.Text = "Color:";
             // 
-            // FindButton
+            // WidthTextBox
             // 
-            this.FindButton.Location = new System.Drawing.Point(232, 305);
-            this.FindButton.Name = "FindButton";
-            this.FindButton.Size = new System.Drawing.Size(140, 24);
-            this.FindButton.TabIndex = 7;
-            this.FindButton.Text = "Find";
-            this.FindButton.UseVisualStyleBackColor = true;
+            this.WidthTextBox.Location = new System.Drawing.Point(214, 97);
+            this.WidthTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.WidthTextBox.Name = "WidthTextBox";
+            this.WidthTextBox.Size = new System.Drawing.Size(140, 22);
+            this.WidthTextBox.TabIndex = 4;
+            // 
+            // WidthLabel
+            // 
+            this.WidthLabel.AutoSize = true;
+            this.WidthLabel.Location = new System.Drawing.Point(214, 79);
+            this.WidthLabel.Name = "WidthLabel";
+            this.WidthLabel.Size = new System.Drawing.Size(44, 16);
+            this.WidthLabel.TabIndex = 3;
+            this.WidthLabel.Text = "Width:";
+            // 
+            // LenghtTextBox
+            // 
+            this.LenghtTextBox.Location = new System.Drawing.Point(214, 39);
+            this.LenghtTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.LenghtTextBox.Name = "LenghtTextBox";
+            this.LenghtTextBox.Size = new System.Drawing.Size(140, 22);
+            this.LenghtTextBox.TabIndex = 2;
+            this.LenghtTextBox.TextChanged += new System.EventHandler(this.LenghtTextBox_TextChanged);
+            // 
+            // LengthLabel
+            // 
+            this.LengthLabel.AutoSize = true;
+            this.LengthLabel.Location = new System.Drawing.Point(214, 21);
+            this.LengthLabel.Name = "LengthLabel";
+            this.LengthLabel.Size = new System.Drawing.Size(50, 16);
+            this.LengthLabel.TabIndex = 1;
+            this.LengthLabel.Text = "Length:";
+            // 
+            // RectanglesListBox
+            // 
+            this.RectanglesListBox.FormattingEnabled = true;
+            this.RectanglesListBox.ItemHeight = 16;
+            this.RectanglesListBox.Location = new System.Drawing.Point(5, 21);
+            this.RectanglesListBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RectanglesListBox.Name = "RectanglesListBox";
+            this.RectanglesListBox.Size = new System.Drawing.Size(203, 308);
+            this.RectanglesListBox.TabIndex = 0;
+            this.RectanglesListBox.SelectedIndexChanged += new System.EventHandler(this.RectanglesListBox_SelectedIndexChanged);
             // 
             // MainForm
             // 
@@ -411,12 +421,12 @@
         private System.Windows.Forms.ComboBox ChooseSeasonComboBox;
         private System.Windows.Forms.TabPage tabClasses;
         private System.Windows.Forms.GroupBox RectanglesGroupBox;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox WidthTextBox;
         private System.Windows.Forms.Label WidthLabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox LenghtTextBox;
         private System.Windows.Forms.Label LengthLabel;
         private System.Windows.Forms.ListBox RectanglesListBox;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox ColorTextBox;
         private System.Windows.Forms.Label ColorLabel;
         private System.Windows.Forms.Button FindButton;
     }
