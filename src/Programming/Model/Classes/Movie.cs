@@ -48,7 +48,7 @@ namespace Programming.Model.Classes
                 if (_durationInMinutes < 0)
                 {
                     _durationInMinutes = 0;
-                    throw new ArgumentException("Длительность фильма не может быть меньше нуля");
+                    throw new ArgumentException("The duration of the movie cannot be less than zero.");
                 }
                 _durationInMinutes = value;
             }
@@ -61,7 +61,7 @@ namespace Programming.Model.Classes
             {
                 if (value < 1900 | value > DateTime.Now.Year)
                 {
-                    throw new ArgumentException("Введенная дата меньше 1900 года или больше настоящего года");
+                    throw new ArgumentException("The entered date is less than 1900 or more than the present year.");
                 }
                 _yearOfIssue = value;
             }
@@ -80,7 +80,7 @@ namespace Programming.Model.Classes
             {
                 if (value < 0 | value > 10)
                 {
-                    throw new ArgumentException("Число вышло за допустимые пределы" + "(от 0 до 10)");
+                    throw new ArgumentException("The number has exceeded the permissible limits of (from 0 to 10)");
                 }
                 _rating = value;
             }

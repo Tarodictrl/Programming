@@ -34,7 +34,7 @@ namespace Programming.Model.Classes
                 if (value < 0)
                 {
                     _length = 0;
-                    throw new ArgumentException("Длина не может быть меньше нуля.");
+                    throw new ArgumentException("The length cannot be less than zero.");
                 }
 
                 _length = value;
@@ -48,7 +48,7 @@ namespace Programming.Model.Classes
                 if (value < 0)
                 {
                     _width = 0;
-                    throw new ArgumentException("Ширина не может быть меньше нуля.");
+                    throw new ArgumentException("The width cannot be less than zero.");
                 }
                 _width = value;
             }
