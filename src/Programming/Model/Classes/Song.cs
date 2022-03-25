@@ -22,6 +22,7 @@ namespace Programming.Model.Classes
             Minutes = minutes;
             Seconds = seconds;
         }
+
         public string Title { get; set; }
 
         public string Vocalist { get; set; }

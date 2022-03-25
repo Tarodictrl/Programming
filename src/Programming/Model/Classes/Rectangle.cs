@@ -27,6 +27,7 @@ namespace Programming.Model.Classes
             _count++;
             Id = _count;
         }
+
         public int Id
         {
             get { return _id; }
@@ -51,6 +52,7 @@ namespace Programming.Model.Classes
                 _length = value;
             }
         }
+
         public int Width
         {
             get

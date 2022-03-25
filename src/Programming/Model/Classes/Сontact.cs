@@ -35,11 +35,13 @@ namespace Programming.Model.Classes
             {
                 if (_phoneNumber.Length != 11)
                 {
-                    throw new ArgumentException("Invalid phone number length");
+                    throw new ArgumentException(
+                        "Invalid phone number length");
                 }
                 if (!int.TryParse(value, out int result))
                 {
-                    throw new ArgumentException("Invalid characters in phone number");
+                    throw new ArgumentException(
+                        "Invalid characters in phone number");
                 }
                 _phoneNumber = value;
             }
