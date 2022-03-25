@@ -325,6 +325,7 @@
             this.RatingTextBox.Name = "RatingTextBox";
             this.RatingTextBox.Size = new System.Drawing.Size(157, 22);
             this.RatingTextBox.TabIndex = 11;
+            this.RatingTextBox.TextChanged += new System.EventHandler(this.RatingTextBox_TextChanged);
             // 
             // RatingLabel
             // 
@@ -342,6 +343,7 @@
             this.GenreTextBox.Name = "GenreTextBox";
             this.GenreTextBox.Size = new System.Drawing.Size(157, 22);
             this.GenreTextBox.TabIndex = 9;
+            this.GenreTextBox.TextChanged += new System.EventHandler(this.GenreTextBox_TextChanged);
             // 
             // GenreLabel
             // 
@@ -370,6 +372,7 @@
             this.ReleaseYearTextBox.Name = "ReleaseYearTextBox";
             this.ReleaseYearTextBox.Size = new System.Drawing.Size(157, 22);
             this.ReleaseYearTextBox.TabIndex = 6;
+            this.ReleaseYearTextBox.TextChanged += new System.EventHandler(this.ReleaseYearTextBox_TextChanged);
             // 
             // ReleaseYearLabel
             // 
@@ -387,6 +390,7 @@
             this.DurationTextBox.Name = "DurationTextBox";
             this.DurationTextBox.Size = new System.Drawing.Size(157, 22);
             this.DurationTextBox.TabIndex = 4;
+            this.DurationTextBox.TextChanged += new System.EventHandler(this.DurationTextBox_TextChanged);
             // 
             // DurationLabel
             // 
@@ -404,6 +408,7 @@
             this.TitleTextBox.Name = "TitleTextBox";
             this.TitleTextBox.Size = new System.Drawing.Size(157, 22);
             this.TitleTextBox.TabIndex = 2;
+            this.TitleTextBox.TextChanged += new System.EventHandler(this.TitleTextBox_TextChanged);
             // 
             // TitleLabel
             // 
@@ -462,6 +467,7 @@
             this.ColorTextBox.Name = "ColorTextBox";
             this.ColorTextBox.Size = new System.Drawing.Size(157, 22);
             this.ColorTextBox.TabIndex = 6;
+            this.ColorTextBox.TextChanged += new System.EventHandler(this.ColorTextBox_TextChanged_1);
             // 
             // ColorLabel
             // 

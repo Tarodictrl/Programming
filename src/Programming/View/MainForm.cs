@@ -217,18 +217,6 @@ namespace Programming.View
             GenreTextBox.Text = _currentMovie.Genre;
             RatingTextBox.Text = _currentMovie.Rating.ToString();
         }
-        private void DurationInMinutesTextBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                _currentMovie.Duration = int.Parse(DurationTextBox.Text);
-                DurationTextBox.BackColor = CorrectColor;
-            }
-            catch
-            {
-                DurationTextBox.BackColor = ErrorColor;
-            }
-        }
 
         private void FindMoviesButton_Click(object sender, EventArgs e)
         {
@@ -248,6 +236,60 @@ namespace Programming.View
                 }
             }
             return index;
+        }
+
+        private void DurationTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _currentMovie.Duration = int.Parse(DurationTextBox.Text);
+                DurationTextBox.BackColor = CorrectColor;
+            }
+            catch
+            {
+                DurationTextBox.BackColor = ErrorColor;
+            }
+        }
+
+        private void RatingTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _currentMovie.Rating = double.Parse(RatingTextBox.Text);
+                RatingTextBox.BackColor = CorrectColor;
+            }
+            catch
+            {
+                RatingTextBox.BackColor = ErrorColor;
+            }
+        }
+
+        private void GenreTextBox_TextChanged(object sender, EventArgs e)
+        {
+            _currentMovie.Genre = GenreTextBox.Text;
+        }
+
+        private void ReleaseYearTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _currentMovie.ReleaseYear = int.Parse(ReleaseYearTextBox.Text);
+                ReleaseYearTextBox.BackColor = CorrectColor;
+            }
+            catch
+            {
+                ReleaseYearTextBox.BackColor = ErrorColor;
+            }
+        }
+
+        private void ColorTextBox_TextChanged_1(object sender, EventArgs e)
+        {
+            _currentRectangle.Color = ColorTextBox.Text;
+        }
+
+        private void TitleTextBox_TextChanged(object sender, EventArgs e)
+        {
+            _currentMovie.Title = TitleTextBox.Text;
         }
     }
 }
