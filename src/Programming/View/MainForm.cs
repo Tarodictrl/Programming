@@ -171,9 +171,17 @@ namespace Programming.View
             }
         }
 
-        private void ColorTextBox_TextChanged(object sender, EventArgs e)
+        private void WidthTextBox_TextChanged(object sender, EventArgs e)
         {
-            _currentRectangle.Color = ColorTextBox.Text;
+            try
+            {
+                _currentRectangle.Width = int.Parse(WidthTextBox.Text);
+                WidthTextBox.BackColor = CorrectColor;
+            }
+            catch
+            {
+                WidthTextBox.BackColor = ErrorColor;
+            }
         }
 
         private void FindButton_Click(object sender, EventArgs e)
@@ -270,7 +278,7 @@ namespace Programming.View
             }
         }
 
-        private void ColorTextBox_TextChanged_1(object sender, EventArgs e)
+        private void ColorTextBox_TextChanged(object sender, EventArgs e)
         {
             _currentRectangle.Color = ColorTextBox.Text;
         }
@@ -278,19 +286,6 @@ namespace Programming.View
         private void TitleTextBox_TextChanged(object sender, EventArgs e)
         {
             _currentMovie.Title = TitleTextBox.Text;
-        }
-
-        private void WidthTextBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                _currentRectangle.Width = int.Parse(WidthTextBox.Text);
-                WidthTextBox.BackColor = CorrectColor;
-            }
-            catch
-            {
-                WidthTextBox.BackColor = ErrorColor;
-            }
         }
     }
 }

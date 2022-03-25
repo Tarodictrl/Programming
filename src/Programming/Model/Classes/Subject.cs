@@ -10,7 +10,7 @@ namespace Programming.Model.Classes
     {
         private string _title;
 
-        private int _grade;
+        private int _mark;
         
         private string _firstNameTeacher;
 
@@ -20,10 +20,10 @@ namespace Programming.Model.Classes
         {
         }
 
-        public Subject(string title, int grade, string firstNameTeacher, string lastNameTeacher)
+        public Subject(string title, int mark, string firstNameTeacher, string lastNameTeacher)
         {
             Title = title;
-            Grade = grade;
+            Grade = mark;
             FirstNameTeacher = firstNameTeacher;
             LastNameTeacher = lastNameTeacher;
         }

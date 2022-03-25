@@ -467,7 +467,7 @@
             this.ColorTextBox.Name = "ColorTextBox";
             this.ColorTextBox.Size = new System.Drawing.Size(157, 22);
             this.ColorTextBox.TabIndex = 6;
-            this.ColorTextBox.TextChanged += new System.EventHandler(this.ColorTextBox_TextChanged_1);
+            this.ColorTextBox.TextChanged += new System.EventHandler(this.ColorTextBox_TextChanged);
             // 
             // ColorLabel
             // 
