@@ -88,7 +88,7 @@
             this.EnumPage.Margin = new System.Windows.Forms.Padding(4);
             this.EnumPage.Name = "EnumPage";
             this.EnumPage.Padding = new System.Windows.Forms.Padding(4);
-            this.EnumPage.Size = new System.Drawing.Size(832, 721);
+            this.EnumPage.Size = new System.Drawing.Size(839, 721);
             this.EnumPage.TabIndex = 0;
             this.EnumPage.Text = "Enums";
             this.EnumPage.UseVisualStyleBackColor = true;
@@ -279,7 +279,7 @@
             this.TabEnums.Margin = new System.Windows.Forms.Padding(4);
             this.TabEnums.Name = "TabEnums";
             this.TabEnums.SelectedIndex = 0;
-            this.TabEnums.Size = new System.Drawing.Size(840, 750);
+            this.TabEnums.Size = new System.Drawing.Size(847, 750);
             this.TabEnums.TabIndex = 0;
             // 
             // tabClasses
@@ -290,7 +290,7 @@
             this.tabClasses.Margin = new System.Windows.Forms.Padding(4);
             this.tabClasses.Name = "tabClasses";
             this.tabClasses.Padding = new System.Windows.Forms.Padding(4);
-            this.tabClasses.Size = new System.Drawing.Size(832, 721);
+            this.tabClasses.Size = new System.Drawing.Size(839, 721);
             this.tabClasses.TabIndex = 1;
             this.tabClasses.Text = "Classes";
             this.tabClasses.UseVisualStyleBackColor = true;
@@ -309,18 +309,18 @@
             this.MoviesGroupBox.Controls.Add(this.TitleTextBox);
             this.MoviesGroupBox.Controls.Add(this.TitleLabel);
             this.MoviesGroupBox.Controls.Add(this.MoviesListBox);
-            this.MoviesGroupBox.Location = new System.Drawing.Point(418, 4);
+            this.MoviesGroupBox.Location = new System.Drawing.Point(424, 4);
             this.MoviesGroupBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MoviesGroupBox.Name = "MoviesGroupBox";
             this.MoviesGroupBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MoviesGroupBox.Size = new System.Drawing.Size(411, 704);
+            this.MoviesGroupBox.Size = new System.Drawing.Size(404, 704);
             this.MoviesGroupBox.TabIndex = 1;
             this.MoviesGroupBox.TabStop = false;
             this.MoviesGroupBox.Text = "Movies";
             // 
             // RatingTextBox
             // 
-            this.RatingTextBox.Location = new System.Drawing.Point(203, 248);
+            this.RatingTextBox.Location = new System.Drawing.Point(203, 280);
             this.RatingTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RatingTextBox.Name = "RatingTextBox";
             this.RatingTextBox.Size = new System.Drawing.Size(157, 22);
@@ -330,7 +330,7 @@
             // RatingLabel
             // 
             this.RatingLabel.AutoSize = true;
-            this.RatingLabel.Location = new System.Drawing.Point(200, 230);
+            this.RatingLabel.Location = new System.Drawing.Point(200, 262);
             this.RatingLabel.Name = "RatingLabel";
             this.RatingLabel.Size = new System.Drawing.Size(49, 16);
             this.RatingLabel.TabIndex = 10;
@@ -338,7 +338,7 @@
             // 
             // GenreTextBox
             // 
-            this.GenreTextBox.Location = new System.Drawing.Point(203, 206);
+            this.GenreTextBox.Location = new System.Drawing.Point(203, 230);
             this.GenreTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GenreTextBox.Name = "GenreTextBox";
             this.GenreTextBox.Size = new System.Drawing.Size(157, 22);
@@ -348,7 +348,7 @@
             // GenreLabel
             // 
             this.GenreLabel.AutoSize = true;
-            this.GenreLabel.Location = new System.Drawing.Point(200, 188);
+            this.GenreLabel.Location = new System.Drawing.Point(200, 212);
             this.GenreLabel.Name = "GenreLabel";
             this.GenreLabel.Size = new System.Drawing.Size(47, 16);
             this.GenreLabel.TabIndex = 8;
@@ -367,7 +367,7 @@
             // 
             // ReleaseYearTextBox
             // 
-            this.ReleaseYearTextBox.Location = new System.Drawing.Point(203, 164);
+            this.ReleaseYearTextBox.Location = new System.Drawing.Point(203, 180);
             this.ReleaseYearTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ReleaseYearTextBox.Name = "ReleaseYearTextBox";
             this.ReleaseYearTextBox.Size = new System.Drawing.Size(157, 22);
@@ -377,7 +377,7 @@
             // ReleaseYearLabel
             // 
             this.ReleaseYearLabel.AutoSize = true;
-            this.ReleaseYearLabel.Location = new System.Drawing.Point(200, 145);
+            this.ReleaseYearLabel.Location = new System.Drawing.Point(200, 163);
             this.ReleaseYearLabel.Name = "ReleaseYearLabel";
             this.ReleaseYearLabel.Size = new System.Drawing.Size(91, 16);
             this.ReleaseYearLabel.TabIndex = 5;
@@ -385,7 +385,7 @@
             // 
             // DurationTextBox
             // 
-            this.DurationTextBox.Location = new System.Drawing.Point(203, 122);
+            this.DurationTextBox.Location = new System.Drawing.Point(203, 130);
             this.DurationTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DurationTextBox.Name = "DurationTextBox";
             this.DurationTextBox.Size = new System.Drawing.Size(157, 22);
@@ -395,7 +395,7 @@
             // DurationLabel
             // 
             this.DurationLabel.AutoSize = true;
-            this.DurationLabel.Location = new System.Drawing.Point(200, 104);
+            this.DurationLabel.Location = new System.Drawing.Point(200, 112);
             this.DurationLabel.Name = "DurationLabel";
             this.DurationLabel.Size = new System.Drawing.Size(60, 16);
             this.DurationLabel.TabIndex = 3;
@@ -413,7 +413,7 @@
             // TitleLabel
             // 
             this.TitleLabel.AutoSize = true;
-            this.TitleLabel.Location = new System.Drawing.Point(200, 64);
+            this.TitleLabel.Location = new System.Drawing.Point(200, 62);
             this.TitleLabel.Name = "TitleLabel";
             this.TitleLabel.Size = new System.Drawing.Size(36, 16);
             this.TitleLabel.TabIndex = 1;
@@ -444,7 +444,7 @@
             this.RectanglesGroupBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RectanglesGroupBox.Name = "RectanglesGroupBox";
             this.RectanglesGroupBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.RectanglesGroupBox.Size = new System.Drawing.Size(409, 704);
+            this.RectanglesGroupBox.Size = new System.Drawing.Size(412, 704);
             this.RectanglesGroupBox.TabIndex = 0;
             this.RectanglesGroupBox.TabStop = false;
             this.RectanglesGroupBox.Text = "Rectangles";
@@ -462,7 +462,7 @@
             // 
             // ColorTextBox
             // 
-            this.ColorTextBox.Location = new System.Drawing.Point(203, 163);
+            this.ColorTextBox.Location = new System.Drawing.Point(203, 180);
             this.ColorTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ColorTextBox.Name = "ColorTextBox";
             this.ColorTextBox.Size = new System.Drawing.Size(157, 22);
@@ -472,7 +472,7 @@
             // ColorLabel
             // 
             this.ColorLabel.AutoSize = true;
-            this.ColorLabel.Location = new System.Drawing.Point(200, 145);
+            this.ColorLabel.Location = new System.Drawing.Point(200, 162);
             this.ColorLabel.Name = "ColorLabel";
             this.ColorLabel.Size = new System.Drawing.Size(42, 16);
             this.ColorLabel.TabIndex = 5;
@@ -480,7 +480,7 @@
             // 
             // WidthTextBox
             // 
-            this.WidthTextBox.Location = new System.Drawing.Point(203, 122);
+            this.WidthTextBox.Location = new System.Drawing.Point(203, 130);
             this.WidthTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.WidthTextBox.Name = "WidthTextBox";
             this.WidthTextBox.Size = new System.Drawing.Size(157, 22);
@@ -490,7 +490,7 @@
             // WidthLabel
             // 
             this.WidthLabel.AutoSize = true;
-            this.WidthLabel.Location = new System.Drawing.Point(200, 104);
+            this.WidthLabel.Location = new System.Drawing.Point(200, 112);
             this.WidthLabel.Name = "WidthLabel";
             this.WidthLabel.Size = new System.Drawing.Size(44, 16);
             this.WidthLabel.TabIndex = 3;
@@ -529,7 +529,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(840, 750);
+            this.ClientSize = new System.Drawing.Size(847, 750);
             this.Controls.Add(this.TabEnums);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
