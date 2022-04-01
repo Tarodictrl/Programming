@@ -8,14 +8,6 @@ namespace Programming.Model.Classes
 {
     public class Subject
     {
-        private string _title;
-
-        private int _mark;
-        
-        private string _firstNameTeacher;
-
-        private string _lastNameTeacher;
-
         public Subject()
         {
         }
@@ -23,14 +15,14 @@ namespace Programming.Model.Classes
         public Subject(string title, int mark, string firstNameTeacher, string lastNameTeacher)
         {
             Title = title;
-            Grade = mark;
+            Mark = mark;
             FirstNameTeacher = firstNameTeacher;
             LastNameTeacher = lastNameTeacher;
         }
 
         public string Title { get; set; }
 
-        public int Grade { get; set; }
+        public int Mark { get; set; }
 
         public string FirstNameTeacher { get; set; }
 

@@ -8,16 +8,13 @@ namespace Programming.Model.Classes
 {
     public class Song
     {
-        private string _title;
-        private string _description;
-        private string _vocalist;
         private int _minutes;
         private int _seconds;
 
-        public Song(string title, string vocalist, string description, int minutes, int seconds)
+        public Song(string title, string artist, string description, int minutes, int seconds)
         {
             Title = title;
-            Vocalist = vocalist;
+            Vocalist = artist;
             Description = description;
             Minutes = minutes;
             Seconds = seconds;
@@ -39,7 +36,8 @@ namespace Programming.Model.Classes
             {
                 if (value < 0 & value > 60)
                 {
-                    throw new ArgumentException("the number is out of bounds of the set ( from 0 to 60 )");
+                    throw new ArgumentException(
+                        "the number is out of bounds of the set ( from 0 to 60 )");
                 }
                 _minutes = value;
             }
@@ -55,7 +53,8 @@ namespace Programming.Model.Classes
             {
                 if (value < 0 & value > 60)
                 {
-                    throw new ArgumentException("the number is out of bounds of the set ( from 0 to 60 )");
+                    throw new ArgumentException(
+                        "the number is out of bounds of the set ( from 0 to 60 )");
                 }
                 _seconds = value;
             }

@@ -58,9 +58,8 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (_duration < 0)
+                if (value < 0)
                 {
-                    _duration = 0;
                     throw new ArgumentException(
                         "The duration of the movie " +
                         "cannot be less than zero.");

@@ -44,7 +44,6 @@ namespace Programming.Model.Classes
             {
                 if (value < 0)
                 {
-                    _length = 0;
                     throw new ArgumentException(
                         "The length cannot be less than zero.");
                 }
@@ -63,7 +62,6 @@ namespace Programming.Model.Classes
             {
                 if (value < 0)
                 {
-                    _width = 0;
                     throw new ArgumentException(
                         "The width cannot be less than zero.");
                 }

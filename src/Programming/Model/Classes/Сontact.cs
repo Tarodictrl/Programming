@@ -10,10 +10,6 @@ namespace Programming.Model.Classes
     {
         private string _phoneNumber;
 
-        private string _firstName;
-
-        private string _lastName;
-
         public Сontact()
         {
         }
