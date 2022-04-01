@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Programming.Model.Classes
 {
-    public class Сontact
+    public class Contact
     {
         private string _phoneNumber;
 
-        public Сontact()
+        public Contact()
         {
         }
 
-        public Сontact(string phoneNumber, string firstName, string lastName)
+        public Contact(string phoneNumber, string firstName, string lastName)
         {
             PhoneNumber = phoneNumber;
             FirstName = firstName;

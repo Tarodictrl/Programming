@@ -33,7 +33,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0 & value > 23)
+                if (value < 0 || value > 23)
                 {
                     throw new ArgumentException(
                         "The number is out of bounds of the set ( from 0 to 23 )");
@@ -49,7 +49,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0 & value > 60)
+                if (value < 0 || value > 60)
                 {
                     throw new ArgumentException(
                         "The number is out of bounds of the set ( from 0 to 60 )");
@@ -65,7 +65,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0 & value > 60)
+                if (value < 0 || value > 60)
                 {
                     throw new ArgumentException(
                         "The number is out of bounds" +

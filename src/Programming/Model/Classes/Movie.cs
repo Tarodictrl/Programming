@@ -76,7 +76,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 1900 | value > DateTime.Now.Year)
+                if (value < 1900 || value > DateTime.Now.Year)
                 {
                     throw new ArgumentException(
                         "The entered date is less than 1900 " +
@@ -99,7 +99,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0 | value > 10)
+                if (value < 0 || value > 10)
                 {
                     throw new ArgumentException("" +
                         "The number has exceeded the " +

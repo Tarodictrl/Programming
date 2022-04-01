@@ -67,7 +67,7 @@
     <Compile Include="Model\Classes\Rectangle.cs" />
     <Compile Include="Model\Classes\Song.cs" />
     <Compile Include="Model\Classes\Time.cs" />
-    <Compile Include="Model\Classes\Сontact.cs" />
+    <Compile Include="Model\Classes\Contact.cs" />
     <Compile Include="Model\Enums\Colors.cs" />
     <Compile Include="Model\Enums\EducationForm.cs" />
     <Compile Include="View\Enums.cs" />
