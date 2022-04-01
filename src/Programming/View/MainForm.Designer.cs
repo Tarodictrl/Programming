@@ -377,7 +377,7 @@
             // ReleaseYearLabel
             // 
             this.ReleaseYearLabel.AutoSize = true;
-            this.ReleaseYearLabel.Location = new System.Drawing.Point(200, 163);
+            this.ReleaseYearLabel.Location = new System.Drawing.Point(200, 162);
             this.ReleaseYearLabel.Name = "ReleaseYearLabel";
             this.ReleaseYearLabel.Size = new System.Drawing.Size(91, 16);
             this.ReleaseYearLabel.TabIndex = 5;
@@ -490,7 +490,7 @@
             // WidthLabel
             // 
             this.WidthLabel.AutoSize = true;
-            this.WidthLabel.Location = new System.Drawing.Point(200, 112);
+            this.WidthLabel.Location = new System.Drawing.Point(203, 112);
             this.WidthLabel.Name = "WidthLabel";
             this.WidthLabel.Size = new System.Drawing.Size(44, 16);
             this.WidthLabel.TabIndex = 3;
@@ -508,7 +508,7 @@
             // LengthLabel
             // 
             this.LengthLabel.AutoSize = true;
-            this.LengthLabel.Location = new System.Drawing.Point(200, 64);
+            this.LengthLabel.Location = new System.Drawing.Point(200, 62);
             this.LengthLabel.Name = "LengthLabel";
             this.LengthLabel.Size = new System.Drawing.Size(50, 16);
             this.LengthLabel.TabIndex = 1;
