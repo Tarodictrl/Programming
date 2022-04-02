@@ -45,7 +45,7 @@ namespace Programming.Model.Classes
                 if (value < 0)
                 {
                     throw new ArgumentException(
-                        "The length cannot be less than zero.");
+                        "The length cannot be less than 0.");
                 }
 
                 _length = value;
@@ -63,11 +63,12 @@ namespace Programming.Model.Classes
                 if (value < 0)
                 {
                     throw new ArgumentException(
-                        "The width cannot be less than zero.");
+                        "The width cannot be less than 0.");
                 }
                 _width = value;
             }
         }
+
         public string Color
         {
             get { return _color; }

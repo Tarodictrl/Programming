@@ -39,14 +39,14 @@
             this.ParseInput = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.EnumerationsGroupBox = new System.Windows.Forms.GroupBox();
-            this.IntBox = new System.Windows.Forms.TextBox();
+            this.IntValueTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.ValuesListBox = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.EnumsListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.TabEnums = new System.Windows.Forms.TabControl();
-            this.tabClasses = new System.Windows.Forms.TabPage();
+            this.ClassesTabPage = new System.Windows.Forms.TabPage();
             this.MoviesGroupBox = new System.Windows.Forms.GroupBox();
             this.RatingTextBox = new System.Windows.Forms.TextBox();
             this.RatingLabel = new System.Windows.Forms.Label();
@@ -74,7 +74,7 @@
             this.WeekdayParsingGroupBox.SuspendLayout();
             this.EnumerationsGroupBox.SuspendLayout();
             this.TabEnums.SuspendLayout();
-            this.tabClasses.SuspendLayout();
+            this.ClassesTabPage.SuspendLayout();
             this.MoviesGroupBox.SuspendLayout();
             this.RectanglesGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -193,7 +193,7 @@
             // 
             // EnumerationsGroupBox
             // 
-            this.EnumerationsGroupBox.Controls.Add(this.IntBox);
+            this.EnumerationsGroupBox.Controls.Add(this.IntValueTextBox);
             this.EnumerationsGroupBox.Controls.Add(this.label3);
             this.EnumerationsGroupBox.Controls.Add(this.ValuesListBox);
             this.EnumerationsGroupBox.Controls.Add(this.label2);
@@ -208,15 +208,15 @@
             this.EnumerationsGroupBox.TabStop = false;
             this.EnumerationsGroupBox.Text = "Enumerations";
             // 
-            // IntBox
+            // IntValueTextBox
             // 
-            this.IntBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.IntBox.Enabled = false;
-            this.IntBox.Location = new System.Drawing.Point(501, 64);
-            this.IntBox.Margin = new System.Windows.Forms.Padding(4);
-            this.IntBox.Name = "IntBox";
-            this.IntBox.Size = new System.Drawing.Size(162, 22);
-            this.IntBox.TabIndex = 5;
+            this.IntValueTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.IntValueTextBox.Enabled = false;
+            this.IntValueTextBox.Location = new System.Drawing.Point(501, 64);
+            this.IntValueTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.IntValueTextBox.Name = "IntValueTextBox";
+            this.IntValueTextBox.Size = new System.Drawing.Size(162, 22);
+            this.IntValueTextBox.TabIndex = 5;
             // 
             // label3
             // 
@@ -273,7 +273,7 @@
             // TabEnums
             // 
             this.TabEnums.Controls.Add(this.EnumPage);
-            this.TabEnums.Controls.Add(this.tabClasses);
+            this.TabEnums.Controls.Add(this.ClassesTabPage);
             this.TabEnums.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TabEnums.Location = new System.Drawing.Point(0, 0);
             this.TabEnums.Margin = new System.Windows.Forms.Padding(4);
@@ -282,18 +282,18 @@
             this.TabEnums.Size = new System.Drawing.Size(847, 750);
             this.TabEnums.TabIndex = 0;
             // 
-            // tabClasses
+            // ClassesTabPage
             // 
-            this.tabClasses.Controls.Add(this.MoviesGroupBox);
-            this.tabClasses.Controls.Add(this.RectanglesGroupBox);
-            this.tabClasses.Location = new System.Drawing.Point(4, 25);
-            this.tabClasses.Margin = new System.Windows.Forms.Padding(4);
-            this.tabClasses.Name = "tabClasses";
-            this.tabClasses.Padding = new System.Windows.Forms.Padding(4);
-            this.tabClasses.Size = new System.Drawing.Size(839, 721);
-            this.tabClasses.TabIndex = 1;
-            this.tabClasses.Text = "Classes";
-            this.tabClasses.UseVisualStyleBackColor = true;
+            this.ClassesTabPage.Controls.Add(this.MoviesGroupBox);
+            this.ClassesTabPage.Controls.Add(this.RectanglesGroupBox);
+            this.ClassesTabPage.Location = new System.Drawing.Point(4, 25);
+            this.ClassesTabPage.Margin = new System.Windows.Forms.Padding(4);
+            this.ClassesTabPage.Name = "ClassesTabPage";
+            this.ClassesTabPage.Padding = new System.Windows.Forms.Padding(4);
+            this.ClassesTabPage.Size = new System.Drawing.Size(839, 721);
+            this.ClassesTabPage.TabIndex = 1;
+            this.ClassesTabPage.Text = "Classes";
+            this.ClassesTabPage.UseVisualStyleBackColor = true;
             // 
             // MoviesGroupBox
             // 
@@ -490,7 +490,7 @@
             // WidthLabel
             // 
             this.WidthLabel.AutoSize = true;
-            this.WidthLabel.Location = new System.Drawing.Point(206, 85);
+            this.WidthLabel.Location = new System.Drawing.Point(203, 85);
             this.WidthLabel.Name = "WidthLabel";
             this.WidthLabel.Size = new System.Drawing.Size(44, 16);
             this.WidthLabel.TabIndex = 3;
@@ -545,7 +545,7 @@
             this.EnumerationsGroupBox.ResumeLayout(false);
             this.EnumerationsGroupBox.PerformLayout();
             this.TabEnums.ResumeLayout(false);
-            this.tabClasses.ResumeLayout(false);
+            this.ClassesTabPage.ResumeLayout(false);
             this.MoviesGroupBox.ResumeLayout(false);
             this.MoviesGroupBox.PerformLayout();
             this.RectanglesGroupBox.ResumeLayout(false);
@@ -563,7 +563,7 @@
         private System.Windows.Forms.ListBox ValuesListBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox IntBox;
+        private System.Windows.Forms.TextBox IntValueTextBox;
         private System.Windows.Forms.GroupBox WeekdayParsingGroupBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button ParseButton;
@@ -573,7 +573,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button GoButton;
         private System.Windows.Forms.ComboBox ChooseSeasonComboBox;
-        private System.Windows.Forms.TabPage tabClasses;
+        private System.Windows.Forms.TabPage ClassesTabPage;
         private System.Windows.Forms.GroupBox RectanglesGroupBox;
         private System.Windows.Forms.TextBox WidthTextBox;
         private System.Windows.Forms.Label WidthLabel;

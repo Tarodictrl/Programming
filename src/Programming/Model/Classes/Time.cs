@@ -33,14 +33,16 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0 || value > 23)
+                if (value < 0 || value >= 24)
                 {
                     throw new ArgumentException(
-                        "The number is out of bounds of the set ( from 0 to 23 )");
+                        "The number is out " +
+                        "of bounds of the set ( from 0 to 23 )");
                 }
                 _hours = value;
             }
         }
+
         public int Minutes
         {
             get
@@ -49,14 +51,16 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0 || value > 60)
+                if (value < 0 || value >= 60)
                 {
                     throw new ArgumentException(
-                        "The number is out of bounds of the set ( from 0 to 60 )");
+                        "The number is out " +
+                        "of bounds of the set ( from 0 to 59 )");
                 }
                 _minutes = value;
             }
         }
+
         public int Seconds
         {
             get 
@@ -68,8 +72,8 @@ namespace Programming.Model.Classes
                 if (value < 0 || value > 60)
                 {
                     throw new ArgumentException(
-                        "The number is out of bounds" +
-                        " of the set ( from 0 to 60 )");
+                        "The number is out of bounds " +
+                        "of the set ( from 0 to 60 )");
                 }
                 _seconds = value;
             }

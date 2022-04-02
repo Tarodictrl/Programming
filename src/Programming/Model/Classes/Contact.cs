@@ -27,6 +27,7 @@ namespace Programming.Model.Classes
             { 
                 return _phoneNumber; 
             }
+
             set
             {
                 if (_phoneNumber.Length != 11)
@@ -34,6 +35,7 @@ namespace Programming.Model.Classes
                     throw new ArgumentException(
                         "Invalid phone number length");
                 }
+
                 if (!int.TryParse(value, out int result))
                 {
                     throw new ArgumentException(

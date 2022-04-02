@@ -91,6 +91,7 @@ namespace Programming.Model.Classes
             get { return _genre; }
             set { _genre = value; }
         }
+
         public double Rating
         {
             get 

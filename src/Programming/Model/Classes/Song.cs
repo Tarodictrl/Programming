@@ -14,7 +14,7 @@ namespace Programming.Model.Classes
         public Song(string title, string artist, string description, int minutes, int seconds)
         {
             Title = title;
-            Vocalist = artist;
+            Artist = artist;
             Description = description;
             Minutes = minutes;
             Seconds = seconds;
@@ -22,7 +22,7 @@ namespace Programming.Model.Classes
 
         public string Title { get; set; }
 
-        public string Vocalist { get; set; }
+        public string Artist { get; set; }
 
         public string Description { get; set; }
 
@@ -34,10 +34,10 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0 || value > 60)
+                if (value < 0 || value >= 60)
                 {
                     throw new ArgumentException(
-                        "the number is out of bounds of the set ( from 0 to 60 )");
+                        "the number is out of bounds of the set ( from 0 to 59 )");
                 }
                 _minutes = value;
             }
@@ -51,10 +51,10 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0 || value > 60)
+                if (value < 0 || value >= 60)
                 {
                     throw new ArgumentException(
-                        "the number is out of bounds of the set ( from 0 to 60 )");
+                        "the number is out of bounds of the set ( from 0 to 59 )");
                 }
                 _seconds = value;
             }
