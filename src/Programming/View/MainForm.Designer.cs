@@ -212,7 +212,7 @@
             // 
             this.IntValueTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.IntValueTextBox.Enabled = false;
-            this.IntValueTextBox.Location = new System.Drawing.Point(501, 64);
+            this.IntValueTextBox.Location = new System.Drawing.Point(400, 35);
             this.IntValueTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.IntValueTextBox.Name = "IntValueTextBox";
             this.IntValueTextBox.Size = new System.Drawing.Size(162, 22);
@@ -221,7 +221,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(498, 44);
+            this.label3.Location = new System.Drawing.Point(397, 19);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 16);
@@ -232,7 +232,7 @@
             // 
             this.ValuesListBox.FormattingEnabled = true;
             this.ValuesListBox.ItemHeight = 16;
-            this.ValuesListBox.Location = new System.Drawing.Point(256, 35);
+            this.ValuesListBox.Location = new System.Drawing.Point(205, 35);
             this.ValuesListBox.Margin = new System.Windows.Forms.Padding(4);
             this.ValuesListBox.Name = "ValuesListBox";
             this.ValuesListBox.Size = new System.Drawing.Size(187, 324);
@@ -242,7 +242,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(253, 19);
+            this.label2.Location = new System.Drawing.Point(202, 19);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 16);

@@ -88,8 +88,10 @@ namespace Programming.View
                     index = i;
                 }
             }
+
             return index;
         }
+
         private int FindMovieWithMaxRating(Movie[] movie)
         {
             int index = 0;
@@ -103,6 +105,7 @@ namespace Programming.View
                     index = i;
                 }
             }
+
             return index;
         }
 

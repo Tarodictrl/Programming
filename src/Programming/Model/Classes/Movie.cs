@@ -58,11 +58,10 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0)
+                if (value <= 0)
                 {
                     throw new ArgumentException(
-                        "The duration of the movie " +
-                        "cannot be less than zero.");
+                        "The number must be greater than 0");
                 }
                 _duration = value;
             }
@@ -102,7 +101,7 @@ namespace Programming.Model.Classes
             {
                 if (value < 0 || value > 10)
                 {
-                    throw new ArgumentException("" +
+                    throw new ArgumentException(
                         "The number has exceeded the " +
                         "permissible limits of (from 0 to 10)");
                 }

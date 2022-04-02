@@ -14,10 +14,10 @@ namespace Programming.Model.Classes
         {
         }
 
-        public Flight(string departurePoint, string destination, int flightTimeInSeconds)
+        public Flight(string departurePoint, string destinationPoint, int flightTimeInSeconds)
         {
             DeparturePoint = departurePoint;
-            DestinationPoint = destination;
+            DestinationPoint = destinationPoint;
             FlightTimeInSeconds = flightTimeInSeconds;
         }
 
