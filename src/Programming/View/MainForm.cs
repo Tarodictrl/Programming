@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using Programming.Model.Enums;
 using Programming.Model.Classes;
 using Rectangle = Programming.Model.Classes.Rectangle;
+
 namespace Programming.View
 {
     public partial class MainForm : Form
@@ -53,7 +54,10 @@ namespace Programming.View
 
             for (var i = 0; i < rectangles.Length; i++)
             {
-                rectangles[i] = new Rectangle(_random.Next(0, 1000), _random.Next(0, 1000), colors[_random.Next(colors.Length)]);
+                rectangles[i] = new Rectangle(
+                    _random.Next(0, 1000), 
+                    _random.Next(0, 1000), 
+                    colors[_random.Next(colors.Length)]);
                 RectanglesListBox.Items.Add(rectangles[i].ToString());
             }
 
@@ -67,8 +71,12 @@ namespace Programming.View
 
             for (var i = 0; i < movies.Length; i++)
             {
-                movies[i] = new Movie(_titleMovies[i], _random.Next(90, 210), _random.Next(2021, DateTime.Now.Year + 1),
-                                       genres[_random.Next(0, genres.Length)], Math.Round(_random.NextDouble() * 10, 2));
+                movies[i] = new Movie(
+                    _titleMovies[i], 
+                    _random.Next(90, 210), 
+                    _random.Next(2021, DateTime.Now.Year + 1),
+                    genres[_random.Next(0, genres.Length)], 
+                    Math.Round(_random.NextDouble() * 10, 2));
                 MoviesListBox.Items.Add(movies[i].ToString());
             }
 
@@ -295,11 +303,6 @@ namespace Programming.View
         private void ColorTextBox_TextChanged(object sender, EventArgs e)
         {
             _currentRectangle.Color = ColorTextBox.Text;
-        }
-
-        private void TitleTextBox_TextChanged(object sender, EventArgs e)
-        {
-            _currentMovie.Title = TitleTextBox.Text;
         }
     }
 }
