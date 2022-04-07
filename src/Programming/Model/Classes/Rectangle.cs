@@ -8,30 +8,22 @@ namespace Programming.Model.Classes
 {
     public class Rectangle
     {
-        private static int _count = 0;
-        private int _id;
+        private readonly int _id;
+
         private int _length;
+        
         private int _width;
-        private string _color;
         
         public Rectangle()
         {
-            _count++;
         }
 
-        public Rectangle(int length, int width, string color)
+        public Rectangle(int length, int width, string color, int id)
         {
             Length = length;
             Color = color;
             Width = width;
-            _count++;
-            Id = _count;
-        }
-
-        public int Id
-        {
-            get { return _id; }
-            set { _id = value; }
+            _id = id;
         }
 
         public int Length
@@ -42,12 +34,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentException(
-                        "The length cannot be less than 0.");
-                }
-
+                Validator.AssertOnPositiveValue(value, nameof(Length));
                 _length = value;
             }
         }
@@ -60,24 +47,24 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentException(
-                        "The width cannot be less than 0.");
-                }
+                Validator.AssertOnPositiveValue(value, nameof(Width));
                 _width = value;
             }
         }
 
-        public string Color
+        public int Id
         {
-            get { return _color; }
-            set { _color = value; }
+            get
+            {
+                return _id;
+            }
         }
 
         public override string ToString()
         {
             return $"Rectangle {_id}";
         }
+
+        public string Color { get; set; }
     }
 }

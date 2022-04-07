@@ -8,46 +8,27 @@ namespace Programming.Model.Classes
 {
     public class Movie
     {
-        private static int _count = 0;
         
-        private int _id;
-
-        private string _title;
+        private readonly int _id;
 
         private int _duration;
 
         private int _releaseYear;
 
-        private string _genre;
-
         private double _rating;
 
         public Movie()
         {
-            _count++;
         }
 
-        public Movie(string title, int duration, int releaseYear, string genre, double rating)
+        public Movie(string title, int duration, int releaseYear, string genre, double rating, int id)
         {
             Title = title;
             Duration = duration;
             ReleaseYear = releaseYear;
             Genre = genre;
             Rating = rating;
-            _count++;
-            Id = _count;
-        }
-
-        public string Title
-        {
-            get { return _title; }
-            set { _title = value; }
-        }
-
-        public int Id
-        {
-            get { return _id; }
-            set { _id = value; }
+            _id = id;
         }
 
         public int Duration
@@ -58,11 +39,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value <= 0)
-                {
-                    throw new ArgumentException(
-                        "The number must be greater than 0");
-                }
+                Validator.AssertOnPositiveValue(value, nameof(Duration));
                 _duration = value;
             }
         }
@@ -75,20 +52,17 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 1900 || value > DateTime.Now.Year)
-                {
-                    throw new ArgumentException(
-                        "The entered date is less than 1900 " +
-                        "or more than the present year.");
-                }
+                Validator.AssertValueInRange(value, 1900, DateTime.Now.Year, nameof(ReleaseYear));
                 _releaseYear = value;
             }
         }
 
-        public string Genre
+        public int Id
         {
-            get { return _genre; }
-            set { _genre = value; }
+            get
+            {
+                return _id;
+            }
         }
 
         public double Rating
@@ -99,12 +73,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0 || value > 10)
-                {
-                    throw new ArgumentException(
-                        "The number has exceeded the " +
-                        "permissible limits of (from 0 to 10)");
-                }
+                Validator.AssertValueInRange(value, 0, 10, nameof(Rating));
                 _rating = value;
             }
         }
@@ -113,5 +82,9 @@ namespace Programming.Model.Classes
         {
             return $"Movie {_id}";
         }
+
+        public string Genre { get; set; }
+
+        public string Title { get; set; }
     }
 }

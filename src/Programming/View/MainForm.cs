@@ -9,21 +9,23 @@ namespace Programming.View
 {
     public partial class MainForm : Form
     {
-        private readonly System.Drawing.Color ErrorColor = System.Drawing.Color.LightPink;
-        private readonly System.Drawing.Color CorrectColor = System.Drawing.Color.White;
+        private readonly System.Drawing.Color _errorColor = System.Drawing.Color.LightPink;
 
-        Random _random = new Random();
+        private readonly System.Drawing.Color _correctColor = System.Drawing.Color.White;
+
+        private Random _random = new Random();
 
         private string[] _titleMovies = { "It", "God", "The Godfather", "The Green Mile", "Intouchables" };
 
         private Rectangle[] _rectangles;
+
+        private Contact[] _contacts;
 
         private Rectangle _currentRectangle;
 
         private Movie[] _movies;
 
         private Movie _currentMovie;
-
 
         public MainForm()
         {
@@ -42,7 +44,6 @@ namespace Programming.View
                 ChooseSeasonComboBox.Items.Add(value);
             }
 
-          
             _rectangles = CreateRandomRectangles(5);
             _movies = CreateRandomMovies(5);
         }
@@ -57,7 +58,8 @@ namespace Programming.View
                 rectangles[i] = new Rectangle(
                     _random.Next(0, 1000), 
                     _random.Next(0, 1000), 
-                    colors[_random.Next(colors.Length)]);
+                    colors[_random.Next(colors.Length)],
+                    i+1);
                 RectanglesListBox.Items.Add(rectangles[i].ToString());
             }
 
@@ -74,9 +76,10 @@ namespace Programming.View
                 movies[i] = new Movie(
                     _titleMovies[i], 
                     _random.Next(90, 210), 
-                    _random.Next(2021, DateTime.Now.Year + 1),
+                    _random.Next(1900, DateTime.Now.Year + 1),
                     genres[_random.Next(0, genres.Length)], 
-                    Math.Round(_random.NextDouble() * 10, 2));
+                    Math.Round(_random.NextDouble() * 10, 2),
+                    i+1);
                 MoviesListBox.Items.Add(movies[i].ToString());
             }
 
@@ -204,21 +207,21 @@ namespace Programming.View
         {
             int rectangleIndex = RectanglesListBox.SelectedIndex;
             _currentRectangle = _rectangles[rectangleIndex];
-            LenghtTextBox.Text = _currentRectangle.Length.ToString();
+            LengthTextBox.Text = _currentRectangle.Length.ToString();
             WidthTextBox.Text = _currentRectangle.Width.ToString();
             ColorTextBox.Text = _currentRectangle.Color;
         }
 
-        private void LenghtTextBox_TextChanged(object sender, EventArgs e)
+        private void LengthTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                _currentRectangle.Length = int.Parse(LenghtTextBox.Text);
-                LenghtTextBox.BackColor = CorrectColor;
+                _currentRectangle.Length = int.Parse(LengthTextBox.Text);
+                LengthTextBox.BackColor = _correctColor;
             }
             catch
             {
-                LenghtTextBox.BackColor = ErrorColor;
+                LengthTextBox.BackColor = _errorColor;
             }
         }
 
@@ -227,11 +230,11 @@ namespace Programming.View
             try
             {
                 _currentRectangle.Width = int.Parse(WidthTextBox.Text);
-                WidthTextBox.BackColor = CorrectColor;
+                WidthTextBox.BackColor = _correctColor;
             }
             catch
             {
-                WidthTextBox.BackColor = ErrorColor;
+                WidthTextBox.BackColor = _errorColor;
             }
         }
 
@@ -261,11 +264,11 @@ namespace Programming.View
             try
             {
                 _currentMovie.Duration = int.Parse(DurationTextBox.Text);
-                DurationTextBox.BackColor = CorrectColor;
+                DurationTextBox.BackColor = _correctColor;
             }
             catch
             {
-                DurationTextBox.BackColor = ErrorColor;
+                DurationTextBox.BackColor = _errorColor;
             }
         }
 
@@ -274,11 +277,11 @@ namespace Programming.View
             try
             {
                 _currentMovie.Rating = double.Parse(RatingTextBox.Text);
-                RatingTextBox.BackColor = CorrectColor;
+                RatingTextBox.BackColor = _correctColor;
             }
             catch
             {
-                RatingTextBox.BackColor = ErrorColor;
+                RatingTextBox.BackColor = _errorColor;
             }
         }
 
@@ -292,11 +295,11 @@ namespace Programming.View
             try
             {
                 _currentMovie.ReleaseYear = int.Parse(ReleaseYearTextBox.Text);
-                ReleaseYearTextBox.BackColor = CorrectColor;
+                ReleaseYearTextBox.BackColor = _correctColor;
             }
             catch
             {
-                ReleaseYearTextBox.BackColor = ErrorColor;
+                ReleaseYearTextBox.BackColor = _errorColor;
             }
         }
 

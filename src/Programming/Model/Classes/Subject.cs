@@ -8,6 +8,8 @@ namespace Programming.Model.Classes
 {
     public class Subject
     {
+        private int _mark;
+
         public Subject()
         {
         }
@@ -20,12 +22,23 @@ namespace Programming.Model.Classes
             LastNameTeacher = lastNameTeacher;
         }
 
-        public string Title { get; set; }
-
-        public int Mark { get; set; }
+        public int Mark
+        {
+            get
+            {
+                return _mark;
+            }
+            set
+            {
+                Validator.AssertValueInRange(value, 0, 5, nameof(Mark));
+                _mark = value;
+            }
+        }
 
         public string FirstNameTeacher { get; set; }
 
         public string LastNameTeacher { get; set; }
+
+        public string Title { get; set; }
     }
 }

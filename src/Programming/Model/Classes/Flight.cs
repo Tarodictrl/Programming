@@ -21,10 +21,6 @@ namespace Programming.Model.Classes
             FlightTimeInSeconds = flightTimeInSeconds;
         }
 
-        public string DeparturePoint { get; set; }
-
-        public string DestinationPoint { get; set; }
-
         public int FlightTimeInSeconds
         {
             get
@@ -34,13 +30,12 @@ namespace Programming.Model.Classes
 
             set
             {
-                if (value <= 0)
-                {
-                    throw new ArgumentException(
-                        "The number must be greater than 0");
-                }
+                Validator.AssertOnPositiveValue(value, nameof(FlightTimeInSeconds));
                 _flightTimeInSeconds = value;
             }
         }
+        public string DeparturePoint { get; set; }
+
+        public string DestinationPoint { get; set; }
     }
 }

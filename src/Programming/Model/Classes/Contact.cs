@@ -9,16 +9,23 @@ namespace Programming.Model.Classes
     public class Contact
     {
         private string _phoneNumber;
+        
+        private string _name;
+        
+        private string _surname;
+
+        private readonly int _id;
 
         public Contact()
         {
         }
 
-        public Contact(string phoneNumber, string firstName, string lastName)
+        public Contact(string phoneNumber, string name, string surname, int id)
         {
             PhoneNumber = phoneNumber;
-            FirstName = firstName;
-            LastName = lastName;
+            Name = name;
+            Surname = surname;
+            _id = id;
         }
 
         public string PhoneNumber
@@ -30,23 +37,47 @@ namespace Programming.Model.Classes
 
             set
             {
-                if (_phoneNumber.Length != 11)
+                if (value.Length != 11)
                 {
                     throw new ArgumentException(
                         "Invalid phone number length");
-                }
-
-                if (!int.TryParse(value, out int result))
-                {
-                    throw new ArgumentException(
-                        "Invalid characters in phone number");
                 }
                 _phoneNumber = value;
             }
         }
 
-        public string FirstName { get; set; }
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                Validator.AssertStringContainsOnlyLetters(value, nameof(Name));
+                _name = value;
+            }
+        }
 
-        public string LastName { get; set; }
+        public string Surname
+        {
+            get
+            {
+                return _surname;
+            }
+            set
+            {
+                Validator.AssertStringContainsOnlyLetters(value, nameof(Surname));
+                _surname = value;
+            }
+        }
+
+        public int Id
+        {
+            get
+            {
+                return _id;
+            }
+        }
     }
 }

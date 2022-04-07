@@ -9,6 +9,7 @@ namespace Programming.Model.Classes
     public class Song
     {
         private int _minutes;
+
         private int _seconds;
 
         public Song(string title, string artist, string description, int minutes, int seconds)
@@ -20,12 +21,6 @@ namespace Programming.Model.Classes
             Seconds = seconds;
         }
 
-        public string Title { get; set; }
-
-        public string Artist { get; set; }
-
-        public string Description { get; set; }
-
         public int Minutes
         {
             get 
@@ -34,11 +29,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0 || value >= 60)
-                {
-                    throw new ArgumentException(
-                        "the number is out of bounds of the set ( from 0 to 59 )");
-                }
+                Validator.AssertValueInRange(value, 0, 59, nameof(Minutes));
                 _minutes = value;
             }
         }
@@ -51,13 +42,15 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0 || value >= 60)
-                {
-                    throw new ArgumentException(
-                        "the number is out of bounds of the set ( from 0 to 59 )");
-                }
+                Validator.AssertValueInRange(value, 0, 59, nameof(Seconds));
                 _seconds = value;
             }
         }
+
+        public string Title { get; set; }
+
+        public string Artist { get; set; }
+
+        public string Description { get; set; }
     }
 }

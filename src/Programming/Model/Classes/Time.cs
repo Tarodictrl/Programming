@@ -33,12 +33,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0 || value >= 24)
-                {
-                    throw new ArgumentException(
-                        "The number is out " +
-                        "of bounds of the set ( from 0 to 23 )");
-                }
+                Validator.AssertValueInRange(value, 0, 24, nameof(Hours));
                 _hours = value;
             }
         }
@@ -51,12 +46,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0 || value >= 60)
-                {
-                    throw new ArgumentException(
-                        "The number is out " +
-                        "of bounds of the set ( from 0 to 59 )");
-                }
+                Validator.AssertValueInRange(value, 0, 59, nameof(Minutes));
                 _minutes = value;
             }
         }
@@ -69,12 +59,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0 || value > 60)
-                {
-                    throw new ArgumentException(
-                        "The number is out of bounds " +
-                        "of the set ( from 0 to 60 )");
-                }
+                Validator.AssertValueInRange(value, 0, 59, nameof(Seconds));
                 _seconds = value;
             }
         }

@@ -66,8 +66,8 @@
             this.ColorLabel = new System.Windows.Forms.Label();
             this.WidthTextBox = new System.Windows.Forms.TextBox();
             this.WidthLabel = new System.Windows.Forms.Label();
-            this.LenghtTextBox = new System.Windows.Forms.TextBox();
-            this.LengthLabel = new System.Windows.Forms.Label();
+            this.LengthTextBox = new System.Windows.Forms.TextBox();
+            this.LenghtLabel = new System.Windows.Forms.Label();
             this.RectanglesListBox = new System.Windows.Forms.ListBox();
             this.EnumPage.SuspendLayout();
             this.SeasonHandleGroupBox.SuspendLayout();
@@ -212,7 +212,7 @@
             // 
             this.IntValueTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.IntValueTextBox.Enabled = false;
-            this.IntValueTextBox.Location = new System.Drawing.Point(400, 35);
+            this.IntValueTextBox.Location = new System.Drawing.Point(400, 39);
             this.IntValueTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.IntValueTextBox.Name = "IntValueTextBox";
             this.IntValueTextBox.Size = new System.Drawing.Size(162, 22);
@@ -436,8 +436,8 @@
             this.RectanglesGroupBox.Controls.Add(this.ColorLabel);
             this.RectanglesGroupBox.Controls.Add(this.WidthTextBox);
             this.RectanglesGroupBox.Controls.Add(this.WidthLabel);
-            this.RectanglesGroupBox.Controls.Add(this.LenghtTextBox);
-            this.RectanglesGroupBox.Controls.Add(this.LengthLabel);
+            this.RectanglesGroupBox.Controls.Add(this.LengthTextBox);
+            this.RectanglesGroupBox.Controls.Add(this.LenghtLabel);
             this.RectanglesGroupBox.Controls.Add(this.RectanglesListBox);
             this.RectanglesGroupBox.Location = new System.Drawing.Point(4, 4);
             this.RectanglesGroupBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -495,23 +495,23 @@
             this.WidthLabel.TabIndex = 3;
             this.WidthLabel.Text = "Width:";
             // 
-            // LenghtTextBox
+            // LengthTextBox
             // 
-            this.LenghtTextBox.Location = new System.Drawing.Point(206, 53);
-            this.LenghtTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.LenghtTextBox.Name = "LenghtTextBox";
-            this.LenghtTextBox.Size = new System.Drawing.Size(157, 22);
-            this.LenghtTextBox.TabIndex = 2;
-            this.LenghtTextBox.TextChanged += new System.EventHandler(this.LenghtTextBox_TextChanged);
+            this.LengthTextBox.Location = new System.Drawing.Point(206, 53);
+            this.LengthTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.LengthTextBox.Name = "LengthTextBox";
+            this.LengthTextBox.Size = new System.Drawing.Size(157, 22);
+            this.LengthTextBox.TabIndex = 2;
+            this.LengthTextBox.TextChanged += new System.EventHandler(this.LengthTextBox_TextChanged);
             // 
-            // LengthLabel
+            // LenghtLabel
             // 
-            this.LengthLabel.AutoSize = true;
-            this.LengthLabel.Location = new System.Drawing.Point(203, 35);
-            this.LengthLabel.Name = "LengthLabel";
-            this.LengthLabel.Size = new System.Drawing.Size(50, 16);
-            this.LengthLabel.TabIndex = 1;
-            this.LengthLabel.Text = "Length:";
+            this.LenghtLabel.AutoSize = true;
+            this.LenghtLabel.Location = new System.Drawing.Point(203, 35);
+            this.LenghtLabel.Name = "LenghtLabel";
+            this.LenghtLabel.Size = new System.Drawing.Size(50, 16);
+            this.LenghtLabel.TabIndex = 1;
+            this.LenghtLabel.Text = "Length:";
             // 
             // RectanglesListBox
             // 
@@ -576,8 +576,8 @@
         private System.Windows.Forms.GroupBox RectanglesGroupBox;
         private System.Windows.Forms.TextBox WidthTextBox;
         private System.Windows.Forms.Label WidthLabel;
-        private System.Windows.Forms.TextBox LenghtTextBox;
-        private System.Windows.Forms.Label LengthLabel;
+        private System.Windows.Forms.TextBox LengthTextBox;
+        private System.Windows.Forms.Label LenghtLabel;
         private System.Windows.Forms.ListBox RectanglesListBox;
         private System.Windows.Forms.TextBox ColorTextBox;
         private System.Windows.Forms.Label ColorLabel;
