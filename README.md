@@ -22,4 +22,4 @@
 
 :heavy_check_mark: Lab3 - Сlasses
 
-:x: Lab4 - Techniques for developing Classfile
+:x: Lab4 - Techniques for developing Classes
