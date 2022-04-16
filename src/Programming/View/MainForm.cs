@@ -9,9 +9,9 @@ namespace Programming.View
 {
     public partial class MainForm : Form
     {
-        private readonly System.Drawing.Color _errorColor = System.Drawing.Color.LightPink;
+        private readonly Color _errorColor = Color.LightPink;
 
-        private readonly System.Drawing.Color _correctColor = System.Drawing.Color.White;
+        private readonly Color _correctColor = Color.White;
 
         private Random _random = new Random();
 
@@ -35,6 +35,8 @@ namespace Programming.View
             }
 
             EnumsListBox.SelectedIndex = 0;
+            ValuesListBox.SelectedIndex = 0;
+
             var values = Enum.GetValues(typeof(Seasons));
 
             foreach (var value in values)
@@ -44,6 +46,8 @@ namespace Programming.View
 
             _rectangles = CreateRandomRectangles(5);
             _movies = CreateRandomMovies(5);
+            RectanglesListBox.SelectedIndex = 0;
+            MoviesListBox.SelectedIndex = 0;
         }
 
         private Rectangle[] CreateRandomRectangles(int count)
