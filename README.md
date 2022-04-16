@@ -20,4 +20,6 @@
 
 :heavy_check_mark: Lab2 - Enumeration
 
-:x: Lab3 - Сlasses
+:heavy_check_mark: Lab3 - Сlasses
+
+:x: Lab4 - Techniques for developing Classes
