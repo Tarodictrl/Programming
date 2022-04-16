@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Programming.Model.Classes
+﻿namespace Programming.Model.Classes
 {
     public class Rectangle
     {
+        private static int _allRectanglesCount;
+
         private readonly int _id;
 
         private int _length;
@@ -16,14 +12,18 @@ namespace Programming.Model.Classes
         
         public Rectangle()
         {
+            _allRectanglesCount++;
+            _id = _allRectanglesCount;
         }
 
-        public Rectangle(int length, int width, string color, int id)
+        public Rectangle(int length, int width, string color, Point2D center)
         {
             Length = length;
             Color = color;
             Width = width;
-            _id = id;
+            Center = center;
+            _allRectanglesCount++;
+            _id = AllRectanglesCount;
         }
 
         public int Length
@@ -65,6 +65,16 @@ namespace Programming.Model.Classes
             return $"Rectangle {_id}";
         }
 
+        public static int AllRectanglesCount
+        {
+            get
+            {
+                return _allRectanglesCount;
+            }
+        }
+
         public string Color { get; set; }
+
+        public Point2D Center { get; set; }
     }
 }

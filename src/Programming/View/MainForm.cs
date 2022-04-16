@@ -19,8 +19,6 @@ namespace Programming.View
 
         private Rectangle[] _rectangles;
 
-        private Contact[] _contacts;
-
         private Rectangle _currentRectangle;
 
         private Movie[] _movies;
@@ -59,7 +57,7 @@ namespace Programming.View
                     _random.Next(0, 1000), 
                     _random.Next(0, 1000), 
                     colors[_random.Next(colors.Length)],
-                    i+1);
+                    new Point2D(_random.Next(1, 100), _random.Next(1, 100)));
                 RectanglesListBox.Items.Add(rectangles[i].ToString());
             }
 
@@ -210,6 +208,9 @@ namespace Programming.View
             LengthTextBox.Text = _currentRectangle.Length.ToString();
             WidthTextBox.Text = _currentRectangle.Width.ToString();
             ColorTextBox.Text = _currentRectangle.Color;
+            XTextBox.Text = _currentRectangle.Center.X.ToString();
+            YTextBox.Text = _currentRectangle.Center.Y.ToString();
+            IdTextBox.Text = _currentRectangle.Id.ToString();
         }
 
         private void LengthTextBox_TextChanged(object sender, EventArgs e)
