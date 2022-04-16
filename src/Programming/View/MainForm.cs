@@ -73,9 +73,9 @@ namespace Programming.View
             {
                 movies[i] = new Movie(
                     _titleMovies[i], 
-                    _random.Next(90, 210), 
+                    _random.Next(90, 210),
                     _random.Next(1900, DateTime.Now.Year + 1),
-                    genres[_random.Next(0, genres.Length)], 
+                    genres[_random.Next(0, genres.Length)],
                     Math.Round(_random.NextDouble() * 10, 2),
                     i+1);
                 MoviesListBox.Items.Add(movies[i].ToString());
@@ -164,9 +164,8 @@ namespace Programming.View
         private void ParseButton_Click(object sender, EventArgs e)
         {
             var text = ParseInput.Text;
-            Weekday day;
 
-            if (Enum.TryParse(text, out day))
+            if (Enum.TryParse(text, out Weekday day))
             {
                 OutLabel.Text = $"Это день недели ({day} = {(int)day})";
             }

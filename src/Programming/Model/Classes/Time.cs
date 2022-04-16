@@ -47,7 +47,7 @@
 
         public int Seconds
         {
-            get 
+            get
             { 
                 return _seconds;
             }
