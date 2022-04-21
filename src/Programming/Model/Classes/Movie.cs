@@ -4,7 +4,8 @@ namespace Programming.Model.Classes
 {
     public class Movie
     {
-        
+        private static int _allMoviesCount = 0;
+
         private readonly int _id;
 
         private int _duration;
@@ -15,16 +16,19 @@ namespace Programming.Model.Classes
 
         public Movie()
         {
+            _allMoviesCount++;
+            _id = _allMoviesCount;
         }
 
-        public Movie(string title, int duration, int releaseYear, string genre, double rating, int id)
+        public Movie(string title, int duration, int releaseYear, string genre, double rating)
         {
             Title = title;
             Duration = duration;
             ReleaseYear = releaseYear;
             Genre = genre;
             Rating = rating;
-            _id = id;
+            _allMoviesCount++;
+            _id = _allMoviesCount;
         }
 
         public int Duration

@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Programming.Model.Enums;
 using Programming.Model.Classes;
+using System.Collections.Generic;
 using Rectangle = Programming.Model.Classes.Rectangle;
 
 namespace Programming.View
@@ -17,7 +18,7 @@ namespace Programming.View
 
         private string[] _titleMovies = { "It", "God", "The Godfather", "The Green Mile", "Intouchables" };
 
-        private Rectangle[] _rectangles;
+        private List <Rectangle> _rectangles = new List<Rectangle>();
 
         private Rectangle _currentRectangle;
 
@@ -44,28 +45,8 @@ namespace Programming.View
                 ChooseSeasonComboBox.Items.Add(value);
             }
 
-            _rectangles = CreateRandomRectangles(5);
             _movies = CreateRandomMovies(5);
-            RectanglesListBox.SelectedIndex = 0;
             MoviesListBox.SelectedIndex = 0;
-        }
-
-        private Rectangle[] CreateRandomRectangles(int count)
-        {
-            var colors = Enum.GetNames(typeof(Colors));
-            var rectangles = new Rectangle[count];
-
-            for (var i = 0; i < rectangles.Length; i++)
-            {
-                rectangles[i] = new Rectangle(
-                    _random.Next(0, 1000), 
-                    _random.Next(0, 1000), 
-                    colors[_random.Next(colors.Length)],
-                    new Point2D(_random.Next(1, 100), _random.Next(1, 100)));
-                RectanglesListBox.Items.Add(rectangles[i].ToString());
-            }
-
-            return rectangles;
         }
         
         private Movie[] CreateRandomMovies(int count)
@@ -80,20 +61,19 @@ namespace Programming.View
                     _random.Next(90, 210),
                     _random.Next(1900, DateTime.Now.Year + 1),
                     genres[_random.Next(0, genres.Length)],
-                    Math.Round(_random.NextDouble() * 10, 2),
-                    i+1);
+                    Math.Round(_random.NextDouble() * 10, 2));
                 MoviesListBox.Items.Add(movies[i].ToString());
             }
 
             return movies;
         }
 
-        private int FindRectangleWithMaxWidth(Rectangle[] rectangles)
+        private int FindRectangleWithMaxWidth(List <Rectangle> rectangles)
         {
             var index = 0;
             var maxWidth = 0;
 
-            for (int i = 0; i < rectangles.Length; i++)
+            for (int i = 0; i < rectangles.Count; i++)
             {
                 if (rectangles[i].Width > maxWidth)
                 {
@@ -103,6 +83,21 @@ namespace Programming.View
             }
 
             return index;
+        }
+
+        private void RemoveTextFromTextBox()
+        {
+            IdRectangleTextBox.Clear();
+            XRectangleTextBox.Clear();
+            YRectangleTextBox.Clear();
+            WidthRectangleTextBox.Clear();
+            HeightRectangleTextBox.Clear();
+
+            IdTextBox.Clear();
+            XTextBox.Clear();
+            YTextBox.Clear();
+            WidthTextBox.Clear();
+            HeightTextBox.Clear();
         }
 
         private int FindMovieWithMaxRating(Movie[] movie)
@@ -120,6 +115,20 @@ namespace Programming.View
             }
 
             return index;
+        }
+
+        private void UpdateListBoxes()
+        {
+            AddingRectanglesListBox.Items.Clear();
+            RectanglesListBox.Items.Clear();
+
+            for (int i = 0; i < _rectangles.Count; i++)
+            {
+                AddingRectanglesListBox.Items.Add(_rectangles[i]);
+                RectanglesListBox.Items.Add(_rectangles[i].ToString());
+            }
+
+            AddingRectanglesListBox.SelectedIndex = _rectangles.Count - 1;
         }
 
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -208,7 +217,7 @@ namespace Programming.View
         {
             int rectangleIndex = RectanglesListBox.SelectedIndex;
             _currentRectangle = _rectangles[rectangleIndex];
-            LengthTextBox.Text = _currentRectangle.Length.ToString();
+            HeightTextBox.Text = _currentRectangle.Height.ToString();
             WidthTextBox.Text = _currentRectangle.Width.ToString();
             ColorTextBox.Text = _currentRectangle.Color;
             XTextBox.Text = _currentRectangle.Center.X.ToString();
@@ -216,16 +225,16 @@ namespace Programming.View
             IdTextBox.Text = _currentRectangle.Id.ToString();
         }
 
-        private void LengthTextBox_TextChanged(object sender, EventArgs e)
+        private void HeightTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                _currentRectangle.Length = int.Parse(LengthTextBox.Text);
-                LengthTextBox.BackColor = _correctColor;
+                _currentRectangle.Height = int.Parse(HeightTextBox.Text);
+                HeightTextBox.BackColor = _correctColor;
             }
             catch
             {
-                LengthTextBox.BackColor = _errorColor;
+                HeightTextBox.BackColor = _errorColor;
             }
         }
 
@@ -310,6 +319,89 @@ namespace Programming.View
         private void ColorTextBox_TextChanged(object sender, EventArgs e)
         {
             _currentRectangle.Color = ColorTextBox.Text;
+        }
+
+        private void AddRectangleButton_Click(object sender, EventArgs e)
+        {
+            _rectangles.Add(new Rectangle(
+                _random.Next(0, 100),
+                _random.Next(0, 100),
+                "Green",
+                new Point2D(_random.Next(0, 425), _random.Next(0, 587))
+                ));
+            UpdateListBoxes();
+        }
+
+        private void AddingRectanglesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int rectangleIndex = AddingRectanglesListBox.SelectedIndex;
+            _currentRectangle = _rectangles[rectangleIndex];
+            HeightRectangleTextBox.Text = _currentRectangle.Height.ToString();
+            WidthRectangleTextBox.Text = _currentRectangle.Width.ToString();
+            XRectangleTextBox.Text = _currentRectangle.Center.X.ToString();
+            YRectangleTextBox.Text = _currentRectangle.Center.Y.ToString();
+            IdRectangleTextBox.Text = _currentRectangle.Id.ToString();
+        }
+
+        private void RemoveRectangleButton_Click(object sender, EventArgs e)
+        {
+            if (_rectangles.Count > 0)
+            {
+                int rectangleIndex = AddingRectanglesListBox.SelectedIndex;
+                _rectangles.RemoveAt(rectangleIndex);
+                UpdateListBoxes();
+            }
+        }
+
+        private void TabControl_Selected(object sender, TabControlEventArgs e)
+        {
+            UpdateListBoxes();
+        }
+
+        private void WidthRectangleTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _currentRectangle.Width = int.Parse(WidthRectangleTextBox.Text);
+                WidthRectangleTextBox.BackColor = _correctColor;
+            }
+            catch
+            {
+                WidthRectangleTextBox.BackColor = _errorColor;
+            }
+        }
+
+        private void HeightRectangleTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _currentRectangle.Width = int.Parse(HeightRectangleTextBox.Text);
+                HeightRectangleTextBox.BackColor = _correctColor;
+            }
+            catch
+            {
+                HeightRectangleTextBox.BackColor = _errorColor;
+            }
+        }
+
+        private void AddRectangleButton_MouseEnter(object sender, EventArgs e)
+        {
+            AddRectangleButton.Image = Properties.Resources.rectangle_add_24x24;
+        }
+
+        private void AddRectangleButton_MouseLeave(object sender, EventArgs e)
+        {
+            AddRectangleButton.Image = Properties.Resources.rectangle_add_24x24_uncolor;
+        }
+
+        private void RemoveRectangleButton_MouseEnter(object sender, EventArgs e)
+        {
+            RemoveRectangleButton.Image = Properties.Resources.rectangle_remove_24x24;
+        }
+
+        private void RemoveRectangleButton_MouseLeave(object sender, EventArgs e)
+        {
+            RemoveRectangleButton.Image = Properties.Resources.rectangle_remove_24x24_uncolor;
         }
     }
 }

@@ -61,9 +61,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Classes\CollisionManager.cs" />
-    <Compile Include="Model\Classes\Point2D.cs" />
-    <Compile Include="Model\Classes\Ring.cs" />
+    <Compile Include="Model\Geometry\CollisionManager.cs" />
+    <Compile Include="Model\Geometry\Point2D.cs" />
+    <Compile Include="Model\Geometry\Ring.cs" />
     <Compile Include="Model\Classes\Subject.cs" />
     <Compile Include="Model\Classes\Flight.cs" />
     <Compile Include="Model\Classes\Movie.cs" />
@@ -126,5 +126,19 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\rectangle_add_24x24.png" />
+    <None Include="Resources\rectangle_remove_24x24_uncolor1.png" />
+    <None Include="Resources\rectangle_remove_24x241.png" />
+    <None Include="Resources\rectangle_edit_24x24_uncolor1.png" />
+    <None Include="Resources\rectangle_edit_24x241.png" />
+    <None Include="Resources\rectangle_add_24x24_uncolor1.png" />
+    <None Include="Resources\rectangle_add_24x241.png" />
+    <Content Include="Resources\rectangle_add_24x24_uncolor.png" />
+    <Content Include="Resources\rectangle_edit_24x24.png" />
+    <Content Include="Resources\rectangle_edit_24x24_uncolor.png" />
+    <Content Include="Resources\rectangle_remove_24x24.png" />
+    <Content Include="Resources\rectangle_remove_24x24_uncolor.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
