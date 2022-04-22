@@ -4,14 +4,12 @@ namespace Programming.Model.Classes
 {
     public class CollisionManager
     {
-        public static bool IsCollision(Rectangle rectangle1, Rectangle rectangle2)
+        public static bool IsCollision(Rectangle rect1, Rectangle rect2)
         {
-                int dX = Math.Abs(rectangle1.Center.X - rectangle2.Center.X);
-                int dY = Math.Abs(rectangle1.Center.Y - rectangle2.Center.Y);
-                int widthDifference = Math.Abs(rectangle1.Width + rectangle2.Width) / 2;
-                int lengthDifference = Math.Abs(rectangle1.Height + rectangle2.Height) / 2;
-
-                return (dX < widthDifference) && (dY < lengthDifference);
+            return rect1.Center.X < rect2.Center.X + rect2.Width &&
+                rect1.Center.X + rect1.Width > rect2.Center.X &&
+                rect1.Center.Y < rect2.Center.Y + rect2.Height &&
+                rect1.Height + rect1.Center.Y > rect2.Center.Y;
         }
 
         public static bool IsCollision(Ring ring1, Ring ring2)

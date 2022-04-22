@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Model\Geometry\CollisionManager.cs" />
     <Compile Include="Model\Geometry\Point2D.cs" />
+    <Compile Include="Model\Geometry\RectangleFactory.cs" />
     <Compile Include="Model\Geometry\Ring.cs" />
     <Compile Include="Model\Classes\Subject.cs" />
     <Compile Include="Model\Classes\Flight.cs" />

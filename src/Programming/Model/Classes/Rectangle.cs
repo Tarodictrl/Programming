@@ -18,7 +18,7 @@ namespace Programming.Model.Classes
             _id = _allRectanglesCount;
         }
 
-        public Rectangle(int height, int width, Color colour, Point2D center)
+        public Rectangle(int height, int width, string colour, Point2D center)
         {
             Height = height;
             Colour = colour;
@@ -80,7 +80,7 @@ namespace Programming.Model.Classes
             }
         }
 
-        public Color Colour { get; set; }
+        public string Colour { get; set; }
 
         public Point2D Center { get; set; }
     }

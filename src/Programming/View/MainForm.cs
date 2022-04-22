@@ -4,6 +4,8 @@ using System.Windows.Forms;
 using Programming.Model.Enums;
 using Programming.Model.Classes;
 using System.Collections.Generic;
+using Programming.Model.Geometry;
+
 using Rectangle = Programming.Model.Classes.Rectangle;
 
 namespace Programming.View
@@ -111,7 +113,6 @@ namespace Programming.View
             WidthRectangleTextBox.BackColor = _correctColor;
             HeightRectangleTextBox.BackColor = _correctColor;
 
-
             IdTextBox.Clear();
             XTextBox.Clear();
             YTextBox.Clear();
@@ -158,7 +159,6 @@ namespace Programming.View
 
         private void FindCollisions()
         {
-            
             for (int n = 0; n < _rectangles.Count; n++)
             {
                 CanvasPanel.Controls[n].BackColor = _unIntersect;
@@ -362,27 +362,17 @@ namespace Programming.View
             }
         }
 
-
         private void AddRectangleButton_Click(object sender, EventArgs e)
         {
-            var rectangleHeight = _random.Next(0, 200);
-            var rectangleWidth = _random.Next(0, 100);
-            var rectangleX = _random.Next(0, 425);
-            var rectangleY = _random.Next(0, 425);
-            var rectanglePosition = new Point2D(rectangleX, rectangleY);
-
-            _rectangles.Add(new Rectangle(
-                rectangleHeight,
-                rectangleWidth,
-                _unIntersect,
-                rectanglePosition
-                ));;
+            var newRectangle = RectangleFactory.Randomize();
+            _rectangles.Add(newRectangle);
 
             Panel rectanglePanel = new Panel();
-            rectanglePanel.Width = rectangleHeight;
-            rectanglePanel.Height = rectangleHeight;
-            rectanglePanel.Location = new Point(rectangleX, rectangleY);
+            rectanglePanel.Width = newRectangle.Width;
+            rectanglePanel.Height = newRectangle.Height;
+            rectanglePanel.Location = new Point(newRectangle.Center.X, newRectangle.Center.Y);
             rectanglePanel.BackColor = _unIntersect;
+            
             _rectanglePanels.Add(rectanglePanel);
             CanvasPanel.Controls.Add(rectanglePanel);
 
