@@ -91,7 +91,13 @@ namespace Programming.View
             return index;
         }
 
-        private void RemoveTextFromTextBox()
+        private void UpdateRectangleInfo(Rectangle rectangle)
+        {
+            int index = AddingRectanglesListBox.FindString(rectangle.Id.ToString());
+            AddingRectanglesListBox.Items[index] = rectangle.GetRectangleInfo();
+        }
+
+        private void ClearRectangleInfo()
         {
             IdRectangleTextBox.Clear();
             XRectangleTextBox.Clear();
@@ -99,11 +105,24 @@ namespace Programming.View
             WidthRectangleTextBox.Clear();
             HeightRectangleTextBox.Clear();
 
+            IdRectangleTextBox.BackColor = _correctColor;
+            XRectangleTextBox.BackColor = _correctColor;
+            YRectangleTextBox.BackColor = _correctColor;
+            WidthRectangleTextBox.BackColor = _correctColor;
+            HeightRectangleTextBox.BackColor = _correctColor;
+
+
             IdTextBox.Clear();
             XTextBox.Clear();
             YTextBox.Clear();
             WidthTextBox.Clear();
             HeightTextBox.Clear();
+
+            IdTextBox.BackColor = _correctColor;
+            XTextBox.BackColor = _correctColor;
+            YTextBox.BackColor = _correctColor;
+            WidthTextBox.BackColor = _correctColor;
+            HeightTextBox.BackColor = _correctColor;
         }
 
         private int FindMovieWithMaxRating(Movie[] movie)
@@ -137,12 +156,12 @@ namespace Programming.View
             AddingRectanglesListBox.SelectedIndex = _rectangles.Count - 1;
         }
 
-        private void UpdateCanvasPanel()
+        private void FindCollisions()
         {
-            CanvasPanel.Controls.Clear();
+            
             for (int n = 0; n < _rectangles.Count; n++)
             {
-                _rectangles[n].Colour = _unIntersect;
+                CanvasPanel.Controls[n].BackColor = _unIntersect;
             }
 
             for (int i = 0; i < _rectangles.Count; i++)
@@ -151,20 +170,10 @@ namespace Programming.View
                 {
                     if (CollisionManager.IsCollision(_rectangles[i], _rectangles[j]))
                     {
-                        _rectangles[i].Colour = _intersect;
-                        _rectangles[j].Colour = _intersect;
+                        CanvasPanel.Controls[i].BackColor = _intersect;
+                        CanvasPanel.Controls[j].BackColor = _intersect;
                     }
                 }
-            }
-
-            foreach (var rectangle in _rectangles)
-            {
-                Panel panel = new Panel();
-                panel.Location = new System.Drawing.Point(rectangle.Center.X, rectangle.Center.Y);
-                panel.BackColor = rectangle.Colour;
-                panel.Size = new System.Drawing.Size(rectangle.Width, rectangle.Height);
-                _rectanglePanels.Add(panel);
-                CanvasPanel.Controls.Add(panel);
             }
         }
 
@@ -368,8 +377,16 @@ namespace Programming.View
                 _unIntersect,
                 rectanglePosition
                 ));;
+
+            Panel rectanglePanel = new Panel();
+            rectanglePanel.Width = rectangleHeight;
+            rectanglePanel.Height = rectangleHeight;
+            rectanglePanel.Location = new Point(rectangleX, rectangleY);
+            rectanglePanel.BackColor = _unIntersect;
+            _rectanglePanels.Add(rectanglePanel);
+            CanvasPanel.Controls.Add(rectanglePanel);
+
             UpdateListBoxes();
-            UpdateCanvasPanel();
         }
 
         private void AddingRectanglesListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -395,7 +412,10 @@ namespace Programming.View
                 _rectanglePanels.RemoveAt(rectangleIndex);
                 CanvasPanel.Controls.RemoveAt(rectangleIndex);
                 UpdateListBoxes();
-                UpdateCanvasPanel();
+                FindCollisions();
+            }
+            if (_rectangles.Count == 0) {
+               ClearRectangleInfo();
             }
         }
 
@@ -410,7 +430,9 @@ namespace Programming.View
             {
                 _currentRectangle.Width = int.Parse(WidthRectangleTextBox.Text);
                 WidthRectangleTextBox.BackColor = _correctColor;
-                UpdateCanvasPanel();
+                CanvasPanel.Controls[AddingRectanglesListBox.SelectedIndex].Width = _currentRectangle.Width;
+                FindCollisions();
+                UpdateRectangleInfo(_currentRectangle);
             }
             catch
             {
@@ -424,7 +446,9 @@ namespace Programming.View
             {
                 _currentRectangle.Height = int.Parse(HeightRectangleTextBox.Text);
                 HeightRectangleTextBox.BackColor = _correctColor;
-                UpdateCanvasPanel();
+                CanvasPanel.Controls[AddingRectanglesListBox.SelectedIndex].Height = _currentRectangle.Height;
+                FindCollisions();
+                UpdateRectangleInfo(_currentRectangle);
             }
             catch
             {
@@ -468,7 +492,9 @@ namespace Programming.View
             {
                 _currentRectangle.Center.X = int.Parse(XRectangleTextBox.Text);
                 XRectangleTextBox.BackColor = _correctColor;
-                UpdateCanvasPanel();
+                CanvasPanel.Controls[AddingRectanglesListBox.SelectedIndex].Location = new Point(_currentRectangle.Center.X, _currentRectangle.Center.Y);
+                FindCollisions();
+                UpdateRectangleInfo(_currentRectangle);
             }
             catch
             {
@@ -480,9 +506,13 @@ namespace Programming.View
         {
             try
             {
-                _currentRectangle.Center.Y = int.Parse(YRectangleTextBox.Text);
-                YRectangleTextBox.BackColor = _correctColor;
-                UpdateCanvasPanel();
+                if (AddingRectanglesListBox.SelectedIndex >= 0) {
+                    _currentRectangle.Center.Y = int.Parse(YRectangleTextBox.Text);
+                    YRectangleTextBox.BackColor = _correctColor;
+                    CanvasPanel.Controls[AddingRectanglesListBox.SelectedIndex].Location = new Point(_currentRectangle.Center.X, _currentRectangle.Center.Y);
+                    FindCollisions();
+                    UpdateRectangleInfo(_currentRectangle);
+                }
             }
             catch
             {
