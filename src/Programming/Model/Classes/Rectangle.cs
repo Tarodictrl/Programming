@@ -1,4 +1,6 @@
-﻿namespace Programming.Model.Classes
+﻿using System.Drawing;
+
+namespace Programming.Model.Classes
 {
     public class Rectangle
     {
@@ -16,10 +18,10 @@
             _id = _allRectanglesCount;
         }
 
-        public Rectangle(int height, int width, string color, Point2D center)
+        public Rectangle(int height, int width, Color colour, Point2D center)
         {
             Height = height;
-            Color = color;
+            Colour = colour;
             Width = width;
             Center = center;
             _allRectanglesCount++;
@@ -78,7 +80,7 @@
             }
         }
 
-        public string Color { get; set; }
+        public Color Colour { get; set; }
 
         public Point2D Center { get; set; }
     }

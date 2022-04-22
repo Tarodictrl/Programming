@@ -14,6 +14,10 @@ namespace Programming.View
 
         private readonly Color _correctColor = Color.White;
 
+        private readonly Color _intersect = Color.FromArgb(127, 255, 127, 127);
+
+        private readonly Color _unIntersect = Color.FromArgb(127, 127, 255, 127);
+
         private Random _random = new Random();
 
         private string[] _titleMovies = { "It", "God", "The Godfather", "The Green Mile", "Intouchables" };
@@ -21,6 +25,8 @@ namespace Programming.View
         private List <Rectangle> _rectangles = new List<Rectangle>();
 
         private Rectangle _currentRectangle;
+
+        private List <Panel> _rectanglePanels = new List<Panel>();
 
         private Movie[] _movies;
 
@@ -124,11 +130,42 @@ namespace Programming.View
 
             for (int i = 0; i < _rectangles.Count; i++)
             {
-                AddingRectanglesListBox.Items.Add(_rectangles[i]);
+                AddingRectanglesListBox.Items.Add(_rectangles[i].GetRectangleInfo());
                 RectanglesListBox.Items.Add(_rectangles[i].ToString());
             }
 
             AddingRectanglesListBox.SelectedIndex = _rectangles.Count - 1;
+        }
+
+        private void UpdateCanvasPanel()
+        {
+            CanvasPanel.Controls.Clear();
+            for (int n = 0; n < _rectangles.Count; n++)
+            {
+                _rectangles[n].Colour = _unIntersect;
+            }
+
+            for (int i = 0; i < _rectangles.Count; i++)
+            {
+                for (int j = i + 1; j < _rectangles.Count; j++)
+                {
+                    if (CollisionManager.IsCollision(_rectangles[i], _rectangles[j]))
+                    {
+                        _rectangles[i].Colour = _intersect;
+                        _rectangles[j].Colour = _intersect;
+                    }
+                }
+            }
+
+            foreach (var rectangle in _rectangles)
+            {
+                Panel panel = new Panel();
+                panel.Location = new System.Drawing.Point(rectangle.Center.X, rectangle.Center.Y);
+                panel.BackColor = rectangle.Colour;
+                panel.Size = new System.Drawing.Size(rectangle.Width, rectangle.Height);
+                _rectanglePanels.Add(panel);
+                CanvasPanel.Controls.Add(panel);
+            }
         }
 
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -219,7 +256,7 @@ namespace Programming.View
             _currentRectangle = _rectangles[rectangleIndex];
             HeightTextBox.Text = _currentRectangle.Height.ToString();
             WidthTextBox.Text = _currentRectangle.Width.ToString();
-            ColorTextBox.Text = _currentRectangle.Color;
+            ColorTextBox.Text = _currentRectangle.Colour.ToString();
             XTextBox.Text = _currentRectangle.Center.X.ToString();
             YTextBox.Text = _currentRectangle.Center.Y.ToString();
             IdTextBox.Text = _currentRectangle.Id.ToString();
@@ -316,31 +353,37 @@ namespace Programming.View
             }
         }
 
-        private void ColorTextBox_TextChanged(object sender, EventArgs e)
-        {
-            _currentRectangle.Color = ColorTextBox.Text;
-        }
 
         private void AddRectangleButton_Click(object sender, EventArgs e)
         {
+            var rectangleHeight = _random.Next(0, 200);
+            var rectangleWidth = _random.Next(0, 100);
+            var rectangleX = _random.Next(0, 425);
+            var rectangleY = _random.Next(0, 425);
+            var rectanglePosition = new Point2D(rectangleX, rectangleY);
+
             _rectangles.Add(new Rectangle(
-                _random.Next(0, 100),
-                _random.Next(0, 100),
-                "Green",
-                new Point2D(_random.Next(0, 425), _random.Next(0, 587))
-                ));
+                rectangleHeight,
+                rectangleWidth,
+                _unIntersect,
+                rectanglePosition
+                ));;
             UpdateListBoxes();
+            UpdateCanvasPanel();
         }
 
         private void AddingRectanglesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int rectangleIndex = AddingRectanglesListBox.SelectedIndex;
-            _currentRectangle = _rectangles[rectangleIndex];
-            HeightRectangleTextBox.Text = _currentRectangle.Height.ToString();
-            WidthRectangleTextBox.Text = _currentRectangle.Width.ToString();
-            XRectangleTextBox.Text = _currentRectangle.Center.X.ToString();
-            YRectangleTextBox.Text = _currentRectangle.Center.Y.ToString();
-            IdRectangleTextBox.Text = _currentRectangle.Id.ToString();
+            if (AddingRectanglesListBox.SelectedIndex != -1)
+            {
+                int rectangleIndex = AddingRectanglesListBox.SelectedIndex;
+                _currentRectangle = _rectangles[rectangleIndex];
+                HeightRectangleTextBox.Text = _currentRectangle.Height.ToString();
+                WidthRectangleTextBox.Text = _currentRectangle.Width.ToString();
+                XRectangleTextBox.Text = _currentRectangle.Center.X.ToString();
+                YRectangleTextBox.Text = _currentRectangle.Center.Y.ToString();
+                IdRectangleTextBox.Text = _currentRectangle.Id.ToString();
+            }
         }
 
         private void RemoveRectangleButton_Click(object sender, EventArgs e)
@@ -349,7 +392,10 @@ namespace Programming.View
             {
                 int rectangleIndex = AddingRectanglesListBox.SelectedIndex;
                 _rectangles.RemoveAt(rectangleIndex);
+                _rectanglePanels.RemoveAt(rectangleIndex);
+                CanvasPanel.Controls.RemoveAt(rectangleIndex);
                 UpdateListBoxes();
+                UpdateCanvasPanel();
             }
         }
 
@@ -364,6 +410,7 @@ namespace Programming.View
             {
                 _currentRectangle.Width = int.Parse(WidthRectangleTextBox.Text);
                 WidthRectangleTextBox.BackColor = _correctColor;
+                UpdateCanvasPanel();
             }
             catch
             {
@@ -375,8 +422,9 @@ namespace Programming.View
         {
             try
             {
-                _currentRectangle.Width = int.Parse(HeightRectangleTextBox.Text);
+                _currentRectangle.Height = int.Parse(HeightRectangleTextBox.Text);
                 HeightRectangleTextBox.BackColor = _correctColor;
+                UpdateCanvasPanel();
             }
             catch
             {
@@ -402,6 +450,44 @@ namespace Programming.View
         private void RemoveRectangleButton_MouseLeave(object sender, EventArgs e)
         {
             RemoveRectangleButton.Image = Properties.Resources.rectangle_remove_24x24_uncolor;
+        }
+
+        private void RectangleTabPage_Enter(object sender, EventArgs e)
+        {
+            this.FormBorderStyle = FormBorderStyle.Sizable;
+        }
+
+        private void RectangleTabPage_Leave(object sender, EventArgs e)
+        {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+        }
+
+        private void XRectangleTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _currentRectangle.Center.X = int.Parse(XRectangleTextBox.Text);
+                XRectangleTextBox.BackColor = _correctColor;
+                UpdateCanvasPanel();
+            }
+            catch
+            {
+                XRectangleTextBox.BackColor = _errorColor;
+            }
+        }
+
+        private void YRectangleTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _currentRectangle.Center.Y = int.Parse(YRectangleTextBox.Text);
+                YRectangleTextBox.BackColor = _correctColor;
+                UpdateCanvasPanel();
+            }
+            catch
+            {
+                YRectangleTextBox.BackColor = _errorColor;
+            }
         }
     }
 }
