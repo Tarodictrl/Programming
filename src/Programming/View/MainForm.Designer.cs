@@ -120,6 +120,9 @@
             // 
             // SeasonHandleGroupBox
             // 
+            this.SeasonHandleGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SeasonHandleGroupBox.Controls.Add(this.GoButton);
             this.SeasonHandleGroupBox.Controls.Add(this.ChooseSeasonComboBox);
             this.SeasonHandleGroupBox.Controls.Add(this.label5);
@@ -164,6 +167,9 @@
             // 
             // WeekdayParsingGroupBox
             // 
+            this.WeekdayParsingGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.WeekdayParsingGroupBox.Controls.Add(this.OutLabel);
             this.WeekdayParsingGroupBox.Controls.Add(this.ParseButton);
             this.WeekdayParsingGroupBox.Controls.Add(this.ParseInput);
@@ -218,17 +224,20 @@
             // 
             // EnumerationsGroupBox
             // 
+            this.EnumerationsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.EnumerationsGroupBox.Controls.Add(this.IntValueTextBox);
             this.EnumerationsGroupBox.Controls.Add(this.label3);
             this.EnumerationsGroupBox.Controls.Add(this.ValuesListBox);
             this.EnumerationsGroupBox.Controls.Add(this.label2);
             this.EnumerationsGroupBox.Controls.Add(this.EnumsListBox);
             this.EnumerationsGroupBox.Controls.Add(this.label1);
-            this.EnumerationsGroupBox.Location = new System.Drawing.Point(4, 4);
+            this.EnumerationsGroupBox.Location = new System.Drawing.Point(11, 4);
             this.EnumerationsGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.EnumerationsGroupBox.Name = "EnumerationsGroupBox";
             this.EnumerationsGroupBox.Padding = new System.Windows.Forms.Padding(4);
-            this.EnumerationsGroupBox.Size = new System.Drawing.Size(824, 415);
+            this.EnumerationsGroupBox.Size = new System.Drawing.Size(824, 713);
             this.EnumerationsGroupBox.TabIndex = 0;
             this.EnumerationsGroupBox.TabStop = false;
             this.EnumerationsGroupBox.Text = "Enumerations";
@@ -307,6 +316,7 @@
             this.TabControl.SelectedIndex = 0;
             this.TabControl.Size = new System.Drawing.Size(847, 750);
             this.TabControl.TabIndex = 0;
+            this.TabControl.SelectedIndexChanged += new System.EventHandler(this.TabControl_SelectedIndexChanged);
             this.TabControl.Selected += new System.Windows.Forms.TabControlEventHandler(this.TabControl_Selected);
             // 
             // ClassesTabPage
@@ -324,6 +334,8 @@
             // 
             // MoviesGroupBox
             // 
+            this.MoviesGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.MoviesGroupBox.Controls.Add(this.RatingTextBox);
             this.MoviesGroupBox.Controls.Add(this.RatingLabel);
             this.MoviesGroupBox.Controls.Add(this.GenreTextBox);
@@ -336,11 +348,11 @@
             this.MoviesGroupBox.Controls.Add(this.TitleTextBox);
             this.MoviesGroupBox.Controls.Add(this.TitleLabel);
             this.MoviesGroupBox.Controls.Add(this.MoviesListBox);
-            this.MoviesGroupBox.Location = new System.Drawing.Point(424, 4);
+            this.MoviesGroupBox.Location = new System.Drawing.Point(422, 4);
             this.MoviesGroupBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MoviesGroupBox.Name = "MoviesGroupBox";
             this.MoviesGroupBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MoviesGroupBox.Size = new System.Drawing.Size(404, 704);
+            this.MoviesGroupBox.Size = new System.Drawing.Size(413, 704);
             this.MoviesGroupBox.TabIndex = 1;
             this.MoviesGroupBox.TabStop = false;
             this.MoviesGroupBox.Text = "Movies";
@@ -458,6 +470,8 @@
             // 
             // RectanglesGroupBox
             // 
+            this.RectanglesGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.RectanglesGroupBox.Controls.Add(this.IdTextBox);
             this.RectanglesGroupBox.Controls.Add(this.label8);
             this.RectanglesGroupBox.Controls.Add(this.YTextBox);
@@ -623,8 +637,6 @@
             this.RectangleTabPage.TabIndex = 2;
             this.RectangleTabPage.Text = "Rectangles";
             this.RectangleTabPage.UseVisualStyleBackColor = true;
-            this.RectangleTabPage.Enter += new System.EventHandler(this.RectangleTabPage_Enter);
-            this.RectangleTabPage.Leave += new System.EventHandler(this.RectangleTabPage_Leave);
             // 
             // RectangleGroupBox
             // 
@@ -754,9 +766,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CanvasPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.CanvasPanel.Location = new System.Drawing.Point(396, 18);
+            this.CanvasPanel.Location = new System.Drawing.Point(370, 21);
             this.CanvasPanel.Name = "CanvasPanel";
-            this.CanvasPanel.Size = new System.Drawing.Size(425, 683);
+            this.CanvasPanel.Size = new System.Drawing.Size(443, 669);
             this.CanvasPanel.TabIndex = 3;
             // 
             // RemoveRectangleButton
@@ -766,7 +778,7 @@
             this.RemoveRectangleButton.Image = global::Programming.Properties.Resources.rectangle_remove_24x24_uncolor;
             this.RemoveRectangleButton.Location = new System.Drawing.Point(219, 237);
             this.RemoveRectangleButton.Name = "RemoveRectangleButton";
-            this.RemoveRectangleButton.Size = new System.Drawing.Size(47, 45);
+            this.RemoveRectangleButton.Size = new System.Drawing.Size(41, 38);
             this.RemoveRectangleButton.TabIndex = 2;
             this.RemoveRectangleButton.UseVisualStyleBackColor = true;
             this.RemoveRectangleButton.Click += new System.EventHandler(this.RemoveRectangleButton_Click);
@@ -778,9 +790,9 @@
             this.AddRectangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddRectangleButton.ForeColor = System.Drawing.Color.White;
             this.AddRectangleButton.Image = global::Programming.Properties.Resources.rectangle_add_24x24_uncolor;
-            this.AddRectangleButton.Location = new System.Drawing.Point(87, 237);
+            this.AddRectangleButton.Location = new System.Drawing.Point(73, 237);
             this.AddRectangleButton.Name = "AddRectangleButton";
-            this.AddRectangleButton.Size = new System.Drawing.Size(49, 45);
+            this.AddRectangleButton.Size = new System.Drawing.Size(41, 38);
             this.AddRectangleButton.TabIndex = 1;
             this.AddRectangleButton.UseVisualStyleBackColor = true;
             this.AddRectangleButton.Click += new System.EventHandler(this.AddRectangleButton_Click);
@@ -801,11 +813,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(847, 750);
             this.Controls.Add(this.TabControl);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.Text = "Programming demo";

@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
+using Programming.Model.Geometry;
 
-namespace Programming.Model.Classes
+namespace Programming.Model
 {
     public class Rectangle
     {

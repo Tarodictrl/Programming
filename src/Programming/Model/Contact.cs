@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Programming.Model.Classes
+namespace Programming.Model
 {
     public class Contact
     {

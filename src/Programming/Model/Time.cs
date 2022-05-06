@@ -1,23 +1,40 @@
-﻿namespace Programming.Model.Classes
+﻿namespace Programming.Model
 {
-    public class Song
+    public class Time
     {
+        private int _hours;
+
         private int _minutes;
 
         private int _seconds;
 
-        public Song(string title, string artist, string description, int minutes, int seconds)
+        public Time()
         {
-            Title = title;
-            Artist = artist;
-            Description = description;
+        }
+
+        public Time(int hours, int minutes, int seconds)
+        {
+            Hours = hours;
             Minutes = minutes;
             Seconds = seconds;
         }
 
+        public int Hours
+        {
+            get
+            {
+                return _hours; 
+            }
+            set
+            {
+                Validator.AssertValueInRange(value, 0, 24, nameof(Hours));
+                _hours = value;
+            }
+        }
+
         public int Minutes
         {
-            get 
+            get
             { 
                 return _minutes; 
             }
@@ -32,7 +49,7 @@
         {
             get
             { 
-                return _seconds; 
+                return _seconds;
             }
             set
             {
@@ -40,11 +57,5 @@
                 _seconds = value;
             }
         }
-
-        public string Title { get; set; }
-
-        public string Artist { get; set; }
-
-        public string Description { get; set; }
     }
 }

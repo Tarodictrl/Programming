@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Programming.Model.Classes
+namespace Programming.Model.Geometry
 {
     public class CollisionManager
     {

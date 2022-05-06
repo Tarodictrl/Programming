@@ -2,11 +2,10 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Programming.Model.Enums;
-using Programming.Model.Classes;
+using Programming.Model;
 using System.Collections.Generic;
 using Programming.Model.Geometry;
-
-using Rectangle = Programming.Model.Classes.Rectangle;
+using Rectangle = Programming.Model.Rectangle;
 
 namespace Programming.View
 {
@@ -153,8 +152,7 @@ namespace Programming.View
                 AddingRectanglesListBox.Items.Add(_rectangles[i].GetRectangleInfo());
                 RectanglesListBox.Items.Add(_rectangles[i].ToString());
             }
-
-            AddingRectanglesListBox.SelectedIndex = _rectangles.Count - 1;
+             AddingRectanglesListBox.SelectedIndex = _rectangles.Count - 1;
         }
 
         private void FindCollisions()
@@ -162,6 +160,7 @@ namespace Programming.View
             for (int n = 0; n < _rectangles.Count; n++)
             {
                 CanvasPanel.Controls[n].BackColor = _unIntersect;
+                _rectangles[n].Colour = "Green";
             }
 
             for (int i = 0; i < _rectangles.Count; i++)
@@ -170,6 +169,9 @@ namespace Programming.View
                 {
                     if (CollisionManager.IsCollision(_rectangles[i], _rectangles[j]))
                     {
+                        _rectangles[i].Colour = "Red";
+                        _rectangles[j].Colour = "Red";
+
                         CanvasPanel.Controls[i].BackColor = _intersect;
                         CanvasPanel.Controls[j].BackColor = _intersect;
                     }
@@ -262,13 +264,16 @@ namespace Programming.View
         private void RectanglesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int rectangleIndex = RectanglesListBox.SelectedIndex;
-            _currentRectangle = _rectangles[rectangleIndex];
-            HeightTextBox.Text = _currentRectangle.Height.ToString();
-            WidthTextBox.Text = _currentRectangle.Width.ToString();
-            ColorTextBox.Text = _currentRectangle.Colour.ToString();
-            XTextBox.Text = _currentRectangle.Center.X.ToString();
-            YTextBox.Text = _currentRectangle.Center.Y.ToString();
-            IdTextBox.Text = _currentRectangle.Id.ToString();
+            if (rectangleIndex >= 0)
+            {
+                _currentRectangle = _rectangles[rectangleIndex];
+                HeightTextBox.Text = _currentRectangle.Height.ToString();
+                WidthTextBox.Text = _currentRectangle.Width.ToString();
+                ColorTextBox.Text = _currentRectangle.Colour.ToString();
+                XTextBox.Text = _currentRectangle.Center.X.ToString();
+                YTextBox.Text = _currentRectangle.Center.Y.ToString();
+                IdTextBox.Text = _currentRectangle.Id.ToString();
+            }
         }
 
         private void HeightTextBox_TextChanged(object sender, EventArgs e)
@@ -299,7 +304,10 @@ namespace Programming.View
 
         private void FindButton_Click(object sender, EventArgs e)
         {
-            RectanglesListBox.SelectedIndex = FindRectangleWithMaxWidth(_rectangles);
+            if (_rectangles.Count > 0)
+            {
+                RectanglesListBox.SelectedIndex = FindRectangleWithMaxWidth(_rectangles);
+            }
         }
 
         private void MoviesListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -364,15 +372,18 @@ namespace Programming.View
 
         private void AddRectangleButton_Click(object sender, EventArgs e)
         {
-            var newRectangle = RectangleFactory.Randomize();
+            var newRectangle = RectangleFactory.Randomize(CanvasPanel.Width, CanvasPanel.Height);
             _rectangles.Add(newRectangle);
 
-            Panel rectanglePanel = new Panel();
-            rectanglePanel.Width = newRectangle.Width;
-            rectanglePanel.Height = newRectangle.Height;
-            rectanglePanel.Location = new Point(newRectangle.Center.X, newRectangle.Center.Y);
-            rectanglePanel.BackColor = _unIntersect;
-            
+            Panel rectanglePanel = new Panel
+            {
+                Width = newRectangle.Width,
+                Height = newRectangle.Height,
+                Location = new Point(newRectangle.Center.X, newRectangle.Center.Y),
+                BackColor = _unIntersect,
+                BorderStyle = BorderStyle.FixedSingle
+            };
+
             _rectanglePanels.Add(rectanglePanel);
             CanvasPanel.Controls.Add(rectanglePanel);
 
@@ -416,6 +427,8 @@ namespace Programming.View
 
         private void WidthRectangleTextBox_TextChanged(object sender, EventArgs e)
         {
+            if (RectanglesListBox.SelectedIndex == -1) return;
+
             try
             {
                 _currentRectangle.Width = int.Parse(WidthRectangleTextBox.Text);
@@ -432,6 +445,8 @@ namespace Programming.View
 
         private void HeightRectangleTextBox_TextChanged(object sender, EventArgs e)
         {
+            if (RectanglesListBox.SelectedIndex == -1) return;
+
             try
             {
                 _currentRectangle.Height = int.Parse(HeightRectangleTextBox.Text);
@@ -466,18 +481,10 @@ namespace Programming.View
             RemoveRectangleButton.Image = Properties.Resources.rectangle_remove_24x24_uncolor;
         }
 
-        private void RectangleTabPage_Enter(object sender, EventArgs e)
-        {
-            this.FormBorderStyle = FormBorderStyle.Sizable;
-        }
-
-        private void RectangleTabPage_Leave(object sender, EventArgs e)
-        {
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-        }
-
         private void XRectangleTextBox_TextChanged(object sender, EventArgs e)
         {
+            if (RectanglesListBox.SelectedIndex == -1) return;
+
             try
             {
                 _currentRectangle.Center.X = int.Parse(XRectangleTextBox.Text);
@@ -494,6 +501,8 @@ namespace Programming.View
 
         private void YRectangleTextBox_TextChanged(object sender, EventArgs e)
         {
+            if (RectanglesListBox.SelectedIndex == -1) return;
+
             try
             {
                 if (AddingRectanglesListBox.SelectedIndex >= 0) {
@@ -508,6 +517,12 @@ namespace Programming.View
             {
                 YRectangleTextBox.BackColor = _errorColor;
             }
+        }
+
+        private void TabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateListBoxes();
+            FindCollisions();
         }
     }
 }

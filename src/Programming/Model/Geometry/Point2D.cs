@@ -1,4 +1,4 @@
-﻿namespace Programming.Model.Classes
+﻿namespace Programming.Model.Geometry
 {
     public class Point2D
     {
