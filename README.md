@@ -23,3 +23,9 @@
 :heavy_check_mark: Lab3 - Сlasses
 
 :x: Lab4 - Techniques for developing Classes
+
+:x: Lab5 - Collections
+
+:x: Lab6 - UserControl
+
+:x: Lab7 - Auto-documenting the code
