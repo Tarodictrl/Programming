@@ -48,7 +48,7 @@
             // HeightRectangleTextBox
             // 
             this.HeightRectangleTextBox.Location = new System.Drawing.Point(52, 336);
-            this.HeightRectangleTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.HeightRectangleTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.HeightRectangleTextBox.Name = "HeightRectangleTextBox";
             this.HeightRectangleTextBox.Size = new System.Drawing.Size(87, 20);
             this.HeightRectangleTextBox.TabIndex = 29;
@@ -67,7 +67,7 @@
             // WidthRectangleTextBox
             // 
             this.WidthRectangleTextBox.Location = new System.Drawing.Point(52, 313);
-            this.WidthRectangleTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.WidthRectangleTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.WidthRectangleTextBox.Name = "WidthRectangleTextBox";
             this.WidthRectangleTextBox.Size = new System.Drawing.Size(87, 20);
             this.WidthRectangleTextBox.TabIndex = 27;
@@ -86,7 +86,7 @@
             // YRectangleTextBox
             // 
             this.YRectangleTextBox.Location = new System.Drawing.Point(52, 290);
-            this.YRectangleTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.YRectangleTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.YRectangleTextBox.Name = "YRectangleTextBox";
             this.YRectangleTextBox.Size = new System.Drawing.Size(87, 20);
             this.YRectangleTextBox.TabIndex = 25;
@@ -105,7 +105,7 @@
             // XRectangleTextBox
             // 
             this.XRectangleTextBox.Location = new System.Drawing.Point(52, 267);
-            this.XRectangleTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.XRectangleTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.XRectangleTextBox.Name = "XRectangleTextBox";
             this.XRectangleTextBox.Size = new System.Drawing.Size(87, 20);
             this.XRectangleTextBox.TabIndex = 23;
@@ -125,7 +125,7 @@
             // 
             this.IdRectangleTextBox.Enabled = false;
             this.IdRectangleTextBox.Location = new System.Drawing.Point(52, 245);
-            this.IdRectangleTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.IdRectangleTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.IdRectangleTextBox.Name = "IdRectangleTextBox";
             this.IdRectangleTextBox.ReadOnly = true;
             this.IdRectangleTextBox.Size = new System.Drawing.Size(87, 20);
@@ -157,10 +157,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CanvasPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.CanvasPanel.Location = new System.Drawing.Point(278, 0);
-            this.CanvasPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CanvasPanel.Location = new System.Drawing.Point(278, 2);
             this.CanvasPanel.Name = "CanvasPanel";
-            this.CanvasPanel.Size = new System.Drawing.Size(351, 363);
+            this.CanvasPanel.Size = new System.Drawing.Size(350, 360);
             this.CanvasPanel.TabIndex = 18;
             // 
             // RemoveRectangleButton
@@ -169,7 +168,7 @@
             this.RemoveRectangleButton.ForeColor = System.Drawing.Color.White;
             this.RemoveRectangleButton.Image = global::Programming.Properties.Resources.rectangle_remove_24x24_uncolor;
             this.RemoveRectangleButton.Location = new System.Drawing.Point(159, 167);
-            this.RemoveRectangleButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RemoveRectangleButton.Margin = new System.Windows.Forms.Padding(2);
             this.RemoveRectangleButton.Name = "RemoveRectangleButton";
             this.RemoveRectangleButton.Size = new System.Drawing.Size(31, 31);
             this.RemoveRectangleButton.TabIndex = 17;
@@ -185,7 +184,7 @@
             this.AddRectangleButton.ForeColor = System.Drawing.Color.Transparent;
             this.AddRectangleButton.Image = global::Programming.Properties.Resources.rectangle_add_24x24_uncolor;
             this.AddRectangleButton.Location = new System.Drawing.Point(50, 167);
-            this.AddRectangleButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AddRectangleButton.Margin = new System.Windows.Forms.Padding(2);
             this.AddRectangleButton.Name = "AddRectangleButton";
             this.AddRectangleButton.Size = new System.Drawing.Size(31, 31);
             this.AddRectangleButton.TabIndex = 16;
@@ -198,7 +197,7 @@
             // 
             this.AddingRectanglesListBox.FormattingEnabled = true;
             this.AddingRectanglesListBox.Location = new System.Drawing.Point(2, 2);
-            this.AddingRectanglesListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AddingRectanglesListBox.Margin = new System.Windows.Forms.Padding(2);
             this.AddingRectanglesListBox.Name = "AddingRectanglesListBox";
             this.AddingRectanglesListBox.Size = new System.Drawing.Size(264, 160);
             this.AddingRectanglesListBox.TabIndex = 15;
@@ -223,7 +222,7 @@
             this.Controls.Add(this.RemoveRectangleButton);
             this.Controls.Add(this.AddRectangleButton);
             this.Controls.Add(this.AddingRectanglesListBox);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "RectangleCollisionControl";
             this.Size = new System.Drawing.Size(628, 362);
             this.ResumeLayout(false);
