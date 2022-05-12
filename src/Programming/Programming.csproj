@@ -75,6 +75,42 @@
     <Compile Include="Model\Validator.cs" />
     <Compile Include="Model\Enums\Colors.cs" />
     <Compile Include="Model\Enums\EducationForm.cs" />
+    <Compile Include="View\Controls\EnumerationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\EnumerationControl.Designer.cs">
+      <DependentUpon>EnumerationControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\MoviesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\MoviesControl.Designer.cs">
+      <DependentUpon>MoviesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\RectangleCollisionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\RectangleCollisionControl.Designer.cs">
+      <DependentUpon>RectangleCollisionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\RectanglesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\RectanglesControl.Designer.cs">
+      <DependentUpon>RectanglesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\SeasonHandleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\SeasonHandleControl.Designer.cs">
+      <DependentUpon>SeasonHandleControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\WeekdayParsingControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\WeekdayParsingControl.Designer.cs">
+      <DependentUpon>WeekdayParsingControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Enums.cs" />
     <Compile Include="Model\Enums\Genre.cs" />
     <Compile Include="Model\Enums\Manufactures.cs" />
@@ -98,6 +134,24 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\Controls\EnumerationControl.resx">
+      <DependentUpon>EnumerationControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\MoviesControl.resx">
+      <DependentUpon>MoviesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\RectangleCollisionControl.resx">
+      <DependentUpon>RectangleCollisionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\RectanglesControl.resx">
+      <DependentUpon>RectanglesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\SeasonHandleControl.resx">
+      <DependentUpon>SeasonHandleControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\WeekdayParsingControl.resx">
+      <DependentUpon>WeekdayParsingControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,11 +183,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Resources\rectangle_add_24x24.png" />
-    <None Include="Resources\rectangle_remove_24x24_uncolor1.png" />
-    <None Include="Resources\rectangle_remove_24x241.png" />
-    <None Include="Resources\rectangle_edit_24x24_uncolor1.png" />
     <None Include="Resources\rectangle_edit_24x241.png" />
-    <None Include="Resources\rectangle_add_24x24_uncolor1.png" />
     <None Include="Resources\rectangle_add_24x241.png" />
     <Content Include="Resources\rectangle_add_24x24_uncolor.png" />
     <Content Include="Resources\rectangle_edit_24x24.png" />

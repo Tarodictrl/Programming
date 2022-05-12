@@ -1,31 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Rectangle = Programming.Model.Rectangle;
-using Point2D = Programming.Model.Geometry.Point2D;
-
+using Programming.Model.Enums;
 
 namespace Programming.Model.Geometry
 {
     public static class RectangleFactory
     {
+        private static readonly int Margin = 15;
+
         private static readonly Random _random = new Random();
-        public static Rectangle Randomize(int width, int height)
+        public static Rectangle Randomize(int canvasWidth, int canvasHeight)
         {
             var rectangleHeight = _random.Next(10, 100);
             var rectangleWidth = _random.Next(10, 100);
-            var rectangleX = _random.Next(_random.Next(1, width - 100 - 15));
-            var rectangleY = _random.Next(_random.Next(1, height - 100 + 15));
+            var rectangleX = _random.Next(Margin, canvasWidth - rectangleWidth - Margin);
+            var rectangleY = _random.Next(Margin, canvasHeight - rectangleHeight - Margin);
             var rectanglePosition = new Point2D(rectangleX, rectangleY);
+            var colors = Enum.GetValues(typeof(Colors));
 
             return new Rectangle(
                 rectangleHeight,
                 rectangleWidth,
-                "Green",
+                colors.GetValue(_random.Next(0, colors.Length)).ToString(),
                 rectanglePosition
                 );
+        }
+
+        public static Rectangle Randomize()
+        {
+            var colors = Enum.GetValues(typeof(Colors));
+            Rectangle rectangle = new Rectangle();
+            rectangle.Center = new Point2D(_random.Next(1, 500), _random.Next(1, 500));
+            rectangle.Width = _random.Next(30, 100);
+            rectangle.Height = _random.Next(30, 100);
+            rectangle.Color = colors.GetValue(_random.Next(0, colors.Length)).ToString();
+            return rectangle;
         }
     }
 }

@@ -19,10 +19,10 @@ namespace Programming.Model
             _id = _allRectanglesCount;
         }
 
-        public Rectangle(int height, int width, string colour, Point2D center)
+        public Rectangle(int height, int width, string color, Point2D center)
         {
             Height = height;
-            Colour = colour;
+            Color = color;
             Width = width;
             Center = center;
             _allRectanglesCount++;
@@ -81,7 +81,7 @@ namespace Programming.Model
             }
         }
 
-        public string Colour { get; set; }
+        public string Color { get; set; }
 
         public Point2D Center { get; set; }
     }
