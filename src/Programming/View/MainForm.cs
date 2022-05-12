@@ -9,10 +9,5 @@ namespace Programming.View
         {
             InitializeComponent();
         }
-
-        public void SeasonHandleControl_ColorSelected(object sender, ColorSelectedEventArgs args)
-        {
-            BackColor = args.Color;
-        }
     }
 }
