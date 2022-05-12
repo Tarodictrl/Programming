@@ -24,8 +24,6 @@ namespace Programming.View.Controls
 
         private void GoButton_Click(object sender, EventArgs e)
         {
-            var item = ChooseSeasonComboBox.SelectedItem;
-
             switch (ChooseSeasonComboBox.SelectedItem)
             {
                 case Seasons.Winter:

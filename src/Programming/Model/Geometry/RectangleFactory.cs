@@ -10,17 +10,17 @@ namespace Programming.Model.Geometry
         private static readonly Random _random = new Random();
         public static Rectangle Randomize(int canvasWidth, int canvasHeight)
         {
-            var rectangleHeight = _random.Next(10, 100);
-            var rectangleWidth = _random.Next(10, 100);
-            var rectangleX = _random.Next(Margin, canvasWidth - rectangleWidth - Margin);
-            var rectangleY = _random.Next(Margin, canvasHeight - rectangleHeight - Margin);
+            var rectangleHeight = _random.Next(10, 50);
+            var rectangleWidth = _random.Next(10, 50);
+            var rectangleX = _random.Next(Margin, canvasWidth - rectangleWidth - Margin - 100);
+            var rectangleY = _random.Next(Margin, canvasHeight - rectangleHeight - Margin - 100);
             var rectanglePosition = new Point2D(rectangleX, rectangleY);
-            var colors = Enum.GetValues(typeof(Colors));
+            var color = "Green";
 
             return new Rectangle(
                 rectangleHeight,
                 rectangleWidth,
-                colors.GetValue(_random.Next(0, colors.Length)).ToString(),
+                color,
                 rectanglePosition
                 );
         }
