@@ -33,9 +33,9 @@ namespace Programming.Model
 
         public int Duration
         {
-            get 
-            { 
-                return _duration; 
+            get
+            {
+                return _duration;
             }
             set
             {
@@ -46,9 +46,9 @@ namespace Programming.Model
 
         public int ReleaseYear
         {
-            get 
-            { 
-                return _releaseYear; 
+            get
+            {
+                return _releaseYear;
             }
             set
             {
@@ -67,9 +67,9 @@ namespace Programming.Model
 
         public double Rating
         {
-            get 
-            { 
-                return _rating; 
+            get
+            {
+                return _rating;
             }
             set
             {

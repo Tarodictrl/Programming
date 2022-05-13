@@ -1,5 +1,5 @@
-﻿using System;
-using Programming.Model.Enums;
+﻿using Programming.Model.Enums;
+using System;
 
 namespace Programming.Model.Geometry
 {

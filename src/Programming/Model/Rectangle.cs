@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using Programming.Model.Geometry;
+﻿using Programming.Model.Geometry;
 
 namespace Programming.Model
 {
@@ -10,9 +9,9 @@ namespace Programming.Model
         private readonly int _id;
 
         private int _height;
-        
+
         private int _width;
-        
+
         public Rectangle()
         {
             _allRectanglesCount++;
@@ -31,7 +30,7 @@ namespace Programming.Model
 
         public int Height
         {
-            get 
+            get
             {
                 return _height;
             }
@@ -45,8 +44,8 @@ namespace Programming.Model
         public int Width
         {
             get
-            { 
-                return _width; 
+            {
+                return _width;
             }
             set
             {

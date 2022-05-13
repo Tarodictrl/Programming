@@ -17,9 +17,9 @@
 
         public int Minutes
         {
-            get 
-            { 
-                return _minutes; 
+            get
+            {
+                return _minutes;
             }
             set
             {
@@ -31,8 +31,8 @@
         public int Seconds
         {
             get
-            { 
-                return _seconds; 
+            {
+                return _seconds;
             }
             set
             {

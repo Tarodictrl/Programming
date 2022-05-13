@@ -71,6 +71,7 @@ namespace Programming.View.Controls
             {
                 AddingRectanglesListBox.Items.Add(_rectangles[i].GetRectangleInfo());
             }
+
             AddingRectanglesListBox.SelectedIndex = _rectangles.Count - 1;
         }
 
@@ -118,7 +119,7 @@ namespace Programming.View.Controls
                 UpdateListBoxes();
                 FindCollisions();
             }
-            if (_rectangles.Count == 0)
+            else
             {
                 ClearRectangleInfo();
             }

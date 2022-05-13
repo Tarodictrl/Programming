@@ -8,6 +8,13 @@ namespace Programming.View
         public MainForm()
         {
             InitializeComponent();
+
+            SeasonHandleControl.ColorSelected += SeasonHandleControl_ColorSelected;
+        }
+
+        public void SeasonHandleControl_ColorSelected(object sender, ColorSelectedEventArgs args)
+        {
+            BackColor = args.Color;
         }
     }
 }

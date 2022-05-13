@@ -5,9 +5,9 @@ namespace Programming.Model
     public class Contact
     {
         private string _phoneNumber;
-        
+
         private string _name;
-        
+
         private string _surname;
 
         private readonly int _id;
@@ -27,8 +27,8 @@ namespace Programming.Model
         public string PhoneNumber
         {
             get
-            { 
-                return _phoneNumber; 
+            {
+                return _phoneNumber;
             }
 
             set

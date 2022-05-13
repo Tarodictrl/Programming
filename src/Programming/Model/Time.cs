@@ -23,7 +23,7 @@
         {
             get
             {
-                return _hours; 
+                return _hours;
             }
             set
             {
@@ -35,8 +35,8 @@
         public int Minutes
         {
             get
-            { 
-                return _minutes; 
+            {
+                return _minutes;
             }
             set
             {
@@ -48,7 +48,7 @@
         public int Seconds
         {
             get
-            { 
+            {
                 return _seconds;
             }
             set
