@@ -2,28 +2,52 @@
 
 namespace Programming.Model
 {
+    /// <summary>
+    /// Хранит данные о контактных данных человека.
+    /// </summary>
     public class Contact
     {
+        /// <summary>
+        /// Номер телефона человека.
+        /// </summary>
         private string _phoneNumber;
 
+        /// <summary>
+        /// Имя человека.
+        /// </summary>
         private string _name;
 
+        /// <summary>
+        /// Фамилия человека.
+        /// </summary>
         private string _surname;
 
-        private readonly int _id;
-
+        /// <summary>
+        /// Создаёт экземпляр класса <see cref="Contact"/>.
+        /// </summary>
         public Contact()
         {
+
         }
 
-        public Contact(string phoneNumber, string name, string surname, int id)
+        /// <summary>
+        ///  Создаёт экземпляр класса <see cref="Contact"/>.
+        /// </summary>
+        /// <param name="phoneNumber">Номер телефоне. Должен состоять только из цифр.
+        /// Длина 11 символов.</param>
+        /// <param name="name">Имя. Должно состоять только из букв англиского алфавита.</param>
+        /// <param name="surname">Фамилия. Должна состоять только из букв англиского алфавита.</param>
+        public Contact(string phoneNumber, string name, string surname)
         {
             PhoneNumber = phoneNumber;
             Name = name;
             Surname = surname;
-            _id = id;
         }
 
+        /// <summary>
+        /// Возвращает и задаёт номер телефона человека. Должен состоять только из цифр.
+        /// Длина 11 символов.
+        /// </summary>
         public string PhoneNumber
         {
             get
@@ -33,15 +57,15 @@ namespace Programming.Model
 
             set
             {
-                if (value.Length != 11)
-                {
-                    throw new ArgumentException(
-                        "Invalid phone number length");
-                }
+                Validator.AssertNumberContainsElevenDigit(value, nameof(Name));
+                Validator.AssertStringContainsOnlyNumbers(value, nameof(Surname));
                 _phoneNumber = value;
             }
         }
 
+        /// <summary>
+        /// Возвращает и задаёт имя человека. Должно состоять только из букв английского алфавита.
+        /// </summary>
         public string Name
         {
             get
@@ -55,6 +79,9 @@ namespace Programming.Model
             }
         }
 
+        /// <summary>
+        /// Возвращает и задаёт фамилию человека. Должно состоять только из букв английского алфавита.
+        /// </summary>
         public string Surname
         {
             get
@@ -65,14 +92,6 @@ namespace Programming.Model
             {
                 Validator.AssertStringContainsOnlyLetters(value, nameof(Surname));
                 _surname = value;
-            }
-        }
-
-        public int Id
-        {
-            get
-            {
-                return _id;
             }
         }
     }

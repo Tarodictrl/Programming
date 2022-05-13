@@ -4,8 +4,14 @@ using System.Windows.Forms;
 
 namespace Programming.View.Controls
 {
+    /// <summary>
+    /// Наследуется от класса UserControl.
+    /// </summary>
     public partial class EnumerationControl : UserControl
     {
+        /// <summary>
+        /// Создаёт экземпляр класса <see cref="EnumerationControl"/>.
+        /// </summary>
         public EnumerationControl()
         {
             InitializeComponent();

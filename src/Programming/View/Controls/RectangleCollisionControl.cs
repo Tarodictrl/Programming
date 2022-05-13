@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using Rectangle = Programming.Model.Rectangle;
+using Rectangle = Programming.Model.Geometry.Rectangle;
 
 namespace Programming.View.Controls
 {

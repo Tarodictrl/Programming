@@ -7,6 +7,9 @@ namespace Programming.View.Controls
 {
     public partial class SeasonHandleControl : UserControl
     {
+        /// <summary>
+        /// Наследуется от класса UserControl.
+        /// </summary>
         public SeasonHandleControl()
         {
             InitializeComponent();
@@ -20,6 +23,11 @@ namespace Programming.View.Controls
 
             ChooseSeasonComboBox.SelectedIndex = 0;
         }
+
+        /// <summary>
+        /// Событие при изменении цвета.
+        /// </summary>
+        public static event EventHandler<ColorSelectedEventArgs> ColorSelected;
 
         private void GoButton_Click(object sender, EventArgs e)
         {
@@ -41,17 +49,25 @@ namespace Programming.View.Controls
                     throw new NotImplementedException();
             }
         }
-
-        public static event EventHandler<ColorSelectedEventArgs> ColorSelected;
     }
 
+    /// <summary>
+    /// Наследуется от базового класса EventArgs.
+    /// </summary>
     public class ColorSelectedEventArgs : EventArgs
     {
+        /// <summary>
+        /// Создаёт экземпляр класса <see cref="ColorSelectedEventArgs"/>.
+        /// </summary>
+        /// <param name="color">Цвет.</param>
         public ColorSelectedEventArgs(Color color)
         {
             Color = color;
         }
 
+        /// <summary>
+        /// Возвращает и задаёт цвет.
+        /// </summary>
         public Color Color { get; set; }
     }
 }

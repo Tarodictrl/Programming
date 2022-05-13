@@ -2,8 +2,17 @@
 
 namespace Programming.Model
 {
+    /// <summary>
+    /// Предоставляет методы для проверки данных.
+    /// </summary>
     public static class Validator
     {
+        /// <summary>
+        /// Проверяет, что строка состоит только из букв английского алфавита.
+        /// </summary>
+        /// <param name="value">Значение.</param>
+        /// <param name="propertyName">Имя свойства, откуда был вызван метод.</param>
+        /// <exception cref="ArgumentException">Ошибка, когда в строке есть цифры или буквы не английского алфавита.</exception>
         public static void AssertStringContainsOnlyLetters(string value, string propertyName)
         {
             foreach (var i in value)
@@ -16,28 +25,44 @@ namespace Programming.Model
             }
         }
 
-        public static bool ContainsOnlyLetters(string value)
+        /// <summary>
+        /// Проверяет, что строка состоит только из цифр.
+        /// </summary>
+        /// <param name="value">Значение.</param>
+        /// <param name="propertyName">Имя свойства, откуда был вызван метод.</param>
+        /// <exception cref="ArgumentException">Ошибка, когда в строке есть другие символы.</exception>
+        public static void AssertStringContainsOnlyNumbers(string value, string propertyName)
         {
-            foreach (var i in value)
+            if (!long.TryParse(value, out _))
             {
-                if (!char.IsLetter(i))
-                {
-                    return false;
-                }
+                throw new ArgumentException(
+                    $"{propertyName} must consist only of numbers");
             }
-
-            return true;
         }
 
+        /// <summary>
+        /// Проверяет, что число является положительным.
+        /// </summary>
+        /// <param name="value">Значение.</param>
+        /// <param name="propertyName">Имя свойства, откуда был вызван метод.</param>
+        /// <exception cref="ArgumentException">Ошибка, когда число меньше или равно нулю.</exception>
         public static void AssertOnPositiveValue(int value, string propertyName)
         {
-            if (value < 0)
+            if (value <= 0)
             {
                 throw new ArgumentException(
                     $"{propertyName} must be greater than 0");
             }
         }
 
+        /// <summary>
+        /// Проверяет, что число лежит в диапазоне.
+        /// </summary>
+        /// <param name="value">Значение.</param>
+        /// <param name="min">Левая граница диапазона.</param>
+        /// <param name="max">Правая граница диапазона.</param>
+        /// <param name="propertyName">Имя свойства, откуда был вызван метод.</param>
+        /// <exception cref="ArgumentException">Ошибка, если число находится вне диапазона.</exception>
         public static void AssertValueInRange(int value, int min, int max, string propertyName)
         {
             if (value < min || value > max)
@@ -47,21 +72,50 @@ namespace Programming.Model
             }
         }
 
+        /// <summary>
+        /// Проверяет, что число является положительным.
+        /// </summary>
+        /// <param name="value">Значение.</param>
+        /// <param name="propertyName">Имя свойства, откуда был вызван метод.</param>
+        /// <exception cref="ArgumentException">Ошибка, когда число меньше или равно нулю.</exception>
         public static void AssertOnPositiveValue(double value, string propertyName)
         {
-            if (value < 0)
+            if (value <= 0)
             {
                 throw new ArgumentException(
                     $"{propertyName} must be greater than 0");
             }
         }
 
+        /// <summary>
+        /// Проверяет, что число лежит в диапазоне.
+        /// </summary>
+        /// <param name="value">Значение.</param>
+        /// <param name="min">Левая граница диапазона.</param>
+        /// <param name="max">Правая граница диапазона.</param>
+        /// <param name="propertyName">Имя свойства, откуда был вызван метод.</param>
+        /// <exception cref="ArgumentException">Ошибка, если число находится вне диапазона.</exception>
         public static void AssertValueInRange(double value, double min, double max, string propertyName)
         {
             if (value < min || value > max)
             {
                 throw new ArgumentException(
                     $"{propertyName} must be in range ({min} to {max})");
+            }
+        }
+
+        /// <summary>
+        /// Проверяет, что в строке 11 символов.
+        /// </summary>
+        /// <param name="value">Значение.</param>
+        /// <param name="propertyName">Имя свойства, откуда был вызван метод.</param>
+        /// <exception cref="ArgumentException">Ошибка, если в строке не 11 символов.</exception>
+        public static void AssertNumberContainsElevenDigit(string value, string propertyName)
+        {
+            if (value.Length != 11)
+            {
+                throw new ArgumentException(
+                    $"the value of the {propertyName} field must consist of 11 digits");
             }
         }
     }

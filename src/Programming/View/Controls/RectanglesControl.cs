@@ -2,22 +2,43 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Rectangle = Programming.Model.Rectangle;
+using Rectangle = Programming.Model.Geometry.Rectangle;
 
 namespace Programming.View.Controls
 {
+    /// <summary>
+    /// Наследуется от класса UserControl.
+    /// </summary>
     public partial class RectanglesControl : UserControl
     {
+        /// <summary>
+        /// Количество элементов.
+        /// </summary>
         private const int RectanglesCount = 5;
 
+        /// <summary>
+        /// Массив прямоугольников.
+        /// </summary>
         private Rectangle[] _rectangles;
 
+        /// <summary>
+        /// Текущий прямоугольник.
+        /// </summary>
         private Rectangle _currentRectangle;
 
+        /// <summary>
+        /// Цвет некорректного значения.
+        /// </summary>
         private readonly Color _errorColor = Color.LightPink;
 
+        /// <summary>
+        /// Цвет корректного значения.
+        /// </summary>
         private readonly Color _correctColor = Color.White;
 
+        /// <summary>
+        /// Создаёт экземпляр класса <see cref="RectanglesControl"/>.
+        /// </summary>
         public RectanglesControl()
         {
             InitializeComponent();
@@ -27,6 +48,10 @@ namespace Programming.View.Controls
 
         }
 
+        /// <summary>
+        /// Создаёт массив прямоугольники.
+        /// </summary>
+        /// <returns>Возвращает массив прямоугольники.</returns>
         private Rectangle[] CreateRectangles()
         {
             Rectangle[] rectangles = new Rectangle[RectanglesCount];
@@ -39,6 +64,11 @@ namespace Programming.View.Controls
             return rectangles;
         }
 
+        /// <summary>
+        /// Находит прямоугольник, чья ширина больше остальных.
+        /// </summary>
+        /// <param name="rectangles">Массив прямоугольников.</param>
+        /// <returns>Индекс, чья ширина больше остальных.</returns>
         private int FindRectangleWithMaxWidth(Rectangle[] rectangles)
         {
             var index = 0;

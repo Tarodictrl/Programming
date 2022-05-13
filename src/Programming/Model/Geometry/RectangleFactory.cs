@@ -3,17 +3,33 @@ using System;
 
 namespace Programming.Model.Geometry
 {
+    /// <summary>
+    /// Статический класс создания прямоугольников.
+    /// </summary>
     public static class RectangleFactory
     {
+        /// <summary>
+        /// Отступ от краёв внутри панели.
+        /// </summary>
         private static readonly int Margin = 15;
 
+        /// <summary>
+        /// Поле, которое представляет генератор случайных чисел.
+        /// </summary>
         private static readonly Random _random = new Random();
+
+        /// <summary>
+        /// Создаёт прямоугольник со случайными значениями.
+        /// </summary>
+        /// <param name="canvasWidth">Граница создания по ширине.</param>
+        /// <param name="canvasHeight">Граница создания по высоте.</param>
+        /// <returns>Возвращает экземпляр Rectangle со случайными значениями.</returns>
         public static Rectangle Randomize(int canvasWidth, int canvasHeight)
         {
             var rectangleHeight = _random.Next(10, 50);
             var rectangleWidth = _random.Next(10, 50);
-            var rectangleX = _random.Next(Margin, canvasWidth - rectangleWidth - Margin - 100);
-            var rectangleY = _random.Next(Margin, canvasHeight - rectangleHeight - Margin - 100);
+            var rectangleX = _random.Next(Margin, canvasWidth - rectangleWidth - Margin);
+            var rectangleY = _random.Next(Margin, canvasHeight - rectangleHeight - Margin);
             var rectanglePosition = new Point2D(rectangleX, rectangleY);
             var color = "Green";
 
@@ -25,6 +41,10 @@ namespace Programming.Model.Geometry
                 );
         }
 
+        /// <summary>
+        /// Создаёт прямоугольник со случайными значениями.
+        /// </summary>
+        /// <returns>Возвращает экземпляр Rectangle со случайными значениями.</returns>
         public static Rectangle Randomize()
         {
             var colors = Enum.GetValues(typeof(Colors));
