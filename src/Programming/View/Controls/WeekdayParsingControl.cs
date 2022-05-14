@@ -19,7 +19,7 @@ namespace Programming.View.Controls
 
         private void ParseButton_Click(object sender, EventArgs e)
         {
-            var text = ParseInput.Text;
+            var text = ParseTextBox.Text;
 
             if (Enum.TryParse(text, out Weekday day))
             {

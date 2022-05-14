@@ -1,8 +1,8 @@
 ﻿using Programming.Model.Geometry;
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 using Rectangle = Programming.Model.Geometry.Rectangle;
+using Colors = Programming.Model.AppColors;
 
 namespace Programming.View.Controls
 {
@@ -25,16 +25,6 @@ namespace Programming.View.Controls
         /// Текущий прямоугольник.
         /// </summary>
         private Rectangle _currentRectangle;
-
-        /// <summary>
-        /// Цвет некорректного значения.
-        /// </summary>
-        private readonly Color _errorColor = Color.LightPink;
-
-        /// <summary>
-        /// Цвет корректного значения.
-        /// </summary>
-        private readonly Color _correctColor = Color.White;
 
         /// <summary>
         /// Создаёт экземпляр класса <see cref="RectanglesControl"/>.
@@ -113,11 +103,11 @@ namespace Programming.View.Controls
             try
             {
                 _currentRectangle.Height = int.Parse(HeightTextBox.Text);
-                HeightTextBox.BackColor = _correctColor;
+                HeightTextBox.BackColor = Colors.CorrectColor;
             }
             catch
             {
-                HeightTextBox.BackColor = _errorColor;
+                HeightTextBox.BackColor = Colors.ErrorColor;
             }
         }
 
@@ -128,11 +118,26 @@ namespace Programming.View.Controls
             try
             {
                 _currentRectangle.Width = int.Parse(WidthTextBox.Text);
-                WidthTextBox.BackColor = _correctColor;
+                WidthTextBox.BackColor = Colors.CorrectColor;
             }
             catch
             {
-                WidthTextBox.BackColor = _errorColor;
+                WidthTextBox.BackColor = Colors.ErrorColor;
+            }
+        }
+
+        private void ColorTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (RectanglesListBox.SelectedIndex == -1) return;
+
+            try
+            {
+                _currentRectangle.Color = ColorTextBox.Text;
+                ColorTextBox.BackColor = Colors.CorrectColor;
+            }
+            catch
+            {
+                ColorTextBox.BackColor = Colors.ErrorColor;
             }
         }
     }

@@ -15,10 +15,10 @@ namespace Programming.View
         {
             InitializeComponent();
 
-            SeasonHandleControl.ColorSelected += SeasonHandleControl_ColorSelected;
+            SeasonHandleControl.SeasonChanged += SeasonHandleControl_SeasonChanged;
         }
 
-        public void SeasonHandleControl_ColorSelected(object sender, ColorSelectedEventArgs args)
+        public void SeasonHandleControl_SeasonChanged(object sender, ColorSelectedEventArgs args)
         {
             BackColor = args.Color;
         }

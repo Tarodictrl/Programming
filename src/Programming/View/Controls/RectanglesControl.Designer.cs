@@ -114,13 +114,12 @@
             // 
             // ColorTextBox
             // 
-            this.ColorTextBox.Enabled = false;
             this.ColorTextBox.Location = new System.Drawing.Point(199, 120);
             this.ColorTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ColorTextBox.Name = "ColorTextBox";
-            this.ColorTextBox.ReadOnly = true;
             this.ColorTextBox.Size = new System.Drawing.Size(157, 22);
             this.ColorTextBox.TabIndex = 20;
+            this.ColorTextBox.TextChanged += new System.EventHandler(this.ColorTextBox_TextChanged);
             // 
             // ColorLabel
             // 

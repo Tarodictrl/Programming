@@ -1,8 +1,8 @@
 ﻿namespace Programming.Model.Enums
 {
-     /// <summary>
-     /// Хранит перечисление цветов.
-     /// </summary>
+    /// <summary>
+    /// Хранит перечисление цветов.
+    /// </summary>
     public enum Colors
     {
         White,

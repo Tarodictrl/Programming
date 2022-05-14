@@ -76,11 +76,12 @@
     <Compile Include="Model\Validator.cs" />
     <Compile Include="Model\Enums\Colors.cs" />
     <Compile Include="Model\Enums\EducationForm.cs" />
-    <Compile Include="View\Controls\EnumerationControl.cs">
+    <Compile Include="View\Controls\ColorSelectedEvent.cs" />
+    <Compile Include="View\Controls\EnumerationsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Controls\EnumerationControl.Designer.cs">
-      <DependentUpon>EnumerationControl.cs</DependentUpon>
+    <Compile Include="View\Controls\EnumerationsControl.Designer.cs">
+      <DependentUpon>EnumerationsControl.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Controls\MoviesControl.cs">
       <SubType>UserControl</SubType>
@@ -135,8 +136,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="View\Controls\EnumerationControl.resx">
-      <DependentUpon>EnumerationControl.cs</DependentUpon>
+    <EmbeddedResource Include="View\Controls\EnumerationsControl.resx">
+      <DependentUpon>EnumerationsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Controls\MoviesControl.resx">
       <DependentUpon>MoviesControl.cs</DependentUpon>

@@ -141,7 +141,7 @@ namespace Programming.View.Controls
             }
             catch
             {
-                RatingTextBox.BackColor = Colors.ErrorColor;    
+                RatingTextBox.BackColor = Colors.ErrorColor;
             }
         }
 

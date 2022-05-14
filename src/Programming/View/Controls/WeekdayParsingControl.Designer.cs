@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.ParseButton = new System.Windows.Forms.Button();
-            this.ParseInput = new System.Windows.Forms.TextBox();
+            this.ParseTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.OutLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -45,14 +45,14 @@
             this.ParseButton.UseVisualStyleBackColor = true;
             this.ParseButton.Click += new System.EventHandler(this.ParseButton_Click);
             // 
-            // ParseInput
+            // ParseTextBox
             // 
-            this.ParseInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ParseInput.Location = new System.Drawing.Point(7, 20);
-            this.ParseInput.Margin = new System.Windows.Forms.Padding(4);
-            this.ParseInput.Name = "ParseInput";
-            this.ParseInput.Size = new System.Drawing.Size(222, 22);
-            this.ParseInput.TabIndex = 4;
+            this.ParseTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ParseTextBox.Location = new System.Drawing.Point(7, 20);
+            this.ParseTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.ParseTextBox.Name = "ParseTextBox";
+            this.ParseTextBox.Size = new System.Drawing.Size(222, 22);
+            this.ParseTextBox.TabIndex = 4;
             // 
             // label4
             // 
@@ -78,7 +78,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.OutLabel);
             this.Controls.Add(this.ParseButton);
-            this.Controls.Add(this.ParseInput);
+            this.Controls.Add(this.ParseTextBox);
             this.Controls.Add(this.label4);
             this.Name = "WeekdayParsingControl";
             this.Size = new System.Drawing.Size(374, 96);
@@ -90,7 +90,7 @@
         #endregion
 
         private System.Windows.Forms.Button ParseButton;
-        private System.Windows.Forms.TextBox ParseInput;
+        private System.Windows.Forms.TextBox ParseTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label OutLabel;
     }

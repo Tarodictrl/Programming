@@ -7,12 +7,12 @@ namespace Programming.View.Controls
     /// <summary>
     /// Предоставляет реализацию по представлению перечислений.
     /// </summary>
-    public partial class EnumerationControl : UserControl
+    public partial class EnumerationsControl : UserControl
     {
         /// <summary>
-        /// Создаёт экземпляр класса <see cref="EnumerationControl"/>.
+        /// Создаёт экземпляр класса <see cref="EnumerationsControl"/>.
         /// </summary>
-        public EnumerationControl()
+        public EnumerationsControl()
         {
             InitializeComponent();
 
@@ -28,7 +28,7 @@ namespace Programming.View.Controls
         private void ValuesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             var item = ValuesListBox.SelectedItem;
-            IntValueTextBox.Text = ((int)item).ToString();
+            IntValueTextBox.Text = ((int)item + 1).ToString();
         }
 
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)

@@ -19,6 +19,16 @@ namespace Programming.Model.Geometry
         private static readonly Random _random = new Random();
 
         /// <summary>
+        /// Минимальный размер прямоугольника.
+        /// </summary>
+        private const int MinSize = 10;
+
+        /// <summary>
+        /// Максимальный размер прямоугольника.
+        /// </summary>
+        private const int MaxSize = 100;
+
+        /// <summary>
         /// Создаёт прямоугольник со случайными значениями.
         /// </summary>
         /// <param name="canvasWidth">Граница создания по ширине.</param>
@@ -26,10 +36,10 @@ namespace Programming.Model.Geometry
         /// <returns>Возвращает экземпляр Rectangle со случайными значениями.</returns>
         public static Rectangle Randomize(int canvasWidth, int canvasHeight)
         {
-            var rectangleHeight = _random.Next(10, 50);
-            var rectangleWidth = _random.Next(10, 50);
-            var rectangleX = _random.Next(Margin, canvasWidth - rectangleWidth - Margin);
-            var rectangleY = _random.Next(Margin, canvasHeight - rectangleHeight - Margin);
+            var rectangleHeight = _random.Next(MinSize, MaxSize);
+            var rectangleWidth = _random.Next(MinSize, MaxSize);
+            var rectangleX = _random.Next(Margin, canvasWidth - MaxSize - Margin);
+            var rectangleY = _random.Next(Margin, canvasHeight - MaxSize - Margin);
             var rectanglePosition = new Point2D(rectangleX, rectangleY);
             var color = "Green";
 

@@ -1,6 +1,6 @@
 ﻿namespace Programming.View.Controls
 {
-    partial class EnumerationControl
+    partial class EnumerationsControl
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -98,7 +98,7 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Choose enumerations:";
             // 
-            // EnumerationControl
+            // EnumerationsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -108,7 +108,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.EnumsListBox);
             this.Controls.Add(this.label1);
-            this.Name = "EnumerationControl";
+            this.Name = "EnumerationsControl";
             this.Size = new System.Drawing.Size(576, 353);
             this.ResumeLayout(false);
             this.PerformLayout();

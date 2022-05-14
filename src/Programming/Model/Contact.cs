@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Programming.Model
+﻿namespace Programming.Model
 {
     /// <summary>
     /// Хранит данные о контактных данных человека.
@@ -57,8 +55,8 @@ namespace Programming.Model
 
             set
             {
-                Validator.AssertNumberContainsElevenDigit(value, nameof(Name));
-                Validator.AssertStringContainsOnlyNumbers(value, nameof(Surname));
+                Validator.AssertNumberContainsElevenDigit(value, nameof(PhoneNumber));
+                Validator.AssertStringContainsOnlyNumbers(value, nameof(PhoneNumber));
                 _phoneNumber = value;
             }
         }
