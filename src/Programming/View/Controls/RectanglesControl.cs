@@ -1,8 +1,8 @@
 ﻿using Programming.Model.Geometry;
 using System;
 using System.Windows.Forms;
-using Rectangle = Programming.Model.Geometry.Rectangle;
 using Colors = Programming.Model.AppColors;
+using Rectangle = Programming.Model.Geometry.Rectangle;
 
 namespace Programming.View.Controls
 {

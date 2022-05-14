@@ -3,7 +3,7 @@
 namespace Programming.Model.Geometry
 {
     /// <summary>
-    /// Реазлизует обработку данных двух фигур.
+    /// Реализует проверку пересечений двух фигур.
     /// </summary>
     public static class CollisionManager
     {
