@@ -5,7 +5,7 @@ using System.Windows.Forms;
 namespace Programming.View.Controls
 {
     /// <summary>
-    /// Наследуется от класса UserControl.
+    /// Предоставляет реализацию по представлению перечислений.
     /// </summary>
     public partial class EnumerationControl : UserControl
     {

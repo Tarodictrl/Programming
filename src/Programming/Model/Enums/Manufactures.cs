@@ -1,7 +1,7 @@
 ﻿namespace Programming.Model.Enums
 {
     /// <summary>
-    /// Харнит перечисление марок телефонов.
+    /// Харнит перечисление производителей телефонов.
     /// </summary>
     public enum Manufactures
     {

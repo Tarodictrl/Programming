@@ -2,13 +2,14 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Colors = Programming.Model.AppColors;
 
 namespace Programming.View.Controls
 {
     public partial class SeasonHandleControl : UserControl
     {
         /// <summary>
-        /// Наследуется от класса UserControl.
+        /// Предоставляет реализацию по изменение фона с выбором времени года.
         /// </summary>
         public SeasonHandleControl()
         {
@@ -34,16 +35,16 @@ namespace Programming.View.Controls
             switch (ChooseSeasonComboBox.SelectedItem)
             {
                 case Seasons.Winter:
-                    ColorSelected?.Invoke(this, new ColorSelectedEventArgs(Color.FromArgb(69, 83, 226)));
+                    ColorSelected?.Invoke(this, new ColorSelectedEventArgs(Colors.Winter));
                     break;
                 case Seasons.Summer:
-                    ColorSelected?.Invoke(this, new ColorSelectedEventArgs(Color.FromArgb(85, 156, 69)));
+                    ColorSelected?.Invoke(this, new ColorSelectedEventArgs(Colors.Summer));
                     break;
                 case Seasons.Spring:
-                    ColorSelected?.Invoke(this, new ColorSelectedEventArgs(Color.FromArgb(226, 215, 69)));
+                    ColorSelected?.Invoke(this, new ColorSelectedEventArgs(Colors.Spring));
                     break;
                 case Seasons.Autumn:
-                    ColorSelected?.Invoke(this, new ColorSelectedEventArgs(Color.FromArgb(226, 156, 69)));
+                    ColorSelected?.Invoke(this, new ColorSelectedEventArgs(Colors.Autumn));
                     break;
                 default:
                     throw new NotImplementedException();

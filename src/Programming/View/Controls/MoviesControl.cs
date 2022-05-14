@@ -2,13 +2,13 @@
 using Programming.Model.Enums;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
+using Colors = Programming.Model.AppColors;
 
 namespace Programming.View.Controls
 {
     /// <summary>
-    /// Наследуется от класса UserControl.
+    /// Предоставляет реализацию по представлению фильмов.
     /// </summary>
     public partial class MoviesControl : UserControl
     {
@@ -33,23 +33,13 @@ namespace Programming.View.Controls
         private Movie _currentMovie;
 
         /// <summary>
-        /// Красный цвет.
-        /// </summary>
-        private readonly Color _errorColor = Color.LightPink;
-
-        /// <summary>
-        /// Белый цвет.
-        /// </summary>
-        private readonly Color _correctColor = Color.White;
-
-        /// <summary>
         /// Создаёт экземпляр класса <see cref="MoviesControl"/>.
         /// </summary>
         public MoviesControl()
         {
             InitializeComponent();
 
-            _movies = CreateRandomMovies();
+            _movies = CreateRandomMovies(5);
             MoviesListBox.SelectedIndex = 0;
         }
 
@@ -57,12 +47,12 @@ namespace Programming.View.Controls
         /// Создаёт коллекцию фильмов.
         /// </summary>
         /// <returns>Возвращает коллекцию фильмов.</returns>
-        private List<Movie> CreateRandomMovies()
+        private List<Movie> CreateRandomMovies(int count)
         {
             var genres = Enum.GetNames(typeof(Genre));
             var movies = new List<Movie>();
 
-            for (var i = 0; i < movies.Count; i++)
+            for (var i = 0; i < count; i++)
             {
                 _currentMovie = new Movie(
                     _titleMovies[i],
@@ -121,11 +111,11 @@ namespace Programming.View.Controls
             try
             {
                 _currentMovie.DurationTimeInMinutes = int.Parse(DurationTextBox.Text);
-                DurationTextBox.BackColor = _correctColor;
+                DurationTextBox.BackColor = Colors.CorrectColor;
             }
             catch
             {
-                DurationTextBox.BackColor = _errorColor;
+                DurationTextBox.BackColor = Colors.ErrorColor;
             }
         }
 
@@ -134,11 +124,11 @@ namespace Programming.View.Controls
             try
             {
                 _currentMovie.ReleaseYear = int.Parse(ReleaseYearTextBox.Text);
-                ReleaseYearTextBox.BackColor = _correctColor;
+                ReleaseYearTextBox.BackColor = Colors.CorrectColor;
             }
             catch
             {
-                ReleaseYearTextBox.BackColor = _errorColor;
+                ReleaseYearTextBox.BackColor = Colors.ErrorColor;
             }
         }
 
@@ -147,11 +137,11 @@ namespace Programming.View.Controls
             try
             {
                 _currentMovie.Rating = double.Parse(RatingTextBox.Text);
-                RatingTextBox.BackColor = _correctColor;
+                RatingTextBox.BackColor = Colors.CorrectColor;
             }
             catch
             {
-                RatingTextBox.BackColor = _errorColor;
+                RatingTextBox.BackColor = Colors.ErrorColor;    
             }
         }
 

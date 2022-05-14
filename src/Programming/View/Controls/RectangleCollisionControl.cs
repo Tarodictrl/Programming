@@ -4,36 +4,51 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Rectangle = Programming.Model.Geometry.Rectangle;
+using Colors = Programming.Model.AppColors;
 
 namespace Programming.View.Controls
 {
+    /// <summary>
+    /// Предоставляет реализацию по представлению прямоугольников.
+    /// </summary>
     public partial class RectangleCollisionControl : UserControl
     {
-        private readonly Color _intersect = Color.FromArgb(127, 255, 127, 127);
-
-        private readonly Color _unIntersect = Color.FromArgb(127, 127, 255, 127);
-
-        private readonly Color _errorColor = Color.LightPink;
-
-        private readonly Color _correctColor = Color.White;
-
+        /// <summary>
+        /// Коллекция прямоугольников.
+        /// </summary>
         private List<Rectangle> _rectangles = new List<Rectangle>();
 
+        /// <summary>
+        /// Текущий прямоугольник.
+        /// </summary>
         private Rectangle _currentRectangle;
 
+        /// <summary>
+        /// Коллекция отображаемых панелей.
+        /// </summary>
         private List<Panel> _rectanglePanels = new List<Panel>();
 
+        /// <summary>
+        /// Создаёт экземпляр класса <see cref="RectangleCollisionControl"/>.
+        /// </summary>
         public RectangleCollisionControl()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Обновляет информацию в списке.
+        /// </summary>
+        /// <param name="rectangle">Прямугольник, данные которого нужно обновить.</param>
         private void UpdateRectangleInfo(Rectangle rectangle)
         {
             int index = AddingRectanglesListBox.FindString(rectangle.Id.ToString());
             AddingRectanglesListBox.Items[index] = rectangle.GetRectangleInfo();
         }
 
+        /// <summary>
+        /// Очищает данные с текстовых полей.
+        /// </summary>
         private void ClearRectangleInfo()
         {
             IdRectangleTextBox.Clear();
@@ -43,11 +58,14 @@ namespace Programming.View.Controls
             HeightRectangleTextBox.Clear();
         }
 
+        /// <summary>
+        /// Находит пересечение прямоугольников и красит их в красный.
+        /// </summary>
         private void FindCollisions()
         {
             for (int n = 0; n < _rectangles.Count; n++)
             {
-                CanvasPanel.Controls[n].BackColor = _unIntersect;
+                CanvasPanel.Controls[n].BackColor = Colors.IsNotCollision;
             }
 
             for (int i = 0; i < _rectangles.Count; i++)
@@ -56,13 +74,16 @@ namespace Programming.View.Controls
                 {
                     if (CollisionManager.IsCollision(_rectangles[i], _rectangles[j]))
                     {
-                        CanvasPanel.Controls[i].BackColor = _intersect;
-                        CanvasPanel.Controls[j].BackColor = _intersect;
+                        CanvasPanel.Controls[i].BackColor = Colors.IsCollision;
+                        CanvasPanel.Controls[j].BackColor = Colors.IsCollision;
                     }
                 }
             }
         }
 
+        /// <summary>
+        /// Обновляет информацию в списке.
+        /// </summary>
         private void UpdateListBoxes()
         {
             AddingRectanglesListBox.Items.Clear();
@@ -98,7 +119,7 @@ namespace Programming.View.Controls
                 Width = newRectangle.Width,
                 Height = newRectangle.Height,
                 Location = new Point(newRectangle.Center.X, newRectangle.Center.Y),
-                BackColor = _unIntersect,
+                BackColor = Colors.IsNotCollision,
                 BorderStyle = BorderStyle.FixedSingle
             };
 
@@ -132,14 +153,14 @@ namespace Programming.View.Controls
             try
             {
                 _currentRectangle.Width = int.Parse(WidthRectangleTextBox.Text);
-                WidthRectangleTextBox.BackColor = _correctColor;
+                WidthRectangleTextBox.BackColor = Colors.CorrectColor;
                 CanvasPanel.Controls[AddingRectanglesListBox.SelectedIndex].Width = _currentRectangle.Width;
                 FindCollisions();
                 UpdateRectangleInfo(_currentRectangle);
             }
             catch
             {
-                WidthRectangleTextBox.BackColor = _errorColor;
+                WidthRectangleTextBox.BackColor = Colors.ErrorColor;
             }
         }
 
@@ -150,14 +171,14 @@ namespace Programming.View.Controls
             try
             {
                 _currentRectangle.Height = int.Parse(HeightRectangleTextBox.Text);
-                HeightRectangleTextBox.BackColor = _correctColor;
+                HeightRectangleTextBox.BackColor = Colors.CorrectColor;
                 CanvasPanel.Controls[AddingRectanglesListBox.SelectedIndex].Height = _currentRectangle.Height;
                 FindCollisions();
                 UpdateRectangleInfo(_currentRectangle);
             }
             catch
             {
-                HeightRectangleTextBox.BackColor = _errorColor;
+                HeightRectangleTextBox.BackColor = Colors.ErrorColor;
             }
         }
 
@@ -168,14 +189,14 @@ namespace Programming.View.Controls
             try
             {
                 _currentRectangle.Center.X = int.Parse(XRectangleTextBox.Text);
-                XRectangleTextBox.BackColor = _correctColor;
+                XRectangleTextBox.BackColor = Colors.CorrectColor;
                 CanvasPanel.Controls[AddingRectanglesListBox.SelectedIndex].Location = new Point(_currentRectangle.Center.X, _currentRectangle.Center.Y);
                 FindCollisions();
                 UpdateRectangleInfo(_currentRectangle);
             }
             catch
             {
-                XRectangleTextBox.BackColor = _errorColor;
+                XRectangleTextBox.BackColor = Colors.ErrorColor;
             }
         }
 
@@ -208,7 +229,7 @@ namespace Programming.View.Controls
                 if (AddingRectanglesListBox.SelectedIndex >= 0)
                 {
                     _currentRectangle.Center.Y = int.Parse(YRectangleTextBox.Text);
-                    YRectangleTextBox.BackColor = _correctColor;
+                    YRectangleTextBox.BackColor = Colors.CorrectColor;
                     CanvasPanel.Controls[AddingRectanglesListBox.SelectedIndex].Location = new Point(_currentRectangle.Center.X, _currentRectangle.Center.Y);
                     FindCollisions();
                     UpdateRectangleInfo(_currentRectangle);
@@ -216,7 +237,7 @@ namespace Programming.View.Controls
             }
             catch
             {
-                YRectangleTextBox.BackColor = _errorColor;
+                YRectangleTextBox.BackColor = Colors.ErrorColor;
             }
         }
     }
