@@ -22,10 +22,12 @@
 
 :heavy_check_mark: Lab3 - Сlasses
 
-:x: Lab4 - Techniques for developing Classes
+:heavy_check_mark: Lab4 - Techniques for developing Classes
 
-:x: Lab5 - Collections
+:heavy_check_mark: Lab5 - Collections
 
-:x: Lab6 - UserControl
+:heavy_check_mark: Lab6 - UserControl
 
-:x: Lab7 - Auto-documenting the code
+:heavy_check_mark: Lab7 - Auto-documenting the code
+
+:x: Individual task
