@@ -28,7 +28,7 @@ namespace Programming.View.Controls
         private void ValuesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             var item = ValuesListBox.SelectedItem;
-            IntValueTextBox.Text = ((int)item + 1).ToString();
+            IntValueTextBox.Text = ((int)item).ToString();
         }
 
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
