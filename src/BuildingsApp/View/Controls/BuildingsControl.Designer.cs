@@ -30,17 +30,18 @@
         {
             this.BuildingsListBox = new System.Windows.Forms.ListBox();
             this.BuildingsGroupBox = new System.Windows.Forms.GroupBox();
+            this.CategoryComboBox = new System.Windows.Forms.ComboBox();
+            this.CategoryLabel = new System.Windows.Forms.Label();
+            this.RatingTextBox = new System.Windows.Forms.TextBox();
+            this.RatingLabel = new System.Windows.Forms.Label();
             this.AddressTextBox = new System.Windows.Forms.TextBox();
             this.AddressLabel = new System.Windows.Forms.Label();
             this.BuildingNameTextBox = new System.Windows.Forms.TextBox();
             this.BuildingNameLabel = new System.Windows.Forms.Label();
-            this.RatingTextBox = new System.Windows.Forms.TextBox();
-            this.RatingLabel = new System.Windows.Forms.Label();
-            this.CategoryTextBox = new System.Windows.Forms.TextBox();
-            this.CategoryLabel = new System.Windows.Forms.Label();
             this.AddButton = new System.Windows.Forms.Button();
             this.EditButton = new System.Windows.Forms.Button();
             this.RemoveButton = new System.Windows.Forms.Button();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.BuildingsGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +56,7 @@
             // 
             // BuildingsGroupBox
             // 
-            this.BuildingsGroupBox.Controls.Add(this.CategoryTextBox);
+            this.BuildingsGroupBox.Controls.Add(this.CategoryComboBox);
             this.BuildingsGroupBox.Controls.Add(this.CategoryLabel);
             this.BuildingsGroupBox.Controls.Add(this.RatingTextBox);
             this.BuildingsGroupBox.Controls.Add(this.RatingLabel);
@@ -70,11 +71,45 @@
             this.BuildingsGroupBox.TabStop = false;
             this.BuildingsGroupBox.Text = "Select a building";
             // 
+            // CategoryComboBox
+            // 
+            this.CategoryComboBox.FormattingEnabled = true;
+            this.CategoryComboBox.Location = new System.Drawing.Point(124, 77);
+            this.CategoryComboBox.Name = "CategoryComboBox";
+            this.CategoryComboBox.Size = new System.Drawing.Size(215, 24);
+            this.CategoryComboBox.TabIndex = 7;
+            // 
+            // CategoryLabel
+            // 
+            this.CategoryLabel.AutoSize = true;
+            this.CategoryLabel.Location = new System.Drawing.Point(56, 77);
+            this.CategoryLabel.Name = "CategoryLabel";
+            this.CategoryLabel.Size = new System.Drawing.Size(65, 16);
+            this.CategoryLabel.TabIndex = 6;
+            this.CategoryLabel.Text = "Category:";
+            // 
+            // RatingTextBox
+            // 
+            this.RatingTextBox.Location = new System.Drawing.Point(124, 105);
+            this.RatingTextBox.Name = "RatingTextBox";
+            this.RatingTextBox.Size = new System.Drawing.Size(156, 22);
+            this.RatingTextBox.TabIndex = 5;
+            this.RatingTextBox.TextChanged += new System.EventHandler(this.RatingTextBox_TextChanged);
+            // 
+            // RatingLabel
+            // 
+            this.RatingLabel.AutoSize = true;
+            this.RatingLabel.Location = new System.Drawing.Point(68, 105);
+            this.RatingLabel.Name = "RatingLabel";
+            this.RatingLabel.Size = new System.Drawing.Size(49, 16);
+            this.RatingLabel.TabIndex = 4;
+            this.RatingLabel.Text = "Rating:";
+            // 
             // AddressTextBox
             // 
             this.AddressTextBox.Location = new System.Drawing.Point(124, 49);
             this.AddressTextBox.Name = "AddressTextBox";
-            this.AddressTextBox.Size = new System.Drawing.Size(311, 22);
+            this.AddressTextBox.Size = new System.Drawing.Size(215, 22);
             this.AddressTextBox.TabIndex = 3;
             // 
             // AddressLabel
@@ -102,50 +137,19 @@
             this.BuildingNameLabel.TabIndex = 0;
             this.BuildingNameLabel.Text = "Building name:";
             // 
-            // RatingTextBox
-            // 
-            this.RatingTextBox.Location = new System.Drawing.Point(124, 105);
-            this.RatingTextBox.Name = "RatingTextBox";
-            this.RatingTextBox.Size = new System.Drawing.Size(156, 22);
-            this.RatingTextBox.TabIndex = 5;
-            // 
-            // RatingLabel
-            // 
-            this.RatingLabel.AutoSize = true;
-            this.RatingLabel.Location = new System.Drawing.Point(68, 105);
-            this.RatingLabel.Name = "RatingLabel";
-            this.RatingLabel.Size = new System.Drawing.Size(49, 16);
-            this.RatingLabel.TabIndex = 4;
-            this.RatingLabel.Text = "Rating:";
-            // 
-            // CategoryTextBox
-            // 
-            this.CategoryTextBox.Location = new System.Drawing.Point(124, 77);
-            this.CategoryTextBox.Name = "CategoryTextBox";
-            this.CategoryTextBox.Size = new System.Drawing.Size(156, 22);
-            this.CategoryTextBox.TabIndex = 7;
-            // 
-            // CategoryLabel
-            // 
-            this.CategoryLabel.AutoSize = true;
-            this.CategoryLabel.Location = new System.Drawing.Point(56, 77);
-            this.CategoryLabel.Name = "CategoryLabel";
-            this.CategoryLabel.Size = new System.Drawing.Size(65, 16);
-            this.CategoryLabel.TabIndex = 6;
-            this.CategoryLabel.Text = "Category:";
-            // 
             // AddButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(14, 542);
+            this.AddButton.Location = new System.Drawing.Point(54, 541);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(40, 37);
             this.AddButton.TabIndex = 2;
             this.AddButton.Text = "+";
             this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // EditButton
             // 
-            this.EditButton.Location = new System.Drawing.Point(60, 542);
+            this.EditButton.Location = new System.Drawing.Point(100, 541);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(36, 37);
             this.EditButton.TabIndex = 3;
@@ -154,7 +158,7 @@
             // 
             // RemoveButton
             // 
-            this.RemoveButton.Location = new System.Drawing.Point(102, 542);
+            this.RemoveButton.Location = new System.Drawing.Point(142, 541);
             this.RemoveButton.Name = "RemoveButton";
             this.RemoveButton.Size = new System.Drawing.Size(38, 37);
             this.RemoveButton.TabIndex = 4;
@@ -186,12 +190,13 @@
         private System.Windows.Forms.Label AddressLabel;
         private System.Windows.Forms.TextBox BuildingNameTextBox;
         private System.Windows.Forms.Label BuildingNameLabel;
-        private System.Windows.Forms.TextBox CategoryTextBox;
         private System.Windows.Forms.Label CategoryLabel;
         private System.Windows.Forms.TextBox RatingTextBox;
         private System.Windows.Forms.Label RatingLabel;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button EditButton;
         private System.Windows.Forms.Button RemoveButton;
+        private System.Windows.Forms.ComboBox CategoryComboBox;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }

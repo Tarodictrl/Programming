@@ -9,6 +9,6 @@
         Cafe,
         Club,
         Museum,
-        Educational_institution
+        Educational
     }
 }
