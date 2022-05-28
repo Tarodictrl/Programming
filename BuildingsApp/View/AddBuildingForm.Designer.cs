@@ -134,7 +134,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 213);
+            this.ClientSize = new System.Drawing.Size(287, 204);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.BuildingCategoryComboBox);
@@ -147,7 +147,7 @@
             this.Controls.Add(this.BuildingNameLabel);
             this.Name = "AddBuildingForm";
             this.ShowIcon = false;
-            this.Text = "AddBuildingForm";
+            this.Text = "Add Building";
             this.ResumeLayout(false);
             this.PerformLayout();
 

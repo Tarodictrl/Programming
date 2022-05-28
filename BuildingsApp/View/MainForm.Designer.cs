@@ -86,7 +86,7 @@
             this.BuildingsGroupBox.Controls.Add(this.BuildingNameLabel);
             this.BuildingsGroupBox.Location = new System.Drawing.Point(270, 12);
             this.BuildingsGroupBox.Name = "BuildingsGroupBox";
-            this.BuildingsGroupBox.Size = new System.Drawing.Size(538, 264);
+            this.BuildingsGroupBox.Size = new System.Drawing.Size(315, 264);
             this.BuildingsGroupBox.TabIndex = 4;
             this.BuildingsGroupBox.TabStop = false;
             this.BuildingsGroupBox.Text = "Selected Building";
@@ -201,7 +201,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(820, 486);
+            this.ClientSize = new System.Drawing.Size(595, 486);
             this.Controls.Add(this.EditButton);
             this.Controls.Add(this.BuildingsGroupBox);
             this.Controls.Add(this.RemoveButton);
