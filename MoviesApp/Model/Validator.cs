@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace BuildingsApp.Model
+namespace MoviesApp.Model
 {
     /// <summary>
     /// Предоставляет методы для проверки данных.

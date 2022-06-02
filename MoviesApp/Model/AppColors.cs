@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace BuildingsApp.Model
+namespace MoviesApp.Model
 {
     /// <summary>
     /// Хранит данные об используемых цветах.

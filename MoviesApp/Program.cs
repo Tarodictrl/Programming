@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace BuildingsApp.View
+namespace MoviesApp.View
 {
     internal static class Program
     {
