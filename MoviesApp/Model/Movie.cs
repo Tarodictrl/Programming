@@ -47,7 +47,7 @@ namespace MoviesApp.Model
         /// <param name="genre">Жанр фильма.</param>
         /// <param name="rating">Рейтинг фильма.</param>
         /// <param name="durationTimeInMinutes">Длительность фильма в минутах.</param>
-        public Movie(string name, int releaseYear, string genre, 
+        public Movie(string name, int releaseYear, string genre,
                      int rating, int durationTimeInMinutes)
         {
             Name = name;

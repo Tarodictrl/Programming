@@ -42,6 +42,8 @@
             this.MovieReleaseYearLabel = new System.Windows.Forms.Label();
             this.MovieNameLabel = new System.Windows.Forms.Label();
             this.AddButton = new System.Windows.Forms.Button();
+            this.SearchTextBox = new System.Windows.Forms.TextBox();
+            this.SearchLabel = new System.Windows.Forms.Label();
             this.MovieGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -199,11 +201,30 @@
             this.AddButton.MouseEnter += new System.EventHandler(this.AddButton_MouseEnter);
             this.AddButton.MouseLeave += new System.EventHandler(this.AddButton_MouseLeave);
             // 
+            // SearchTextBox
+            // 
+            this.SearchTextBox.Location = new System.Drawing.Point(363, 433);
+            this.SearchTextBox.Name = "SearchTextBox";
+            this.SearchTextBox.Size = new System.Drawing.Size(271, 22);
+            this.SearchTextBox.TabIndex = 5;
+            this.SearchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
+            // 
+            // SearchLabel
+            // 
+            this.SearchLabel.AutoSize = true;
+            this.SearchLabel.Location = new System.Drawing.Point(304, 439);
+            this.SearchLabel.Name = "SearchLabel";
+            this.SearchLabel.Size = new System.Drawing.Size(53, 16);
+            this.SearchLabel.TabIndex = 6;
+            this.SearchLabel.Text = "Search:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(646, 469);
+            this.Controls.Add(this.SearchLabel);
+            this.Controls.Add(this.SearchTextBox);
             this.Controls.Add(this.MovieGroupBox);
             this.Controls.Add(this.RemoveButton);
             this.Controls.Add(this.AddButton);
@@ -215,6 +236,7 @@
             this.MovieGroupBox.ResumeLayout(false);
             this.MovieGroupBox.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -234,6 +256,8 @@
         private System.Windows.Forms.Label MovieGenreLabel;
         private System.Windows.Forms.Label MovieReleaseYearLabel;
         private System.Windows.Forms.Label MovieNameLabel;
+        private System.Windows.Forms.TextBox SearchTextBox;
+        private System.Windows.Forms.Label SearchLabel;
     }
 }
 
