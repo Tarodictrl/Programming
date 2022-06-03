@@ -8,6 +8,11 @@ namespace MoviesApp.Model
     public class Movie
     {
         /// <summary>
+        /// Уникальный идентификатор.
+        /// </summary>
+        private readonly int _id;
+
+        /// <summary>
         /// Название фильма.
         /// </summary>
         private string _name;
@@ -28,6 +33,11 @@ namespace MoviesApp.Model
         private int _durationTimeInMinutes;
 
         /// <summary>
+        /// Количество фильмов.
+        /// </summary>
+        private static int _allMoviesCount;
+
+        /// <summary>
         /// Создаёт экземпляр класса <see cref="Movie"/>.
         /// </summary>
         public Movie()
@@ -37,6 +47,8 @@ namespace MoviesApp.Model
             Genre = "Other";
             Rating = 1;
             DurationTimeInMinutes = 90;
+            _allMoviesCount++;
+            _id = _allMoviesCount;
         }
 
         /// <summary>
@@ -55,6 +67,8 @@ namespace MoviesApp.Model
             Genre = genre;
             Rating = rating;
             DurationTimeInMinutes = durationTimeInMinutes;
+            _allMoviesCount++;
+            _id = _allMoviesCount;
         }
 
         /// <summary>
@@ -126,5 +140,13 @@ namespace MoviesApp.Model
         ///Возвращает и задаёт жанр фильма. 
         /// </summary>
         public string Genre { get; set; }
+
+        public int Id
+        {
+            get
+            {
+                return _id;
+            }
+        }
     }
 }

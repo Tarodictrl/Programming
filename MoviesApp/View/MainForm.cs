@@ -45,7 +45,7 @@ namespace MoviesApp.View
             }
 
             _movies = Serializer.Deserialize(_fileName);
-            UpdateListBox(_movies, -1);
+            UpdateListBox(-1);
         }
 
         /// <summary>
@@ -83,18 +83,26 @@ namespace MoviesApp.View
         /// <summary>
         /// Обновляет данные в списке MoviesListBox.
         /// </summary>
-        /// <param name="index">Индекс выбранного элемента.</param>
-        private void UpdateListBox(List<Movie> movies, int index)
+        /// <param name="index">Индекс выбранного элемента.
+        /// Если индекс -2, выбирается _currentMovie в ListBox</param>
+        private void UpdateListBox(int index)
         {
+            List<Movie> movies;
 
             MoviesListBox.Items.Clear();
 
-            var orderedListMovie = from Movie in movies
+            var orderedListMovie = from Movie in _movies
                                    orderby Movie.Name
                                    select Movie;
-            movies = orderedListMovie.ToList();
 
-            if (index == -2) index = movies.IndexOf(_currentMovie);
+            if (_searchText == "" || _searchText == null)
+            {
+                movies = orderedListMovie.ToList();
+            }
+            else
+            {
+                movies = SearchMovie();
+            }
 
             foreach (var movie in movies)
             {
@@ -104,23 +112,18 @@ namespace MoviesApp.View
                 }
                 else
                 {
-                    MoviesListBox.Items.Add("Movie");
+                    MoviesListBox.Items.Add($"Movie {movie.Id}");
                 }
             }
 
-            if (MoviesListBox.Items.Count > 0)
-            {
-                MoviesListBox.SelectedIndex = index;
-            }
-
-            Serializer.Serialize(_fileName, _movies);
+            MoviesListBox.SelectedIndex = index;
         }
 
         private void AddButton_Click(object sender, EventArgs e)
         {
             var movie = new Movie();
             _movies.Add(movie);
-            UpdateListBox(_movies, 0);
+            UpdateListBox(0);
             Serializer.Serialize(_fileName, _movies);
         }
 
@@ -132,13 +135,7 @@ namespace MoviesApp.View
 
             if (_movies.Count == 0) ClearInfo();
 
-            UpdateListBox(_movies, -1);
-            Serializer.Serialize(_fileName, _movies);
-        }
-
-        private void EditButton_Click(object sender, EventArgs e)
-        {
-            UpdateListBox(_movies, 0);
+            UpdateListBox(-1);
             Serializer.Serialize(_fileName, _movies);
         }
 
@@ -153,6 +150,93 @@ namespace MoviesApp.View
             MovieRatingTextBox.Text = _currentMovie.Rating.ToString();
             MovieDurationTextBox.Text = _currentMovie.DurationTimeInMinutes.ToString();
         }
+
+        private void MovieNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (MoviesListBox.SelectedIndex == -1) return;
+
+            try
+            {
+                _currentMovie.Name = MovieNameTextBox.Text;
+                MovieNameTextBox.BackColor = AppColors.CorrectColor;
+                UpdateListBox(MoviesListBox.SelectedIndex);
+            }
+            catch
+            {
+                MovieNameTextBox.BackColor = AppColors.ErrorColor;
+            }
+        }
+
+        private void MovieReleaseYearTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (MoviesListBox.SelectedIndex == -1) return;
+
+            try
+            {
+                _currentMovie.ReleaseYear = int.Parse(MovieReleaseYearTextBox.Text);
+                MovieReleaseYearTextBox.BackColor = AppColors.CorrectColor;
+                UpdateListBox(MoviesListBox.SelectedIndex);
+            }
+            catch
+            {
+                MovieReleaseYearTextBox.BackColor = AppColors.ErrorColor;
+            }
+        }
+
+        private void MovieRatingTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (MoviesListBox.SelectedIndex == -1) return;
+
+            try
+            {
+                _currentMovie.Rating = int.Parse(MovieRatingTextBox.Text);
+                MovieRatingTextBox.BackColor = AppColors.CorrectColor;
+                UpdateListBox(MoviesListBox.SelectedIndex);
+            }
+            catch
+            {
+                MovieRatingTextBox.BackColor = AppColors.ErrorColor;
+            }
+        }
+
+        private void MovieGenreComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (MoviesListBox.SelectedIndex == -1) return;
+
+            try
+            {
+                _currentMovie.Genre = MovieGenreComboBox.SelectedItem.ToString();
+                MovieReleaseYearTextBox.BackColor = AppColors.CorrectColor;
+                UpdateListBox(MoviesListBox.SelectedIndex);
+            }
+            catch
+            {
+                MovieReleaseYearTextBox.BackColor = AppColors.ErrorColor;
+            }
+        }
+
+        private void MovieDurationTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (MoviesListBox.SelectedIndex == -1) return;
+
+            try
+            {
+                _currentMovie.DurationTimeInMinutes = int.Parse(MovieDurationTextBox.Text);
+                MovieDurationTextBox.BackColor = AppColors.CorrectColor;
+                UpdateListBox(MoviesListBox.SelectedIndex);
+            }
+            catch
+            {
+                MovieDurationTextBox.BackColor = AppColors.ErrorColor;
+            }
+        }
+
+        private void SearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            _searchText = SearchTextBox.Text;
+            UpdateListBox(-1);
+        }
+
         private void AddButton_MouseEnter(object sender, EventArgs e)
         {
             AddButton.Image = MoviesApp.Properties.Resources.add_24x24_black;
@@ -171,93 +255,6 @@ namespace MoviesApp.View
         private void RemoveButton_MouseLeave(object sender, EventArgs e)
         {
             RemoveButton.Image = MoviesApp.Properties.Resources.cross_circle_24x24;
-        }
-
-        private void MovieNameTextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (MoviesListBox.SelectedIndex == -1) return;
-
-            try
-            {
-                _currentMovie.Name = MovieNameTextBox.Text;
-                MovieNameTextBox.BackColor = AppColors.CorrectColor;
-                UpdateListBox(_movies, -2);
-            }
-            catch
-            {
-                MovieNameTextBox.BackColor = AppColors.ErrorColor;
-            }
-        }
-
-        private void MovieReleaseYearTextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (MoviesListBox.SelectedIndex == -1) return;
-
-            try
-            {
-                _currentMovie.ReleaseYear = int.Parse(MovieReleaseYearTextBox.Text);
-                MovieReleaseYearTextBox.BackColor = AppColors.CorrectColor;
-                UpdateListBox(_movies, -2);
-            }
-            catch
-            {
-                MovieReleaseYearTextBox.BackColor = AppColors.ErrorColor;
-            }
-        }
-
-        private void MovieRatingTextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (MoviesListBox.SelectedIndex == -1) return;
-
-            try
-            {
-                _currentMovie.Rating = int.Parse(MovieRatingTextBox.Text);
-                MovieRatingTextBox.BackColor = AppColors.CorrectColor;
-                UpdateListBox(_movies, -2);
-            }
-            catch
-            {
-                MovieRatingTextBox.BackColor = AppColors.ErrorColor;
-            }
-        }
-
-        private void MovieGenreComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (MoviesListBox.SelectedIndex == -1) return;
-
-            try
-            {
-                _currentMovie.Genre = MovieGenreComboBox.SelectedItem.ToString();
-                MovieReleaseYearTextBox.BackColor = AppColors.CorrectColor;
-                UpdateListBox(_movies, -2);
-            }
-            catch
-            {
-                MovieReleaseYearTextBox.BackColor = AppColors.ErrorColor;
-            }
-        }
-
-        private void MovieDurationTextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (MoviesListBox.SelectedIndex == -1) return;
-
-            try
-            {
-                _currentMovie.DurationTimeInMinutes = int.Parse(MovieDurationTextBox.Text);
-                MovieDurationTextBox.BackColor = AppColors.CorrectColor;
-                UpdateListBox(_movies, -2);
-            }
-            catch
-            {
-                MovieDurationTextBox.BackColor = AppColors.ErrorColor;
-            }
-        }
-
-        private void SearchTextBox_TextChanged(object sender, EventArgs e)
-        {
-            _searchText = SearchTextBox.Text;
-            var suitableBuildings = SearchMovie();
-            UpdateListBox(suitableBuildings, 0);
         }
     }
 }
