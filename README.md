@@ -30,4 +30,4 @@
 
 :heavy_check_mark: Lab7 - Auto-documenting the code
 
-:x: Individual task
+:heavy_check_mark: Individual task
