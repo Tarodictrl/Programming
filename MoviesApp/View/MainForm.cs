@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using static System.Environment;
 
 namespace MoviesApp.View
 {
@@ -24,12 +23,10 @@ namespace MoviesApp.View
         private Movie _currentMovie;
 
         /// <summary>
-        /// Путь до файла данных.
+        /// Текст поиска.
         /// </summary>
-        private readonly string _fileName =
-            $@"{Environment.GetFolderPath(SpecialFolder.ApplicationData)}\MoviesApp\data.json";
-
         private string _searchText;
+
         /// <summary>
         /// Создаёт экземпляр класса <see cref="MainForm"/>.
         /// </summary>
@@ -44,7 +41,9 @@ namespace MoviesApp.View
                 MovieGenreComboBox.Items.Add(item);
             }
 
-            _movies = Serializer.Deserialize(_fileName);
+            _movies = Serializer.Deserialize();
+            if (_movies.Count == 0) MovieGroupBox.Enabled = false;
+
             UpdateListBox(-1);
         }
 
@@ -54,7 +53,7 @@ namespace MoviesApp.View
         /// </summary>
         /// <param name="searchText">Строка по которой нужно искать.</param>
         /// <returns>Список объектов подходящих под введенную строку.</returns>
-        private List<Movie> SearchMovie()
+        private List<Movie> SearchMovies()
         {
             var result = from movie in _movies
                          where movie.Name.Contains(_searchText) ||
@@ -65,6 +64,16 @@ namespace MoviesApp.View
                          select movie;
 
             return result.ToList();
+        }
+
+        /// <summary>
+        /// Сортировка _movies.
+        /// </summary>
+        private void SortingMovies()
+        {
+            _movies = (from Movie in _movies
+                       orderby Movie.Name
+                       select Movie).ToList();
         }
 
         /// <summary>
@@ -83,32 +92,22 @@ namespace MoviesApp.View
         /// <summary>
         /// Обновляет данные в списке MoviesListBox.
         /// </summary>
-        /// <param name="index">Индекс выбранного элемента.
-        /// Если индекс -2, выбирается _currentMovie в ListBox</param>
+        /// <param name="index">Индекс выбранного элемента.</param>
         private void UpdateListBox(int index)
         {
             List<Movie> movies;
 
             MoviesListBox.Items.Clear();
 
-            var orderedListMovie = from Movie in _movies
-                                   orderby Movie.Name
-                                   select Movie;
-
-            if (_searchText == "" || _searchText == null)
-            {
-                movies = orderedListMovie.ToList();
-            }
-            else
-            {
-                movies = SearchMovie();
-            }
+            if (_searchText != "" && _searchText != null) movies = SearchMovies();
+            else movies = _movies;
 
             foreach (var movie in movies)
             {
                 if (movie.Name != null)
                 {
-                    MoviesListBox.Items.Add($"{movie.Name} - {movie.ReleaseYear} - {movie.Genre}");
+                    MoviesListBox.Items.Add(
+                        $"{movie.Name} - {movie.ReleaseYear} - {movie.Genre}");
                 }
                 else
                 {
@@ -116,15 +115,17 @@ namespace MoviesApp.View
                 }
             }
 
-            MoviesListBox.SelectedIndex = index;
+            if (-1 <= index && index < MoviesListBox.Items.Count) 
+                MoviesListBox.SelectedIndex = index;
         }
 
         private void AddButton_Click(object sender, EventArgs e)
         {
             var movie = new Movie();
             _movies.Add(movie);
-            UpdateListBox(0);
-            Serializer.Serialize(_fileName, _movies);
+            SortingMovies();
+            UpdateListBox(_movies.IndexOf(movie));
+            MovieGroupBox.Enabled = true;
         }
 
         private void RemoveButton_Click(object sender, EventArgs e)
@@ -133,17 +134,28 @@ namespace MoviesApp.View
 
             _movies.RemoveAt(MoviesListBox.SelectedIndex);
 
-            if (_movies.Count == 0) ClearInfo();
+            if (_movies.Count == 0)
+            {
+                MovieGroupBox.Enabled = false;
+                ClearInfo();
+            }
+            else
+            {
+                MovieGroupBox.Enabled = true;
+            }
 
             UpdateListBox(-1);
-            Serializer.Serialize(_fileName, _movies);
         }
 
         private void MoviesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (MoviesListBox.SelectedIndex == -1) return;
 
-            _currentMovie = _movies[MoviesListBox.SelectedIndex];
+            if (_searchText == "" || _searchText == null) 
+                _currentMovie = _movies[MoviesListBox.SelectedIndex];
+            else 
+                _currentMovie = SearchMovies()[MoviesListBox.SelectedIndex];
+
             MovieNameTextBox.Text = _currentMovie.Name;
             MovieReleaseYearTextBox.Text = _currentMovie.ReleaseYear.ToString();
             MovieGenreComboBox.Text = _currentMovie.Genre;
@@ -159,7 +171,8 @@ namespace MoviesApp.View
             {
                 _currentMovie.Name = MovieNameTextBox.Text;
                 MovieNameTextBox.BackColor = AppColors.CorrectColor;
-                UpdateListBox(MoviesListBox.SelectedIndex);
+                SortingMovies();
+                UpdateListBox(_movies.IndexOf(_currentMovie));
             }
             catch
             {
@@ -175,7 +188,8 @@ namespace MoviesApp.View
             {
                 _currentMovie.ReleaseYear = int.Parse(MovieReleaseYearTextBox.Text);
                 MovieReleaseYearTextBox.BackColor = AppColors.CorrectColor;
-                UpdateListBox(MoviesListBox.SelectedIndex);
+                SortingMovies();
+                UpdateListBox(_movies.IndexOf(_currentMovie));
             }
             catch
             {
@@ -191,7 +205,8 @@ namespace MoviesApp.View
             {
                 _currentMovie.Rating = int.Parse(MovieRatingTextBox.Text);
                 MovieRatingTextBox.BackColor = AppColors.CorrectColor;
-                UpdateListBox(MoviesListBox.SelectedIndex);
+                SortingMovies();
+                UpdateListBox(_movies.IndexOf(_currentMovie));
             }
             catch
             {
@@ -207,7 +222,8 @@ namespace MoviesApp.View
             {
                 _currentMovie.Genre = MovieGenreComboBox.SelectedItem.ToString();
                 MovieReleaseYearTextBox.BackColor = AppColors.CorrectColor;
-                UpdateListBox(MoviesListBox.SelectedIndex);
+                SortingMovies();
+                UpdateListBox(_movies.IndexOf(_currentMovie));
             }
             catch
             {
@@ -223,7 +239,8 @@ namespace MoviesApp.View
             {
                 _currentMovie.DurationTimeInMinutes = int.Parse(MovieDurationTextBox.Text);
                 MovieDurationTextBox.BackColor = AppColors.CorrectColor;
-                UpdateListBox(MoviesListBox.SelectedIndex);
+                SortingMovies();
+                UpdateListBox(_movies.IndexOf(_currentMovie));
             }
             catch
             {
@@ -234,6 +251,7 @@ namespace MoviesApp.View
         private void SearchTextBox_TextChanged(object sender, EventArgs e)
         {
             _searchText = SearchTextBox.Text;
+            ClearInfo();
             UpdateListBox(-1);
         }
 
@@ -255,6 +273,11 @@ namespace MoviesApp.View
         private void RemoveButton_MouseLeave(object sender, EventArgs e)
         {
             RemoveButton.Image = MoviesApp.Properties.Resources.cross_circle_24x24;
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Serializer.Serialize(_movies);
         }
     }
 }

@@ -33,7 +33,7 @@ namespace MoviesApp.Model
         private int _durationTimeInMinutes;
 
         /// <summary>
-        /// Количество фильмов.
+        /// Общее количество фильмов.
         /// </summary>
         private static int _allMoviesCount;
 
@@ -137,10 +137,8 @@ namespace MoviesApp.Model
         }
 
         /// <summary>
-        ///Возвращает и задаёт жанр фильма. 
+        /// Возвращает уникальный идентификатор.
         /// </summary>
-        public string Genre { get; set; }
-
         public int Id
         {
             get
@@ -148,5 +146,10 @@ namespace MoviesApp.Model
                 return _id;
             }
         }
+
+        /// <summary>
+        ///Возвращает и задаёт жанр фильма. 
+        /// </summary>
+        public string Genre { get; set; }
     }
 }

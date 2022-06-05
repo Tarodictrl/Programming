@@ -55,8 +55,10 @@ Root: HKA; Subkey: "Software\Classes\Applications\{#MyAppExeName}\SupportedTypes
 [Icons]
 Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
 Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
+
 [Dirs]
 Name: {userappdata}\{#MyAppName}
+
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
 

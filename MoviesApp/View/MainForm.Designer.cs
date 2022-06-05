@@ -32,7 +32,7 @@
             this.RemoveButton = new System.Windows.Forms.Button();
             this.MovieGroupBox = new System.Windows.Forms.GroupBox();
             this.MovieDurationTextBox = new System.Windows.Forms.TextBox();
-            this.MovieDurationTimeInMinutes = new System.Windows.Forms.Label();
+            this.MovieDurationTimeInMinutesLabel = new System.Windows.Forms.Label();
             this.MovieGenreComboBox = new System.Windows.Forms.ComboBox();
             this.MovieRatingTextBox = new System.Windows.Forms.TextBox();
             this.MovieReleaseYearTextBox = new System.Windows.Forms.TextBox();
@@ -51,7 +51,7 @@
             // 
             this.MoviesListBox.FormattingEnabled = true;
             this.MoviesListBox.ItemHeight = 16;
-            this.MoviesListBox.Location = new System.Drawing.Point(12, 12);
+            this.MoviesListBox.Location = new System.Drawing.Point(9, 58);
             this.MoviesListBox.Name = "MoviesListBox";
             this.MoviesListBox.Size = new System.Drawing.Size(230, 404);
             this.MoviesListBox.TabIndex = 0;
@@ -67,7 +67,7 @@
             this.RemoveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RemoveButton.ForeColor = System.Drawing.Color.Transparent;
             this.RemoveButton.Image = global::MoviesApp.Properties.Resources.cross_circle_24x24;
-            this.RemoveButton.Location = new System.Drawing.Point(70, 418);
+            this.RemoveButton.Location = new System.Drawing.Point(67, 464);
             this.RemoveButton.Name = "RemoveButton";
             this.RemoveButton.Size = new System.Drawing.Size(52, 52);
             this.RemoveButton.TabIndex = 3;
@@ -79,7 +79,7 @@
             // MovieGroupBox
             // 
             this.MovieGroupBox.Controls.Add(this.MovieDurationTextBox);
-            this.MovieGroupBox.Controls.Add(this.MovieDurationTimeInMinutes);
+            this.MovieGroupBox.Controls.Add(this.MovieDurationTimeInMinutesLabel);
             this.MovieGroupBox.Controls.Add(this.MovieGenreComboBox);
             this.MovieGroupBox.Controls.Add(this.MovieRatingTextBox);
             this.MovieGroupBox.Controls.Add(this.MovieReleaseYearTextBox);
@@ -88,7 +88,7 @@
             this.MovieGroupBox.Controls.Add(this.MovieGenreLabel);
             this.MovieGroupBox.Controls.Add(this.MovieReleaseYearLabel);
             this.MovieGroupBox.Controls.Add(this.MovieNameLabel);
-            this.MovieGroupBox.Location = new System.Drawing.Point(259, 12);
+            this.MovieGroupBox.Location = new System.Drawing.Point(254, 58);
             this.MovieGroupBox.Name = "MovieGroupBox";
             this.MovieGroupBox.Size = new System.Drawing.Size(375, 264);
             this.MovieGroupBox.TabIndex = 4;
@@ -97,26 +97,26 @@
             // 
             // MovieDurationTextBox
             // 
-            this.MovieDurationTextBox.Location = new System.Drawing.Point(104, 142);
+            this.MovieDurationTextBox.Location = new System.Drawing.Point(104, 148);
             this.MovieDurationTextBox.Name = "MovieDurationTextBox";
             this.MovieDurationTextBox.Size = new System.Drawing.Size(116, 22);
             this.MovieDurationTextBox.TabIndex = 29;
             this.MovieDurationTextBox.TextChanged += new System.EventHandler(this.MovieDurationTextBox_TextChanged);
             // 
-            // MovieDurationTimeInMinutes
+            // MovieDurationTimeInMinutesLabel
             // 
-            this.MovieDurationTimeInMinutes.AutoSize = true;
-            this.MovieDurationTimeInMinutes.Location = new System.Drawing.Point(38, 148);
-            this.MovieDurationTimeInMinutes.Name = "MovieDurationTimeInMinutes";
-            this.MovieDurationTimeInMinutes.Size = new System.Drawing.Size(60, 16);
-            this.MovieDurationTimeInMinutes.TabIndex = 28;
-            this.MovieDurationTimeInMinutes.Text = "Duration:";
+            this.MovieDurationTimeInMinutesLabel.AutoSize = true;
+            this.MovieDurationTimeInMinutesLabel.Location = new System.Drawing.Point(38, 148);
+            this.MovieDurationTimeInMinutesLabel.Name = "MovieDurationTimeInMinutesLabel";
+            this.MovieDurationTimeInMinutesLabel.Size = new System.Drawing.Size(60, 16);
+            this.MovieDurationTimeInMinutesLabel.TabIndex = 28;
+            this.MovieDurationTimeInMinutesLabel.Text = "Duration:";
             // 
             // MovieGenreComboBox
             // 
             this.MovieGenreComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MovieGenreComboBox.FormattingEnabled = true;
-            this.MovieGenreComboBox.Location = new System.Drawing.Point(104, 84);
+            this.MovieGenreComboBox.Location = new System.Drawing.Point(104, 87);
             this.MovieGenreComboBox.Name = "MovieGenreComboBox";
             this.MovieGenreComboBox.Size = new System.Drawing.Size(116, 24);
             this.MovieGenreComboBox.TabIndex = 27;
@@ -124,7 +124,7 @@
             // 
             // MovieRatingTextBox
             // 
-            this.MovieRatingTextBox.Location = new System.Drawing.Point(104, 114);
+            this.MovieRatingTextBox.Location = new System.Drawing.Point(104, 119);
             this.MovieRatingTextBox.Name = "MovieRatingTextBox";
             this.MovieRatingTextBox.Size = new System.Drawing.Size(116, 22);
             this.MovieRatingTextBox.TabIndex = 26;
@@ -132,7 +132,7 @@
             // 
             // MovieReleaseYearTextBox
             // 
-            this.MovieReleaseYearTextBox.Location = new System.Drawing.Point(104, 57);
+            this.MovieReleaseYearTextBox.Location = new System.Drawing.Point(104, 59);
             this.MovieReleaseYearTextBox.Name = "MovieReleaseYearTextBox";
             this.MovieReleaseYearTextBox.Size = new System.Drawing.Size(116, 22);
             this.MovieReleaseYearTextBox.TabIndex = 25;
@@ -192,7 +192,7 @@
             this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddButton.ForeColor = System.Drawing.Color.Transparent;
             this.AddButton.Image = global::MoviesApp.Properties.Resources.add_24x24;
-            this.AddButton.Location = new System.Drawing.Point(12, 418);
+            this.AddButton.Location = new System.Drawing.Point(9, 464);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(52, 52);
             this.AddButton.TabIndex = 1;
@@ -203,16 +203,16 @@
             // 
             // SearchTextBox
             // 
-            this.SearchTextBox.Location = new System.Drawing.Point(363, 433);
+            this.SearchTextBox.Location = new System.Drawing.Point(67, 12);
             this.SearchTextBox.Name = "SearchTextBox";
-            this.SearchTextBox.Size = new System.Drawing.Size(271, 22);
+            this.SearchTextBox.Size = new System.Drawing.Size(172, 22);
             this.SearchTextBox.TabIndex = 5;
             this.SearchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
             // 
             // SearchLabel
             // 
             this.SearchLabel.AutoSize = true;
-            this.SearchLabel.Location = new System.Drawing.Point(304, 439);
+            this.SearchLabel.Location = new System.Drawing.Point(8, 12);
             this.SearchLabel.Name = "SearchLabel";
             this.SearchLabel.Size = new System.Drawing.Size(53, 16);
             this.SearchLabel.TabIndex = 6;
@@ -222,7 +222,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(646, 469);
+            this.ClientSize = new System.Drawing.Size(641, 521);
             this.Controls.Add(this.SearchLabel);
             this.Controls.Add(this.SearchTextBox);
             this.Controls.Add(this.MovieGroupBox);
@@ -233,6 +233,7 @@
             this.Icon = global::MoviesApp.Properties.Resources.icon;
             this.Name = "MainForm";
             this.Text = "MoviesApp";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.MovieGroupBox.ResumeLayout(false);
             this.MovieGroupBox.PerformLayout();
             this.ResumeLayout(false);
@@ -247,7 +248,7 @@
         private System.Windows.Forms.Button RemoveButton;
         private System.Windows.Forms.GroupBox MovieGroupBox;
         private System.Windows.Forms.TextBox MovieDurationTextBox;
-        private System.Windows.Forms.Label MovieDurationTimeInMinutes;
+        private System.Windows.Forms.Label MovieDurationTimeInMinutesLabel;
         private System.Windows.Forms.ComboBox MovieGenreComboBox;
         private System.Windows.Forms.TextBox MovieRatingTextBox;
         private System.Windows.Forms.TextBox MovieReleaseYearTextBox;
