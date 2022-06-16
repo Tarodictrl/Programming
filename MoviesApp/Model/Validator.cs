@@ -28,38 +28,6 @@ namespace MoviesApp.Model
         }
 
         /// <summary>
-        /// Проверяет, что строка состоит только из цифр.
-        /// </summary>
-        /// <param name="value">Значение.</param>
-        /// <param name="propertyName">Имя свойства, откуда был вызван метод.</param>
-        /// <exception cref="ArgumentException">
-        /// Ошибка, когда в строке есть другие символы.</exception>
-        public static void AssertStringContainsOnlyNumbers(string value, string propertyName)
-        {
-            if (!long.TryParse(value, out _))
-            {
-                throw new ArgumentException(
-                    $"{propertyName} must consist only of numbers");
-            }
-        }
-
-        /// <summary>
-        /// Проверяет, что число является положительным.
-        /// </summary>
-        /// <param name="value">Значение.</param>
-        /// <param name="propertyName">Имя свойства, откуда был вызван метод.</param>
-        /// <exception cref="ArgumentException">
-        /// Ошибка, когда число меньше или равно нулю.</exception>
-        public static void AssertOnPositiveValue(int value, string propertyName)
-        {
-            if (value <= 0)
-            {
-                throw new ArgumentException(
-                    $"{propertyName} must be greater than 0");
-            }
-        }
-
-        /// <summary>
         /// Проверяет, что число лежит в диапазоне.
         /// </summary>
         /// <param name="value">Значение.</param>
@@ -78,22 +46,6 @@ namespace MoviesApp.Model
         }
 
         /// <summary>
-        /// Проверяет, что число является положительным.
-        /// </summary>
-        /// <param name="value">Значение.</param>
-        /// <param name="propertyName">Имя свойства, откуда был вызван метод.</param>
-        /// <exception cref="ArgumentException">
-        /// Ошибка, когда число меньше или равно нулю.</exception>
-        public static void AssertOnPositiveValue(double value, string propertyName)
-        {
-            if (value <= 0)
-            {
-                throw new ArgumentException(
-                    $"{propertyName} must be greater than 0");
-            }
-        }
-
-        /// <summary>
         /// Проверяет, что число лежит в диапазоне.
         /// </summary>
         /// <param name="value">Значение.</param>
@@ -102,7 +54,7 @@ namespace MoviesApp.Model
         /// <param name="propertyName">Имя свойства, откуда был вызван метод.</param>
         /// <exception cref="ArgumentException">
         /// Ошибка, если число находится вне диапазона.</exception>
-        public static void AssertValueInRange(double value, double min, 
+        public static void AssertValueInRange(double value, double min,
                                               double max, string propertyName)
         {
             if (value < min || value > max)
@@ -121,7 +73,7 @@ namespace MoviesApp.Model
         /// <param name="comboBox">Первый ComboBox</param>
         /// <returns>true, если все поля заполнены правильно,
         ///          false, если в полях есть ошибка.</returns>
-        public static bool AssertCorrectText(TextBox textBox1, TextBox textBox2, 
+        public static bool AssertCorrectText(TextBox textBox1, TextBox textBox2,
                                              TextBox textBox3, ComboBox comboBox)
         {
             return (textBox1.BackColor == AppColors.CorrectColor) &&

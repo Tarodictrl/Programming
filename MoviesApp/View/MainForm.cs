@@ -22,6 +22,7 @@ namespace MoviesApp.View
         /// </summary>
         private Movie _currentMovie;
 
+
         /// <summary>
         /// Текст поиска.
         /// </summary>
@@ -42,7 +43,11 @@ namespace MoviesApp.View
             }
 
             _movies = Serializer.Deserialize();
-            if (_movies.Count == 0) MovieGroupBox.Enabled = false;
+            if (_movies.Count == 0)
+            {
+                MovieGroupBox.Enabled = false;
+                SearchTextBox.Enabled = false;
+            }
 
             UpdateListBox(-1);
         }
@@ -115,7 +120,7 @@ namespace MoviesApp.View
                 }
             }
 
-            if (-1 <= index && index < MoviesListBox.Items.Count) 
+            if (-1 <= index && index < MoviesListBox.Items.Count)
                 MoviesListBox.SelectedIndex = index;
         }
 
@@ -126,6 +131,7 @@ namespace MoviesApp.View
             SortingMovies();
             UpdateListBox(_movies.IndexOf(movie));
             MovieGroupBox.Enabled = true;
+            SearchTextBox.Enabled = true;
         }
 
         private void RemoveButton_Click(object sender, EventArgs e)
@@ -137,23 +143,25 @@ namespace MoviesApp.View
             if (_movies.Count == 0)
             {
                 MovieGroupBox.Enabled = false;
+                SearchTextBox.Enabled = false;
+                UpdateListBox(-1);
                 ClearInfo();
             }
             else
             {
+                UpdateListBox(0);
+                SearchTextBox.Enabled = true;
                 MovieGroupBox.Enabled = true;
             }
-
-            UpdateListBox(-1);
         }
 
         private void MoviesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (MoviesListBox.SelectedIndex == -1) return;
 
-            if (_searchText == "" || _searchText == null) 
+            if (_searchText == "" || _searchText == null)
                 _currentMovie = _movies[MoviesListBox.SelectedIndex];
-            else 
+            else
                 _currentMovie = SearchMovies()[MoviesListBox.SelectedIndex];
 
             MovieNameTextBox.Text = _currentMovie.Name;
