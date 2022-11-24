@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Programming", "Programming\Programming.csproj", "{C8F76A78-0E7D-498E-B866-30A7CFE118D1}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ObjectOrientedPractics", "..\..\KirNik7\src\ObjectOrientedPractics\ObjectOrientedPractics\ObjectOrientedPractics.csproj", "{3AA331A5-4CB2-4E84-B292-F9FEAC15B7FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C8F76A78-0E7D-498E-B866-30A7CFE118D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8F76A78-0E7D-498E-B866-30A7CFE118D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8F76A78-0E7D-498E-B866-30A7CFE118D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AA331A5-4CB2-4E84-B292-F9FEAC15B7FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AA331A5-4CB2-4E84-B292-F9FEAC15B7FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AA331A5-4CB2-4E84-B292-F9FEAC15B7FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AA331A5-4CB2-4E84-B292-F9FEAC15B7FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
