@@ -5,17 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="450">
-    <Grid Margin="15,15,15,15">
+        Icon="icon.ico"
+        Title="Contacts" Height="450" Width="450" MinHeight="450" MinWidth="450">
+    <Grid Margin="15">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <GroupBox x:Name="EditContactGroupBox" Grid.Row="0" Grid.Column="0" Header="Edit Contact">
+        <GroupBox Grid.Row="0" Grid.Column="0" Header="Edit Contact">
             <StackPanel>
                 <TextBlock Text="Name:" Margin="3"/>
                 <TextBox Margin="3"
@@ -28,7 +29,7 @@
                          Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
         </GroupBox>
-        <GroupBox x:Name="ReadContactGroupBox" Grid.Row="0" Grid.Column="1" Header="Read Contact">
+        <GroupBox Grid.Row="0" Grid.Column="1" Header="Read Contact">
             <StackPanel>
                 <TextBlock Text="Name:" Margin="3"/>
                 <TextBlock Margin="3" FontWeight="Bold"
@@ -42,10 +43,10 @@
             </StackPanel>
         </GroupBox>
         <StackPanel Grid.Row="1" Grid.Column="1"
-                    Orientation="Horizontal" FlowDirection="RightToLeft">
-            <Button x:Name="LoadButton" Content="Load" Margin="3" Width="75" Height="25"
+                    Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Load" Margin="3" Width="75" Height="25"
                     Command="{Binding LoadCommand}"/>
-            <Button x:Name="SaveButton" Content="Save" Margin="3" Width="75" Height="25"
+            <Button Content="Save" Margin="3" Width="75" Height="25"
                     Command="{Binding SaveCommand}"/>
         </StackPanel>
     </Grid>

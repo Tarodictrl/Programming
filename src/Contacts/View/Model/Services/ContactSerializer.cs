@@ -31,7 +31,7 @@ namespace View.Model.Services
         /// Загружает данные из файла в приложение.
         /// </summary>
         /// <returns>Объект класса <see cref="ContactSerializer"/>.</returns>
-        public Contact? Load()
+        public Contact Load()
         {
             var contact = new Contact();
 
@@ -50,7 +50,7 @@ namespace View.Model.Services
         /// Сохраняет объект в файл.
         /// </summary>
         /// <param name="contact">Контакт.</param>
-        public void Save(Contact? contact)
+        public void Save(Contact contact)
         {
             using (StreamWriter wr = new StreamWriter(Path))
             {
