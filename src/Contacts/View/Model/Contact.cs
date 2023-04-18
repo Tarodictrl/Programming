@@ -9,7 +9,7 @@ namespace View.Model
     /// <summary>
     /// Хранит данные о контакте.
     /// </summary>
-    public class Contact
+    public class Contact : ICloneable
     {
         /// <summary>
         /// Имя.
@@ -45,6 +45,15 @@ namespace View.Model
         public Contact()
         {
 
+        }
+
+        /// <summary>
+        /// Возвращает копию экземпляра класса <see cref="Contact"/>
+        /// </summary>
+        /// <returns></returns>
+        public object Clone()
+        {
+            return new Contact(Name, PhoneNumber, Email);
         }
     }
 }

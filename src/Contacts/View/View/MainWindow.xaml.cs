@@ -21,12 +21,18 @@ namespace View
     /// </summary>
     public partial class MainWindow : Window
     {
+        MainVM mainVM = new MainVM();
+
         public MainWindow()
         {
             InitializeComponent();
 
-            MainVM mainVM = new MainVM();
             DataContext = mainVM;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            mainVM.SaveContacts();
         }
     }
 }

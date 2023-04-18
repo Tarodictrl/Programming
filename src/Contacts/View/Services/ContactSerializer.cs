@@ -1,16 +1,16 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.ObjectModel;
 using System.IO;
-using System.IO.Enumeration;
-using System.Windows;
-using System.Windows.Shapes;
-using Newtonsoft.Json;
+using View.Model;
+using View.ViewModel;
 
-namespace View.Model.Services
+namespace View.Services
 {
     /// <summary>
     /// Представляет реализацию для сериализации. 
     /// </summary>
-    internal class ContactSerializer
+    public class ContactSerializer
     {
         /// <summary>
         /// Возвращает и задает путь сохранения файла.
@@ -30,31 +30,39 @@ namespace View.Model.Services
         /// <summary>
         /// Загружает данные из файла в приложение.
         /// </summary>
-        /// <returns>Объект класса <see cref="ContactSerializer"/>.</returns>
-        public Contact Load()
+        /// <returns>Список контактов.</returns>
+        public ObservableCollection<ContactVM> Load()
         {
-            var contact = new Contact();
+            var contacts = new ObservableCollection<ContactVM>();
 
             if (File.Exists(Path))
             {
                 using (StreamReader sr = new StreamReader(Path))
                 {
-                    contact = JsonConvert.DeserializeObject<Contact>(sr.ReadToEnd());
+                    contacts
+                        = JsonConvert.
+                        DeserializeObject<ObservableCollection<ContactVM>>
+                        (sr.ReadToEnd());
                 }
             }
 
-            return contact;
+            return contacts;
         }
 
         /// <summary>
-        /// Сохраняет объект в файл.
+        /// Сохраняет список объектов в файл.
         /// </summary>
-        /// <param name="contact">Контакт.</param>
-        public void Save(Contact contact)
+        /// <param name="contacts">Список контактов.</param>
+        public void Save(ObservableCollection<ContactVM> contacts)
         {
+            if (!File.Exists(Path))
+            {
+                File.Create(Path).Close();
+            }
+
             using (StreamWriter wr = new StreamWriter(Path))
             {
-                wr.Write(JsonConvert.SerializeObject(contact));
+                wr.Write(JsonConvert.SerializeObject(contacts));
             }
         }
     }
