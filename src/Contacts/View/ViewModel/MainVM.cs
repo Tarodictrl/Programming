@@ -30,7 +30,7 @@ namespace View.ViewModel
         /// <summary>
         /// Возвращает и задает имя контакта.
         /// </summary>
-        public string? Name
+        public string Name
         {
             get => Contact.Name;
             set
@@ -43,7 +43,7 @@ namespace View.ViewModel
         /// <summary>
         /// Возвращает и задает номер телефона контакта.
         /// </summary>
-        public string? PhoneNumber
+        public string PhoneNumber
         {
             get => Contact.PhoneNumber;
             set
@@ -56,7 +56,7 @@ namespace View.ViewModel
         /// <summary>
         /// Возвращает и задает электронную почту контакта.
         /// </summary>
-        public string? Email
+        public string Email
         {
             get => Contact.Email;
             set
@@ -99,7 +99,7 @@ namespace View.ViewModel
         /// Загружает данные о контакте из файла.
         /// </summary>
         /// <param name="parameter">Параметр.</param>
-        private void LoadContact(object? parameter)
+        private void LoadContact(object parameter)
         {
             var contact = _serializer.Load();
             Name = contact.Name;
@@ -111,7 +111,7 @@ namespace View.ViewModel
         /// Сохраняет данные о контакте в файл.
         /// </summary>
         /// <param name="parameter">Параметр.</param>
-        private void SaveContact(object? parameter)
+        private void SaveContact(object parameter)
         {
             _serializer.Save(Contact);
         }
@@ -119,6 +119,6 @@ namespace View.ViewModel
         /// <summary>
         /// Событие изменения свойтства.
         /// </summary>
-        public event PropertyChangedEventHandler? PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

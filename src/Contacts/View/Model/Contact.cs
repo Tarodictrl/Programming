@@ -9,22 +9,22 @@ namespace View.Model
     /// <summary>
     /// Хранит данные о контакте.
     /// </summary>
-    internal class Contact
+    public class Contact
     {
         /// <summary>
         /// Имя.
         /// </summary>
-        public string? Name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Номер телефона.
         /// </summary>
-        public string? PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         /// <summary>
         /// Электронная почта.
         /// </summary>
-        public string? Email { get; set; }
+        public string Email { get; set; }
 
         /// <summary>
         /// Создает экземпляр класса <see cref="Contact"/>.
