@@ -1,92 +1,130 @@
-﻿<Window x:Class="View.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:View.Services"
-        mc:Ignorable="d"
-        Title="Contacts" 
-        Height="534" 
-        Width="570"
-        MinHeight="450"
-        MinWidth="450"
-        Closing="Window_Closing">
+﻿<Window
+    x:Class="View.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:View.Services"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Contacts"
+    Width="570"
+    Height="534"
+    MinWidth="450"
+    MinHeight="450"
+    Closing="Window_Closing"
+    Icon="../icon.ico"
+    mc:Ignorable="d">
     <Window.Resources>
-        <local:VisibleConverter x:Key="VisibleConverter"/>
+        <local:VisibleConverter x:Key="VisibleConverter" />
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="1.8*"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="1.8*" />
         </Grid.ColumnDefinitions>
         <Grid Background="#f8f8f8">
-            <DockPanel Grid.Column="0" Margin="8" LastChildFill="True">
+            <DockPanel
+                Grid.Column="0"
+                Margin="8"
+                LastChildFill="True">
                 <DockPanel DockPanel.Dock="Top" LastChildFill="True">
-                    <TextBlock Margin="3" VerticalAlignment="Center" DockPanel.Dock="Left" Text="Find:"/>
-                    <TextBox Width="Auto" Margin="3"></TextBox>
+                    <TextBlock
+                        Margin="3"
+                        VerticalAlignment="Center"
+                        DockPanel.Dock="Left"
+                        Text="Find:" />
+                    <TextBox Width="Auto" Margin="3" />
                 </DockPanel>
                 <DockPanel LastChildFill="True">
                     <Grid DockPanel.Dock="Bottom">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <Button Grid.Column="0" Height="25" Margin="3" Command="{Binding Path=AddContactCommand}" Content="Add" IsEnabled="{Binding Path=IsReadOnly}"/>
-                        <Button Grid.Column="1" Height="25" Margin="3" Command="{Binding Path=EditContactCommand}" Content="Edit" IsEnabled="{Binding Path=IsReadOnly}"/>
-                        <Button Grid.Column="2" Height="25" Margin="3" Command="{Binding Path=RemoveContactCommand}" Content="Remove" IsEnabled="{Binding Path=IsReadOnly}"/>
+                        <Button
+                            Grid.Column="0"
+                            Height="25"
+                            Margin="3"
+                            Command="{Binding Path=AddContactCommand}"
+                            Content="Add"
+                            />
+                        <Button
+                            Grid.Column="1"
+                            Height="25"
+                            Margin="3"
+                            Command="{Binding Path=EditContactCommand}"
+                            Content="Edit"
+                            />
+                        <Button
+                            Grid.Column="2"
+                            Height="25"
+                            Margin="3"
+                            Command="{Binding Path=RemoveContactCommand}"
+                            Content="Remove"
+                            />
                     </Grid>
                     <ListBox
                         Margin="3"
                         DisplayMemberPath="Name"
                         DockPanel.Dock="Top"
                         ItemsSource="{Binding Path=Contacts}"
-                        SelectedItem="{Binding Path=CurrentContact, UpdateSourceTrigger=PropertyChanged}"
-                        />
+                        SelectedItem="{Binding Path=CurrentContact, UpdateSourceTrigger=PropertyChanged}" />
                 </DockPanel>
             </DockPanel>
         </Grid>
-        <GridSplitter Grid.Column="1" Width="3" HorizontalAlignment="Center" ShowsPreview="False"/>
-        <Grid Grid.Column="2" Margin="8" Background="#ffff">
+        <GridSplitter
+            Grid.Column="1"
+            Width="3"
+            HorizontalAlignment="Center"
+            ShowsPreview="False" />
+        <Grid
+            Grid.Column="2"
+            Margin="8"
+            Background="#ffff">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <Image Grid.Row="1" Grid.Column="0"
-                   Width="100" Height="100"
-                   Margin="3"
-                   VerticalAlignment="Top"
-                   Source="/Resources/photo_placeholder_96x96.png"
-                   />
-            <TextBlock Grid.Column="1" Margin="3" Text="Name:"/>
+            <Image
+                Grid.Row="1"
+                Grid.Column="0"
+                Width="100"
+                Height="100"
+                Margin="3"
+                VerticalAlignment="Top"
+                Source="/Resources/photo_placeholder_96x96.png" />
+            <TextBlock
+                Grid.Column="1"
+                Margin="3"
+                Text="Name:" />
             <StackPanel Grid.Row="1" Grid.Column="1">
                 <TextBox
                     Margin="3"
                     IsReadOnly="{Binding Path=IsReadOnly, UpdateSourceTrigger=PropertyChanged}"
-                    Text="{Binding Path=CurrentContact.Name, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Margin="3" Text="Phone Number:"/>
+                    Text="{Binding Path=CurrentContact.Name, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBlock Margin="3" Text="Phone Number:" />
                 <TextBox
                     Margin="3"
                     IsReadOnly="{Binding Path=IsReadOnly, UpdateSourceTrigger=PropertyChanged}"
-                    Text="{Binding Path=CurrentContact.PhoneNumber, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Margin="3" Text="Email:"/>
+                    Text="{Binding Path=CurrentContact.PhoneNumber, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBlock Margin="3" Text="Email:" />
                 <TextBox
                     Margin="3"
                     IsReadOnly="{Binding Path=IsReadOnly, UpdateSourceTrigger=PropertyChanged}"
-                    Text="{Binding Path=CurrentContact.Email, UpdateSourceTrigger=PropertyChanged}"/>
+                    Text="{Binding Path=CurrentContact.Email, UpdateSourceTrigger=PropertyChanged}" />
                 <Button
                     Width="75"
                     Height="25"
-                    Margin="3 50 3 3"
+                    Margin="3,50,3,3"
                     HorizontalAlignment="Left"
                     Command="{Binding Path=ApplyContactCommand}"
                     Content="Apply"
-                    Visibility="{Binding Path=IsVisible, Converter={StaticResource VisibleConverter}, UpdateSourceTrigger=PropertyChanged}"/>
+                    Visibility="{Binding Path=IsVisible, Converter={StaticResource VisibleConverter}, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
         </Grid>
     </Grid>
