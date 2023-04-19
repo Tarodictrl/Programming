@@ -20,6 +20,8 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 6.0.x
+    - name: Install dependencies
+      run: dotnet add package Newtonsoft.Json --version 13.0.3 && dotnet add package CommunityToolkit.Mvvm --version 8.1.0
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
