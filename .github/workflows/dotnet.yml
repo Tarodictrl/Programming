@@ -26,7 +26,7 @@ jobs:
             dotnet add View.csproj package Newtonsoft.Json --version 13.0.3
             dotnet add View.csproj package CommunityToolkit.Mvvm --version 8.1.0
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore src/Contacts
     - name: Build
       run: dotnet build src/Contacts --no-restore
     - name: Test
