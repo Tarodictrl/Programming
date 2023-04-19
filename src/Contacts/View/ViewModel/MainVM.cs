@@ -1,11 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
-using System.Net;
-using System.Windows;
-using System.Windows.Interop;
 using View.Model;
-using View.Services;
+using View.Model.Services;
 
 namespace View.ViewModel
 {
@@ -20,29 +17,11 @@ namespace View.ViewModel
         private ContactSerializer _serializer = new ContactSerializer();
 
         /// <summary>
-        /// Объект класса <see cref="ContactVMFactory"/>.
-        /// </summary>
-        private ContactVMFactory _contactVMFactory = new ContactVMFactory();
-
-        /// <summary>
         /// Объект, хранящий текущий контакт.
         /// </summary>
         [ObservableProperty]
         [NotifyCanExecuteChangedFor(nameof(EditContactCommand), nameof(RemoveContactCommand))]
         private ContactVM _currentContact;
-
-        partial void OnCurrentContactChanged(ContactVM value)
-        {
-            if (!IsEdit && Contacts.Contains(value))
-            {
-                CurrentIndex = Contacts.IndexOf(value);
-            }
-
-            if (!IsApply)
-            {
-                IsApply = true;
-            }
-        }
 
         /// <summary>
         /// Поле, хранящее значение для свойства окна IsReadOnly.
@@ -87,16 +66,13 @@ namespace View.ViewModel
             {
                 _isApply = value;
 
+                IsVisible = !value;
+
+                IsReadOnly = value;
+
                 if (value)
                 {
                     IsEdit = false;
-                    IsVisible = false;
-                    IsReadOnly = true;
-                }
-                else
-                {
-                    IsVisible = true;
-                    IsReadOnly = false;
                 }
             }
         }
@@ -109,6 +85,18 @@ namespace View.ViewModel
             Contacts = _serializer.Load();
         }
 
+        partial void OnCurrentContactChanged(ContactVM value)
+        {
+            if (!IsEdit && Contacts.Contains(value))
+            {
+                CurrentIndex = Contacts.IndexOf(value);
+            }
+
+            if (!IsApply)
+            {
+                IsApply = true;
+            }
+        }
 
         /// <summary>
         /// Принимает добавление/изменение контакта.

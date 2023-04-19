@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Xml.Linq;
 using View.Model;
 
 namespace View.ViewModel
@@ -21,7 +20,7 @@ namespace View.ViewModel
         /// </summary>
         public string Name
         {
-            get => Contact.Name;
+            get { return Contact.Name; }
             set
             {
                 Contact.Name = value;
@@ -34,7 +33,7 @@ namespace View.ViewModel
         /// </summary>
         public string PhoneNumber
         {
-            get => Contact.PhoneNumber;
+            get { return Contact.PhoneNumber; }
             set
             {
                 Contact.PhoneNumber = value;
@@ -47,7 +46,7 @@ namespace View.ViewModel
         /// </summary>
         public string Email
         {
-            get => Contact.Email;
+            get { return Contact.Email; }
             set
             {
                 Contact.Email = value;
