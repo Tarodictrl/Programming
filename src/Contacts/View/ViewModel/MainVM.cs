@@ -65,9 +65,7 @@ namespace View.ViewModel
             set
             {
                 _isApply = value;
-
                 IsVisible = !value;
-
                 IsReadOnly = value;
 
                 if (value)
