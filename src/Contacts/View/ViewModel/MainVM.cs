@@ -1,203 +1,185 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
-using System.Net;
-using System.Windows;
-using System.Windows.Interop;
+using System.Windows.Input;
 using View.Model;
 using View.Services;
 
 namespace View.ViewModel
 {
     /// <summary>
-    /// ViewModel для главное окна.
+    /// ViewModel для окна MainWindow.
     /// </summary>
-    public partial class MainVM : ObservableObject
+    public class MainVM : ObservableObject
     {
         /// <summary>
-        /// Сериализатор.
+        /// Режим добавления.
         /// </summary>
-        private ContactSerializer _serializer = new ContactSerializer();
+        private bool _isAddMode;
 
         /// <summary>
-        /// Объект класса <see cref="ContactVMFactory"/>.
+        /// Режим редактирования.
         /// </summary>
-        private ContactVMFactory _contactVMFactory = new ContactVMFactory();
+        private bool _isEditMode;
 
         /// <summary>
-        /// Объект, хранящий текущий контакт.
+        /// Текущий контакт.
         /// </summary>
-        [ObservableProperty]
-        [NotifyCanExecuteChangedFor(nameof(EditContactCommand), nameof(RemoveContactCommand))]
-        private ContactVM _currentContact;
-
-        partial void OnCurrentContactChanged(ContactVM value)
-        {
-            if (!IsEdit && Contacts.Contains(value))
-            {
-                CurrentIndex = Contacts.IndexOf(value);
-            }
-
-            if (!IsApply)
-            {
-                IsApply = true;
-            }
-        }
+        private ContactVM _selectedContact;
 
         /// <summary>
-        /// Поле, хранящее значение для свойства окна IsReadOnly.
+        /// Сериалайзер.
         /// </summary>
-        [ObservableProperty]
-        private bool _isReadOnly = true;
+        private ContactSerializer _serializer;
 
         /// <summary>
-        /// Поле, хранящее значение для свойства окна Visibility.
-        /// </summary>
-        [ObservableProperty]
-        private bool _isVisible = false;
-
-        /// <summary>
-        /// Поле, хранящее значение, которое говорит о том, была ли нажата кнопка Apply.
-        /// </summary>
-        private bool _isApply = false;
-
-        /// <summary>
-        /// Возвращает и задает индекс текущего контакты.
-        /// </summary>
-        public int CurrentIndex { get; set; }
-
-        /// <summary>
-        /// Возвращает список контактов.
-        /// </summary>
-        public ObservableCollection<ContactVM> Contacts { get; private set; }
-            = new ObservableCollection<ContactVM>();
-
-        /// <summary>
-        /// Возвращает и задает, включен ли редактор контактов.
-        /// </summary>
-        public bool IsEdit { get; set; }
-
-        /// <summary>
-        /// Возвращает и задает, подтверждены ли изменения.
-        /// </summary>
-        public bool IsApply
-        {
-            get => _isApply;
-            set
-            {
-                _isApply = value;
-
-                if (value)
-                {
-                    IsEdit = false;
-                    IsVisible = false;
-                    IsReadOnly = true;
-                }
-                else
-                {
-                    IsVisible = true;
-                    IsReadOnly = false;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Создает экземпляр класса <see cref="MainVM"/>.
+        /// Создаёт экземпляр класса <see cref="MainVM" />.
         /// </summary>
         public MainVM()
         {
+            _serializer = new ContactSerializer();
             Contacts = _serializer.Load();
+            EditCommand = new RelayCommand(EditContact);
+            AddCommand = new RelayCommand(AddContact);
+            RemoveCommand = new RelayCommand(RemoveContact);
+            ApplyCommand = new RelayCommand(ApplyChangesContact);
+            IsAddMode = true;
+            IsEditMode = false;
+
         }
 
+        /// <summary>
+        /// Возвращает и задаёт коллекцию контактов.
+        /// </summary>
+        public ObservableCollection<ContactVM> Contacts { get; set; }
 
         /// <summary>
-        /// Принимает добавление/изменение контакта.
+        /// Возвращает и задает исходную версию редактируемого контакта.
         /// </summary>
-        [RelayCommand]
-        private void ApplyContact()
+        public ContactVM Buffer { get; set; }
+
+        /// <summary>
+        /// Возвращает и задает текущий контакт.
+        /// </summary>
+        public ContactVM SelectedContact
         {
-            if (!IsEdit)
+            get => _selectedContact;
+            set
             {
-                Contacts.Add(CurrentContact);
-                CurrentContact = null;
-                CurrentContact = Contacts[Contacts.Count - 1];
-            }
-            else
-            {
-                Contacts[CurrentIndex] = CurrentContact;
-                CurrentContact = Contacts[CurrentIndex];
-            }
+                _selectedContact = value;
+                IsAddMode = true;
+                if (SelectedContact == null)
+                    IsEditMode = false;
+                else
+                    IsEditMode = true;
 
-            IsApply = true;
+                OnPropertyChanged();
+            }
         }
 
         /// <summary>
-        /// Добавляет контакт.
+        /// Возвращает команду добавления контакта.
         /// </summary>
-        [RelayCommand]
+        public ICommand AddCommand { get; }
+
+        /// <summary>
+        /// Возвращает команду принятия изменений.
+        /// </summary>
+        public ICommand ApplyCommand { get; }
+
+        /// <summary>
+        /// Возвращает команду редактирования контакта.
+        /// </summary>
+        public ICommand EditCommand { get; }
+
+        /// <summary>
+        /// Возвращает команду удаления контакта.
+        /// </summary>
+        public ICommand RemoveCommand { get; }
+
+        /// <summary>
+        /// Возвращает и задаёт значение активности режима добавления.
+        /// </summary>
+        public bool IsAddMode
+        {
+            get => _isAddMode;
+            set => SetProperty(ref _isAddMode, value);
+        }
+
+        /// <summary>
+        /// Возвращает и задаёт значение активности режима редактирования.
+        /// </summary>
+        public bool IsEditMode
+        {
+            get => _isEditMode;
+            set => SetProperty(ref _isEditMode, value);
+        }
+
+        /// <summary>
+        /// Возвращает и задаёт значение доступности кнопки добавления.
+        /// </summary>
+        /// <summary>
+        /// Вызывает редактирование нового экземпляра класса <see cref="ContactVM" />.
+        /// </summary>
         private void AddContact()
         {
-            CurrentContact = new ContactVM(new Contact());
-
-            IsApply = false;
+            SelectedContact = null;
+            Buffer = new ContactVM(new Contact())
+            {
+                Name = "",
+                PhoneNumber = "",
+                Email = ""
+            };
+            SelectedContact = Buffer;
+            IsAddMode = false;
+            IsEditMode = true;
         }
 
         /// <summary>
-        /// Изменяет контакт.
-        /// </summary> 
-        [RelayCommand(CanExecute = nameof(CanExecuteEdit))]
+        /// Вызывает редактирования текущего контакта.
+        /// </summary>
         private void EditContact()
         {
-            IsEdit = true;
-
-            var tempContact = CurrentContact;
-
-            CurrentContact = null;
-            CurrentContact = (ContactVM?)tempContact.Clone();
-
-            IsApply = false;
+            Buffer = SelectedContact;
+            SelectedContact = (ContactVM)SelectedContact.Clone();
+            IsAddMode = false;
+            IsEditMode = false;
         }
 
         /// <summary>
-        /// Определяет возможность выполнения команды <see cref="EditCommand"/>.
+        /// Удаляет текущий контакт.
         /// </summary>
-        private bool CanExecuteEdit()
-        {
-            return Contacts.Count > 0 && CurrentContact != null;
-        }
-
-        /// <summary>
-        /// Удаляет контакт.
-        /// </summary>
-        [RelayCommand(CanExecute = nameof(CanExecuteRemove))]
         private void RemoveContact()
         {
-            if (Contacts.Count == 1)
-            {
-                Contacts.Remove(CurrentContact);
-            }
-            else if (CurrentIndex < Contacts.Count - 1)
-            {
-                Contacts.Remove(CurrentContact);
-                CurrentContact = Contacts[CurrentIndex];
-            }
+            if (SelectedContact == null) return;
+            var index = Contacts.IndexOf(SelectedContact);
+            Contacts.RemoveAt(index);
+            if (Contacts.Count == 0)
+                SelectedContact = null;
+            else if (index == Contacts.Count)
+                SelectedContact = Contacts[index - 1];
             else
-            {
-                Contacts.Remove(CurrentContact);
-                CurrentContact = Contacts[CurrentIndex - 1];
-            }
+                SelectedContact = Contacts[index];
+            _serializer.Save(Contacts);
         }
 
         /// <summary>
-        /// Определяет возможность выполнения команды <see cref="RemoveCommand"/>.
-        /// </summary
-        private bool CanExecuteRemove()
+        /// Принимает изменения редактирования контакта.
+        /// </summary>
+        private void ApplyChangesContact()
         {
-            return Contacts.Count > 0 && CurrentContact != null;
+            if (!Contacts.Contains(Buffer))
+                Contacts.Add(Buffer);
+            IsAddMode = true;
+            IsEditMode = true;
+            var index = Contacts.IndexOf(Buffer);
+            Contacts[index] = SelectedContact;
+            SelectedContact = Contacts[index];
+            _serializer.Save(Contacts);
         }
 
         /// <summary>
-        /// Сохраняет список контактов.
+        /// Сохраняет контакты.
         /// </summary>
         public void SaveContacts()
         {

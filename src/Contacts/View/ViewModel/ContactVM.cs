@@ -1,90 +1,81 @@
-﻿using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Xml.Linq;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
+using System.ComponentModel.DataAnnotations;
 using View.Model;
 
 namespace View.ViewModel
 {
     /// <summary>
-    /// ViewModel, агрегирующий в себе класс <see cref="Model.Contact"/>
+    /// ViewModel для Contact.
     /// </summary>
-    public class ContactVM : INotifyPropertyChanged, ICloneable
+    public class ContactVM : ObservableValidator, ICloneable
     {
         /// <summary>
-        /// Возвращает и получает объект класса <see cref="Model.Contact"/>
+        /// Создаёт экземпляр класса <see cref="ContactVM" />.
         /// </summary>
-        public Contact Contact { get; set; }
-
-        /// <summary>
-        /// Возвращает и получает имя контакта.
-        /// </summary>
-        public string Name
-        {
-            get => Contact.Name;
-            set
-            {
-                Contact.Name = value;
-                OnPropertyChanged(nameof(Name));
-            }
-        }
-
-        /// <summary>
-        /// Возвращает и получает телефон контакта.
-        /// </summary>
-        public string PhoneNumber
-        {
-            get => Contact.PhoneNumber;
-            set
-            {
-                Contact.PhoneNumber = value;
-                OnPropertyChanged(nameof(PhoneNumber));
-            }
-        }
-
-        /// <summary>
-        /// Возвращает и получает электронную почту контакта.
-        /// </summary>
-        public string Email
-        {
-            get => Contact.Email;
-            set
-            {
-                Contact.Email = value;
-                OnPropertyChanged(nameof(Email));
-            }
-        }
-
-        /// <summary>
-        /// Создает экземпляр класса <see cref="ContactVM"/>.
-        /// </summary>
-        /// <param name="contact">Объект класса <see cref="Model.Contact"/>.</param>
+        /// <param name="contact">Контакт.</param>
         public ContactVM(Contact contact)
         {
             Contact = contact;
         }
 
         /// <summary>
-        /// Вызывает событие при изменении свойств объекта.
+        /// Возвращает и задаёт контакт.
         /// </summary>
-        /// <param name="prop">Свойство, вызвавшее событие.</param>
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        public Contact Contact { get; }
+
+        /// <summary>
+        /// Возвращает и задаёт имя контакта.
+        /// </summary>
+        [CustomValidation(typeof(Model.Validator), nameof(Model.Validator.ValidateName))]
+        public string Name
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+            get => Contact.Name;
+            set => SetProperty(
+                Contact.Name,
+                value,
+                Contact,
+                (contact, name) => Contact.Name = name,
+                true);
         }
 
         /// <summary>
-        /// Создает клон объекта.
+        /// Возвращает и задаёт электронную почту контакта.
         /// </summary>
-        /// <returns>Объект класса <see cref="ContactVM"/>.</returns>
+        [CustomValidation(typeof(Model.Validator), nameof(Model.Validator.ValidateEmail))]
+        public string Email
+        {
+            get => Contact.Email;
+            set => SetProperty(
+                Contact.Email,
+                value,
+                Contact,
+                (contact, email) => Contact.Email = email,
+                true);
+        }
+
+        /// <summary>
+        /// Возвращает и задаёт номер телефона контакта.
+        /// </summary>
+        [CustomValidation(typeof(Model.Validator), nameof(Model.Validator.ValidatePhone))]
+        public string PhoneNumber
+        {
+            get => Contact.PhoneNumber;
+            set => SetProperty(
+                Contact.PhoneNumber,
+                value,
+                Contact,
+                (contact, phone) => Contact.PhoneNumber = phone,
+                true);
+        }
+
+        /// <summary>
+        /// Клонирует текущий экземпляр класса <see cref="ContactVM" />.
+        /// </summary>
+        /// <returns>Возвращает дубликат текущего экземпляра.</returns>
         public object Clone()
         {
             return new ContactVM((Contact)Contact.Clone());
         }
-
-        /// <summary>
-        /// Событие изменения свойства.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

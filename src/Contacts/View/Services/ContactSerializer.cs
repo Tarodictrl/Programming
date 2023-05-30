@@ -2,7 +2,6 @@
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
-using View.Model;
 using View.ViewModel;
 
 namespace View.Services

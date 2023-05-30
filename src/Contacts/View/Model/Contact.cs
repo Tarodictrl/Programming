@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace View.Model
 {
     /// <summary>
     /// Хранит данные о контакте.
     /// </summary>
-    public class Contact : ICloneable
+    public class Contact : INotifyPropertyChanged, ICloneable
     {
         /// <summary>
         /// Имя.
@@ -54,6 +52,13 @@ namespace View.Model
         public object Clone()
         {
             return new Contact(Name, PhoneNumber, Email);
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
     }
 }
