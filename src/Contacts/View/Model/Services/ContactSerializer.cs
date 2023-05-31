@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using View.ViewModel;
 
-namespace View.Services
+namespace View.Model.Services
 {
     /// <summary>
     /// Представляет реализацию для сериализации. 

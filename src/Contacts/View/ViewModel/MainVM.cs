@@ -1,9 +1,12 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
+<<<<<<< HEAD
 using System.Windows.Input;
+=======
+>>>>>>> 1de554b8355f9469840f9e86e141a56ad7f7e52e
 using View.Model;
-using View.Services;
+using View.Model.Services;
 
 namespace View.ViewModel
 {
@@ -18,15 +21,20 @@ namespace View.ViewModel
         private bool _isAddMode;
 
         /// <summary>
+<<<<<<< HEAD
         /// Режим редактирования.
         /// </summary>
         private bool _isEditMode;
 
         /// <summary>
         /// Текущий контакт.
+=======
+        /// Объект, хранящий текущий контакт.
+>>>>>>> 1de554b8355f9469840f9e86e141a56ad7f7e52e
         /// </summary>
         private ContactVM _selectedContact;
 
+<<<<<<< HEAD
         /// <summary>
         /// Сериалайзер.
         /// </summary>
@@ -48,6 +56,8 @@ namespace View.ViewModel
 
         }
 
+=======
+>>>>>>> 1de554b8355f9469840f9e86e141a56ad7f7e52e
         /// <summary>
         /// Возвращает и задаёт коллекцию контактов.
         /// </summary>
@@ -95,7 +105,25 @@ namespace View.ViewModel
         /// <summary>
         /// Возвращает команду удаления контакта.
         /// </summary>
+<<<<<<< HEAD
         public ICommand RemoveCommand { get; }
+=======
+        public bool IsApply
+        {
+            get => _isApply;
+            set
+            {
+                _isApply = value;
+                IsVisible = !value;
+                IsReadOnly = value;
+
+                if (value)
+                {
+                    IsEdit = false;
+                }
+            }
+        }
+>>>>>>> 1de554b8355f9469840f9e86e141a56ad7f7e52e
 
         /// <summary>
         /// Возвращает и задаёт значение активности режима добавления.
@@ -106,6 +134,22 @@ namespace View.ViewModel
             set => SetProperty(ref _isAddMode, value);
         }
 
+<<<<<<< HEAD
+=======
+        partial void OnCurrentContactChanged(ContactVM value)
+        {
+            if (!IsEdit && Contacts.Contains(value))
+            {
+                CurrentIndex = Contacts.IndexOf(value);
+            }
+
+            if (!IsApply)
+            {
+                IsApply = true;
+            }
+        }
+
+>>>>>>> 1de554b8355f9469840f9e86e141a56ad7f7e52e
         /// <summary>
         /// Возвращает и задаёт значение активности режима редактирования.
         /// </summary>

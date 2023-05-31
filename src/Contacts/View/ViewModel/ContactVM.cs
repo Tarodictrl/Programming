@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 using System.ComponentModel.DataAnnotations;
+=======
+﻿using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+>>>>>>> 1de554b8355f9469840f9e86e141a56ad7f7e52e
 using View.Model;
 
 namespace View.ViewModel
@@ -16,13 +22,34 @@ namespace View.ViewModel
         /// <param name="contact">Контакт.</param>
         public ContactVM(Contact contact)
         {
+<<<<<<< HEAD
             Contact = contact;
+=======
+            get { return Contact.Name; }
+            set
+            {
+                Contact.Name = value;
+                OnPropertyChanged(nameof(Name));
+            }
+>>>>>>> 1de554b8355f9469840f9e86e141a56ad7f7e52e
         }
 
         /// <summary>
         /// Возвращает и задаёт контакт.
         /// </summary>
+<<<<<<< HEAD
         public Contact Contact { get; }
+=======
+        public string PhoneNumber
+        {
+            get { return Contact.PhoneNumber; }
+            set
+            {
+                Contact.PhoneNumber = value;
+                OnPropertyChanged(nameof(PhoneNumber));
+            }
+        }
+>>>>>>> 1de554b8355f9469840f9e86e141a56ad7f7e52e
 
         /// <summary>
         /// Возвращает и задаёт имя контакта.
@@ -30,6 +57,7 @@ namespace View.ViewModel
         [CustomValidation(typeof(Model.Validator), nameof(Model.Validator.ValidateName))]
         public string Name
         {
+<<<<<<< HEAD
             get => Contact.Name;
             set => SetProperty(
                 Contact.Name,
@@ -37,6 +65,14 @@ namespace View.ViewModel
                 Contact,
                 (contact, name) => Contact.Name = name,
                 true);
+=======
+            get { return Contact.Email; }
+            set
+            {
+                Contact.Email = value;
+                OnPropertyChanged(nameof(Email));
+            }
+>>>>>>> 1de554b8355f9469840f9e86e141a56ad7f7e52e
         }
 
         /// <summary>

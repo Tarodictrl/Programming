@@ -1,6 +1,9 @@
 ﻿using System;
+<<<<<<< HEAD
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+=======
+>>>>>>> 1de554b8355f9469840f9e86e141a56ad7f7e52e
 
 namespace View.Model
 {
