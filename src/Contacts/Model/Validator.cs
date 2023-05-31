@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 
-namespace View.Model
+namespace Model
 {
     /// <summary>
     /// Хранит реализацию методов, предназначенных для валидации.

@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:view="clr-namespace:View"
-    xmlns:viewModel="clr-namespace:View.ViewModel"
+    xmlns:viewModel="clr-namespace:ViewModel"
     Title="Contacts"
     Width="800"
     Height="550"

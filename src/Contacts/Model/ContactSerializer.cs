@@ -2,9 +2,9 @@
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
-using View.ViewModel;
+using System.Reflection.PortableExecutable;
 
-namespace View.Services
+namespace Model
 {
     /// <summary>
     /// Представляет реализацию для сериализации. 
@@ -30,9 +30,9 @@ namespace View.Services
         /// Загружает данные из файла в приложение.
         /// </summary>
         /// <returns>Список контактов.</returns>
-        public ObservableCollection<ContactVM> Load()
+        public ObservableCollection<Contact> Load()
         {
-            var contacts = new ObservableCollection<ContactVM>();
+            var contacts = new ObservableCollection<Contact>();
 
             if (File.Exists(Path))
             {
@@ -40,8 +40,8 @@ namespace View.Services
                 {
                     contacts
                         = JsonConvert.
-                        DeserializeObject<ObservableCollection<ContactVM>>
-                        (sr.ReadToEnd());
+                        DeserializeObject<ObservableCollection<Contact>>
+                        (sr.ReadToEnd()) ?? new ObservableCollection<Contact>();
                 }
             }
 
@@ -52,7 +52,7 @@ namespace View.Services
         /// Сохраняет список объектов в файл.
         /// </summary>
         /// <param name="contacts">Список контактов.</param>
-        public void Save(ObservableCollection<ContactVM> contacts)
+        public void Save(ObservableCollection<Contact> contacts)
         {
             if (!File.Exists(Path))
             {

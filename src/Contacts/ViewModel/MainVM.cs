@@ -2,10 +2,9 @@
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
-using View.Model;
-using View.Services;
+using Model;
 
-namespace View.ViewModel
+namespace ViewModel
 {
     /// <summary>
     /// ViewModel для окна MainWindow.
@@ -38,7 +37,7 @@ namespace View.ViewModel
         public MainVM()
         {
             _serializer = new ContactSerializer();
-            Contacts = _serializer.Load();
+            Contacts = new ObservableCollection<ContactVM>(_serializer.Load().Select(c => new ContactVM(c)));
             EditCommand = new RelayCommand(EditContact);
             AddCommand = new RelayCommand(AddContact);
             RemoveCommand = new RelayCommand(RemoveContact);
@@ -160,7 +159,6 @@ namespace View.ViewModel
                 SelectedContact = Contacts[index - 1];
             else
                 SelectedContact = Contacts[index];
-            _serializer.Save(Contacts);
         }
 
         /// <summary>
@@ -175,7 +173,6 @@ namespace View.ViewModel
             var index = Contacts.IndexOf(Buffer);
             Contacts[index] = SelectedContact;
             SelectedContact = Contacts[index];
-            _serializer.Save(Contacts);
         }
 
         /// <summary>
@@ -183,7 +180,13 @@ namespace View.ViewModel
         /// </summary>
         public void SaveContacts()
         {
-            _serializer.Save(Contacts);
+            _serializer.Save(new ObservableCollection<Contact>(
+                Contacts.Select(c => new Contact
+                {
+                    Name = c.Name,
+                    PhoneNumber = c.PhoneNumber,
+                    Email = c.Email
+                })));
         }
     }
 }
